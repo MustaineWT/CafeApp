@@ -27,7 +27,7 @@ public class Conexion {
                 JOptionPane.showConfirmDialog(null, "No se pudo establecer" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
             }
             try {
-                contacto = DriverManager.getConnection(url, "sa", "18345269");
+                contacto = DriverManager.getConnection(url, "saaa", "123456");
             } catch (SQLException e) {
                 JOptionPane.showConfirmDialog(null, "Error" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
             }
