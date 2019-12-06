@@ -50,16 +50,17 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         if (e.getSource() == vistaCRUD.btnNuevo) {
             idempresa = 1;
             idsucursal = 1;
-            construirTabla();
+            construirTabla(idempresa,idsucursal);
         }
     }
 
-    public void construirTabla() {
+    public void construirTabla(int empresa,int sucursal) {
 
-        listaAperturaContrato = dao.AperturaContratoDao.listAperturaContrato(idempresa, idsucursal);
+        listaAperturaContrato = dao.AperturaContratoDao.listAperturaContrato(empresa, sucursal);
 
         ArrayList<String> titulosList = new ArrayList<>();
 
+        titulosList.add("idAperturaContrato");
         titulosList.add("IdEmpresa");
         titulosList.add("IdSucursal");
         titulosList.add("Peso");
@@ -78,12 +79,13 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         construirTabla(titulos, data);
     }
 
-    public void construirTablabusca() {
+    public void construirTablabuscar() {
 
         listaAperturaContrato = dao.AperturaContratoDao.listAperturaContratoBuscar(idempresa, idsucursal, texto);
 
         ArrayList<String> titulosList = new ArrayList<>();
 
+        titulosList.add("idAperturaContrato");
         titulosList.add("IdEmpresa");
         titulosList.add("IdSucursal");
         titulosList.add("Peso");
@@ -109,6 +111,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
 
         for (int x = 0; x < informacion.length; x++) {
 
+            informacion[x][UtilidadApC.idaperturacontrato] = listaAperturaContrato.get(x).getIdaperturacontrato()+ "";
             informacion[x][UtilidadApC.idempresa] = listaAperturaContrato.get(x).getIdempresa() + "";
             informacion[x][UtilidadApC.idsucursal] = listaAperturaContrato.get(x).getIdsucursal() + "";
             informacion[x][UtilidadApC.peso] = listaAperturaContrato.get(x).getPeso() + "";
@@ -140,17 +143,17 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(0).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(1).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(2).setCellRenderer(new GestionCeldas("texto"));
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(3).setCellRenderer(new GestionCeldas("texto"));
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(4).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(5).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(6).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(7).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(8).setCellRenderer(new GestionCeldas("texto"));
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(9).setCellRenderer(new GestionCeldas("texto"));
 
         vistaCRUD.jtAperturaContrato.getTableHeader().setReorderingAllowed(false);
         vistaCRUD.jtAperturaContrato.setRowHeight(25);//tamaño de las celdas
         vistaCRUD.jtAperturaContrato.setGridColor(new java.awt.Color(0, 0, 0));
 
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idaperturacontrato).setPreferredWidth(40);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idempresa).setPreferredWidth(40);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idsucursal).setPreferredWidth(40);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.peso).setPreferredWidth(60);
@@ -173,6 +176,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
 
         //teniendo la fila entonces se obtiene el objeto correspondiente para enviarse como parammetro o imprimir la información
         AperturaContrato ApC = new AperturaContrato();
+        ApC.setIdaperturacontrato(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idaperturacontrato).toString()));
         ApC.setIdempresa(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idempresa).toString()));
         ApC.setIdsucursal(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idsucursal).toString()));
         ApC.setPeso(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.peso).toString()));
@@ -184,6 +188,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         ApC.setEstado(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.estado).toString());
 
         String info = "INFO DOCUMENTO\n";
+        info += "IdAperturaContrato: " + ApC.getIdaperturacontrato()+ "\n";
         info += "IdEmpresa: " + ApC.getIdempresa() + "\n";
         info += "IdSucursal: " + ApC.getIdsucursal() + "\n";
         info += "Peso: " + ApC.getPeso() + "\n";

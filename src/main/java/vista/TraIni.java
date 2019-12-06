@@ -7,10 +7,6 @@ package vista;
 
 import Controlador.ControladorCrudAperturaContrato;
 import dao.AperturaContratoDao;
-import dao.DocumentoDao;
-import dao.PersonaDao;
-import dao.EmpresaDao;
-import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -70,8 +66,7 @@ public class TraIni extends javax.swing.JFrame {
 
         dskPrincipal.setBackground(new java.awt.Color(255, 102, 102));
         dskPrincipal.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 204), 1, true));
-        dskPrincipal.setPreferredSize(new java.awt.Dimension(1620, 850));
-        dskPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        dskPrincipal.setPreferredSize(new java.awt.Dimension(1610, 810));
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,7 +119,18 @@ public class TraIni extends javax.swing.JFrame {
         jLabel9.setText("1");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 40, -1));
 
-        dskPrincipal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 622, 60));
+        dskPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout dskPrincipalLayout = new javax.swing.GroupLayout(dskPrincipal);
+        dskPrincipal.setLayout(dskPrincipalLayout);
+        dskPrincipalLayout.setHorizontalGroup(
+            dskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        dskPrincipalLayout.setVerticalGroup(
+            dskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 255), 1, true));
@@ -298,14 +304,12 @@ public class TraIni extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dskPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 1620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(dskPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(dskPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dskPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

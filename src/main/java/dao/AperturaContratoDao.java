@@ -104,24 +104,28 @@ public class AperturaContratoDao {
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
             PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERAPERTURACONTRATO(?,?)}");
+            //PreparedStatement ps = accesoDB.prepareStatement("select idAperturaContrato,IDEMPRESA,IDSUCURSAL,PESO,PRECIO,CALIDAD,HUMEDAD,CONTRATO,FECHA,ESTADO from AperturaContrato");
             ps.setInt(1, idempresa);
             ps.setInt(2, idsucursal);
             ResultSet rs = ps.executeQuery();
+            
             while (rs.next()) {
                 aperturacontrato = new AperturaContrato();
+                
+                //System.out.println(rs.getInt(1));
                 aperturacontrato.setIdaperturacontrato(rs.getInt(1));
                 aperturacontrato.setIdempresa(rs.getInt(2));
                 aperturacontrato.setIdsucursal(rs.getInt(3));//armar otro para la vista
-                aperturacontrato.setIdpersona(rs.getInt(4));//armar otro para la vista
-                aperturacontrato.setPeso(rs.getDouble(5));//armar otro para la vista
-                aperturacontrato.setPrecio(rs.getDouble(6));
-                aperturacontrato.setCalidad(rs.getString(7));
-                aperturacontrato.setHumedad(rs.getString(8));
-                aperturacontrato.setContrato(rs.getString(9));
-                aperturacontrato.setFecha(rs.getString(10));
-                aperturacontrato.setEstado(rs.getString(11));
+                aperturacontrato.setPeso(rs.getDouble(4));//armar otro para la vista
+                aperturacontrato.setPrecio(rs.getDouble(5));
+                aperturacontrato.setCalidad(rs.getString(6));
+                aperturacontrato.setHumedad(rs.getString(7));
+                aperturacontrato.setContrato(rs.getString(8));
+                aperturacontrato.setFecha(rs.getString(9));
+                aperturacontrato.setEstado(rs.getString(10));
                 listaAperturaContrato.add(aperturacontrato);
             }
+            rs.close();
         } catch (Exception e) {
 
         }
