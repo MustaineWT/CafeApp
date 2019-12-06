@@ -103,16 +103,12 @@ public class AperturaContratoDao {
         AperturaContrato aperturacontrato;
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
-            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERAPERTURACONTRATO(?,?)}");
-            //PreparedStatement ps = accesoDB.prepareStatement("select idAperturaContrato,IDEMPRESA,IDSUCURSAL,PESO,PRECIO,CALIDAD,HUMEDAD,CONTRATO,FECHA,ESTADO from AperturaContrato");
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERAPERTURACONTRATO(?,?)}");            
             ps.setInt(1, idempresa);
             ps.setInt(2, idsucursal);
-            ResultSet rs = ps.executeQuery();
-            
+            ResultSet rs = ps.executeQuery();            
             while (rs.next()) {
-                aperturacontrato = new AperturaContrato();
-                
-                //System.out.println(rs.getInt(1));
+                aperturacontrato = new AperturaContrato();                                
                 aperturacontrato.setIdaperturacontrato(rs.getInt(1));
                 aperturacontrato.setIdempresa(rs.getInt(2));
                 aperturacontrato.setIdsucursal(rs.getInt(3));//armar otro para la vista
