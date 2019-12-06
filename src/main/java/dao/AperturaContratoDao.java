@@ -96,7 +96,7 @@ public class AperturaContratoDao {
         return rptaRegistro;
     }
 
-    public ArrayList<AperturaContrato> listAperturaContrato(
+    public static ArrayList<AperturaContrato> listAperturaContrato(
             int idempresa,
             int idsucursal) {
         ArrayList listaAperturaContrato = new ArrayList();
@@ -106,6 +106,40 @@ public class AperturaContratoDao {
             PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERAPERTURACONTRATO(?,?)}");
             ps.setInt(1, idempresa);
             ps.setInt(2, idsucursal);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                aperturacontrato = new AperturaContrato();
+                aperturacontrato.setIdaperturacontrato(rs.getInt(1));
+                aperturacontrato.setIdempresa(rs.getInt(2));
+                aperturacontrato.setIdsucursal(rs.getInt(3));//armar otro para la vista
+                aperturacontrato.setIdpersona(rs.getInt(4));//armar otro para la vista
+                aperturacontrato.setPeso(rs.getDouble(5));//armar otro para la vista
+                aperturacontrato.setPrecio(rs.getDouble(6));
+                aperturacontrato.setCalidad(rs.getString(7));
+                aperturacontrato.setHumedad(rs.getString(8));
+                aperturacontrato.setContrato(rs.getString(9));
+                aperturacontrato.setFecha(rs.getString(10));
+                aperturacontrato.setEstado(rs.getString(11));
+                listaAperturaContrato.add(aperturacontrato);
+            }
+        } catch (Exception e) {
+
+        }
+        return listaAperturaContrato;
+    }
+    
+    public static ArrayList<AperturaContrato> listAperturaContratoBuscar(
+            int idempresa,
+            int idsucursal,
+            String texto) {
+        ArrayList listaAperturaContrato = new ArrayList();
+        AperturaContrato aperturacontrato;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERAPERTURACONTRATOBUSCAR(?,?,?)}");
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ps.setString(3, texto);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 aperturacontrato = new AperturaContrato();

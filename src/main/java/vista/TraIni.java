@@ -5,23 +5,12 @@
  */
 package vista;
 
-import Controlador.ControladorCrudCliente;
-import Controlador.ControladorCrudEmpresa;
-import Controlador.ControladorCrud;
-//import Controlador.ControladorCrudEmpleado;
-import Controlador.ControladorCrudEstimados;
-import Controlador.ControladorCrudPersonaUsuario;
-import Controlador.ControladorTracking;
-import Controlador.ControladorTrackingDocu;
-import dao.ClienteDao;
+import Controlador.ControladorCrudAperturaContrato;
+import dao.AperturaContratoDao;
 import dao.DocumentoDao;
 import dao.PersonaDao;
 import dao.EmpresaDao;
-import dao.EstimadoDao;
-import dao.TrackingDao;
-import dao.TrackingDocuDao;
 import javax.swing.DefaultComboBoxModel;
-import modelo.Empresas;
 
 /**
  *
@@ -328,78 +317,78 @@ public class TraIni extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        RegDocumento ventana2 = new RegDocumento();
-        DocumentoDao modeloC2 = new DocumentoDao();
-        ControladorCrud controlaC = new ControladorCrud(ventana2, modeloC2);
-        //controlaC.LlenarTabla(ventana1.jtEmpresa);
-        dskPrincipal.add(ventana2);
-        ventana2.setVisible(true);
+//        RAperturaContrato ventana2 = new RAperturaContrato();
+//        DocumentoDao modeloC2 = new DocumentoDao();
+//        ControladorCrud controlaC = new ControladorCrud(ventana2, modeloC2);
+//        //controlaC.LlenarTabla(ventana1.jtEmpresa);
+//        dskPrincipal.add(ventana2);
+//        ventana2.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresaActionPerformed
-        REmpresa ventana1 = new REmpresa();
-        EmpresaDao modeloC = new EmpresaDao();
-        ControladorCrudEmpresa controlaC = new ControladorCrudEmpresa(ventana1, modeloC);
-        controlaC.LlenarTabla(ventana1.jtEmpresa);
-        dskPrincipal.add(ventana1);
-        ventana1.setVisible(true);
+//        REmpresa ventana1 = new REmpresa();
+//        EmpresaDao modeloC = new EmpresaDao();
+//        ControladorCrudEmpresa controlaC = new ControladorCrudEmpresa(ventana1, modeloC);
+//        controlaC.LlenarTabla(ventana1.jtEmpresa);
+//        dskPrincipal.add(ventana1);
+//        ventana1.setVisible(true);
     }//GEN-LAST:event_jmEmpresaActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        TrackingCafe ventanac = new TrackingCafe();
-        TrackingDao modeloC2 = new TrackingDao();
-        ControladorTracking controlaC3 = new ControladorTracking(ventanac, modeloC2);
-        controlaC3.construirTablaini();
-        DefaultComboBoxModel value;
-        value = new DefaultComboBoxModel();
-        ventanac.jcbEmpresa.setModel(value);
-        for (int i = 0; i < TrackingDao.nomEmpresa().size(); i++) {
-            value.addElement(new Empresas(TrackingDao.nomEmpresa().get(i).getIdempresas(), TrackingDao.nomEmpresa().get(i).getRsocialss()));
-        }
-        Empresas em = (Empresas) ventanac.jcbEmpresa.getSelectedItem();
-        idempresa = em.getIdempresas().toString();
-        ventanac.lblECP.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getCpdisponible()));
-        ventanac.lblEOrg.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getOrgdisponible()));
-        ventanac.lblEFairTrade.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getFtdisponible()));
-        ventanac.lblERainf.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getRainfdisponible()));
-        ventanac.lblEConv.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getConvdisponible()));
-        dskPrincipal.add(ventanac);
-        ventanac.setVisible(true);
+//        TrackingCafe ventanac = new TrackingCafe();
+//        TrackingDao modeloC2 = new TrackingDao();
+//        ControladorTracking controlaC3 = new ControladorTracking(ventanac, modeloC2);
+//        controlaC3.construirTablaini();
+//        DefaultComboBoxModel value;
+//        value = new DefaultComboBoxModel();
+//        ventanac.jcbEmpresa.setModel(value);
+//        for (int i = 0; i < TrackingDao.nomEmpresa().size(); i++) {
+//            value.addElement(new Empresas(TrackingDao.nomEmpresa().get(i).getIdempresas(), TrackingDao.nomEmpresa().get(i).getRsocialss()));
+//        }
+//        Empresas em = (Empresas) ventanac.jcbEmpresa.getSelectedItem();
+//        idempresa = em.getIdempresas().toString();
+//        ventanac.lblECP.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getCpdisponible()));
+//        ventanac.lblEOrg.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getOrgdisponible()));
+//        ventanac.lblEFairTrade.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getFtdisponible()));
+//        ventanac.lblERainf.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getRainfdisponible()));
+//        ventanac.lblEConv.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getConvdisponible()));
+//        dskPrincipal.add(ventanac);
+//        ventanac.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jmEmpresa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresa2ActionPerformed
-        RegEstimados ventana4 = new RegEstimados();
-        EstimadoDao modeloC2 = new EstimadoDao();
-        ControladorCrudEstimados controlaC3 = new ControladorCrudEstimados(ventana4, modeloC2);
-        //controlaC.LlenarTabla(ventana1.jtEmpresa);        
-        dskPrincipal.add(ventana4);
-        ventana4.setVisible(true);
+//        RegEstimados ventana4 = new RegEstimados();
+//        EstimadoDao modeloC2 = new EstimadoDao();
+//        ControladorCrudEstimados controlaC3 = new ControladorCrudEstimados(ventana4, modeloC2);
+//        //controlaC.LlenarTabla(ventana1.jtEmpresa);        
+//        dskPrincipal.add(ventana4);
+//        ventana4.setVisible(true);
     }//GEN-LAST:event_jmEmpresa2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        TrackingDocumentos ventana3 = new TrackingDocumentos();
-        TrackingDocuDao modeloC2 = new TrackingDocuDao();
-        ControladorTrackingDocu controlaC3 = new ControladorTrackingDocu(ventana3, modeloC2);
-        controlaC3.construirTablaini();
-        DefaultComboBoxModel value;
-        value = new DefaultComboBoxModel();
-        ventana3.jcbEmpresa.setModel(value);
-        for (int i = 0; i < TrackingDocuDao.nomEmpresa().size(); i++) {
-            value.addElement(new Empresas(TrackingDocuDao.nomEmpresa().get(i).getIdempresas(), TrackingDocuDao.nomEmpresa().get(i).getRsocialss()));
-        }
-        Empresas em = (Empresas) ventana3.jcbEmpresa.getSelectedItem();
-        idempresa = em.getIdempresas().toString();
-        ventana3.lblEOrg.setText(String.valueOf(modeloC2.TotalGuiaCoagro(idempresa).get(0).getNroguia()));
-        //vistaCRUD.lblECp.setText(String.valueOf(modeloC2.TotalGuiaAprosem(idempresa).get(0).getNroguia()));
-        //vistaCRUD.lblEFairTrade.setText(String.valueOf(modeloC2.TotalGuiaCaniari(idempresa).get(0).getNroguia()));
-        //vistaCRUD.lblERainf.setText(String.valueOf(modeloC2.TotalGuiaEcovrae(idempresa).get(0).getNroguia()));            
-
-        ventana3.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcCoagro(idempresa).get(0).getTcs()));
-        //vistaCRUD.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcAprosem(idempresa).get(0).getTcs()));
-        //vistaCRUD.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcCaniari(idempresa).get(0).getTcs()));
-        //vistaCRUD.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcEcovrae(idempresa).get(0).getTcs()));
-        dskPrincipal.add(ventana3);
-        ventana3.setVisible(true);
+//        TrackingDocumentos ventana3 = new TrackingDocumentos();
+//        TrackingDocuDao modeloC2 = new TrackingDocuDao();
+//        ControladorTrackingDocu controlaC3 = new ControladorTrackingDocu(ventana3, modeloC2);
+//        controlaC3.construirTablaini();
+//        DefaultComboBoxModel value;
+//        value = new DefaultComboBoxModel();
+//        ventana3.jcbEmpresa.setModel(value);
+//        for (int i = 0; i < TrackingDocuDao.nomEmpresa().size(); i++) {
+//            value.addElement(new Empresas(TrackingDocuDao.nomEmpresa().get(i).getIdempresas(), TrackingDocuDao.nomEmpresa().get(i).getRsocialss()));
+//        }
+//        Empresas em = (Empresas) ventana3.jcbEmpresa.getSelectedItem();
+//        idempresa = em.getIdempresas().toString();
+//        ventana3.lblEOrg.setText(String.valueOf(modeloC2.TotalGuiaCoagro(idempresa).get(0).getNroguia()));
+//        //vistaCRUD.lblECp.setText(String.valueOf(modeloC2.TotalGuiaAprosem(idempresa).get(0).getNroguia()));
+//        //vistaCRUD.lblEFairTrade.setText(String.valueOf(modeloC2.TotalGuiaCaniari(idempresa).get(0).getNroguia()));
+//        //vistaCRUD.lblERainf.setText(String.valueOf(modeloC2.TotalGuiaEcovrae(idempresa).get(0).getNroguia()));            
+//
+//        ventana3.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcCoagro(idempresa).get(0).getTcs()));
+//        //vistaCRUD.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcAprosem(idempresa).get(0).getTcs()));
+//        //vistaCRUD.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcCaniari(idempresa).get(0).getTcs()));
+//        //vistaCRUD.lblTcCoagro.setText(String.valueOf(modeloC2.TotalTcEcovrae(idempresa).get(0).getTcs()));
+//        dskPrincipal.add(ventana3);
+//        ventana3.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
     int xx, xy;
     private void jMenuBar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuBar1MousePressed
@@ -414,12 +403,7 @@ public class TraIni extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuBar1MouseDragged
 
     private void jmEmpresa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresa3ActionPerformed
-        RPersonaUsuario ventana1 = new RPersonaUsuario();
-        PersonaDao modeloC = new PersonaDao();
-        ControladorCrudPersonaUsuario controlaC = new ControladorCrudPersonaUsuario(ventana1, modeloC);
-        //controlaC.LlenarTabla(ventana1.jtEmpleado);
-        dskPrincipal.add(ventana1);
-        ventana1.setVisible(true);
+    
     }//GEN-LAST:event_jmEmpresa3ActionPerformed
 
     private void jmEmpresa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresa4ActionPerformed
@@ -427,7 +411,12 @@ public class TraIni extends javax.swing.JFrame {
     }//GEN-LAST:event_jmEmpresa4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
+        RAperturaContrato ventana2 = new RAperturaContrato();
+        AperturaContratoDao modeloC2 = new AperturaContratoDao();
+        ControladorCrudAperturaContrato controlaC = new ControladorCrudAperturaContrato(ventana2, modeloC2);
+        //controlaC.LlenarTabla(ventana1.jtEmpresa);
+        dskPrincipal.add(ventana2);
+        ventana2.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
