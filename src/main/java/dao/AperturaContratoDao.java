@@ -43,8 +43,8 @@ public class AperturaContratoDao {
             cs.setString(7, humedad);
             cs.setString(8, contrato);
             cs.setInt(9, idpersona);
-            cs.setString(11, fecha);
-            cs.setString(12, estado);
+            cs.setString(10, fecha);
+            cs.setString(11, estado);
 
             int numFAfectas = cs.executeUpdate();
 
@@ -117,8 +117,9 @@ public class AperturaContratoDao {
                 aperturacontrato.setCalidad(rs.getString(6));
                 aperturacontrato.setHumedad(rs.getString(7));
                 aperturacontrato.setContrato(rs.getString(8));
-                aperturacontrato.setFecha(rs.getString(9));
-                aperturacontrato.setEstado(rs.getString(10));
+                aperturacontrato.setIdpersona(rs.getInt(9));
+                aperturacontrato.setFecha(rs.getString(10));
+                aperturacontrato.setEstado(rs.getString(11));
                 listaAperturaContrato.add(aperturacontrato);
             }
             rs.close();
@@ -180,4 +181,26 @@ public class AperturaContratoDao {
         }
         return listaAperturaContrato;
     }
+    
+     public static ArrayList<AperturaContrato> idNuevoAperturaContrato() {
+        ArrayList listaAperturaContrato = new ArrayList();
+        AperturaContrato aperturacontrato;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERIDNUEVOAPC()}");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                aperturacontrato = new AperturaContrato();
+                aperturacontrato.setIdaperturacontrato(rs.getInt(1));             
+                listaAperturaContrato.add(aperturacontrato);
+            }
+        } catch (Exception e) {
+        }
+        return listaAperturaContrato;
+    }
+
+    
+    
+    
+    
 }

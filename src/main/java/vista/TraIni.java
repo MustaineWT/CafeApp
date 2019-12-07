@@ -37,8 +37,8 @@ public class TraIni extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblSucursal = new javax.swing.JLabel();
+        lblEmpresa = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -55,7 +55,7 @@ public class TraIni extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMApC = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -66,7 +66,7 @@ public class TraIni extends javax.swing.JFrame {
 
         dskPrincipal.setBackground(new java.awt.Color(255, 102, 102));
         dskPrincipal.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 204), 1, true));
-        dskPrincipal.setPreferredSize(new java.awt.Dimension(1610, 810));
+        dskPrincipal.setPreferredSize(new java.awt.Dimension(1610, 880));
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,17 +86,17 @@ public class TraIni extends javax.swing.JFrame {
         jLabel3.setText("Empresa:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("1");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 40, -1));
+        lblSucursal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSucursal.setForeground(new java.awt.Color(255, 255, 255));
+        lblSucursal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSucursal.setText("1");
+        jPanel1.add(lblSucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 40, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("1");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 40, -1));
+        lblEmpresa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmpresa.setText("1");
+        jPanel1.add(lblEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 40, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,8 +267,8 @@ public class TraIni extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Survey_25px.png")); // NOI18N
-        jMenu4.setText("Aperturas");
+        jMApC.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Survey_25px.png")); // NOI18N
+        jMApC.setText("Aperturas");
 
         jMenuItem6.setBackground(new java.awt.Color(255, 255, 255));
         jMenuItem6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -281,7 +281,7 @@ public class TraIni extends javax.swing.JFrame {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem6);
+        jMApC.add(jMenuItem6);
 
         jMenuItem7.setBackground(new java.awt.Color(255, 255, 255));
         jMenuItem7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -294,9 +294,9 @@ public class TraIni extends javax.swing.JFrame {
                 jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem7);
+        jMApC.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMApC);
 
         setJMenuBar(jMenuBar1);
 
@@ -418,7 +418,9 @@ public class TraIni extends javax.swing.JFrame {
         RAperturaContrato ventana2 = new RAperturaContrato();
         AperturaContratoDao modeloC2 = new AperturaContratoDao();
         ControladorCrudAperturaContrato controlaC = new ControladorCrudAperturaContrato(ventana2, modeloC2);
-        //controlaC.LlenarTabla(ventana1.jtEmpresa);
+        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
+        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+        controlaC.construirTabla(empresa, idsucursal);
         dskPrincipal.add(ventana2);
         ventana2.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
@@ -467,16 +469,14 @@ public class TraIni extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMApC;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     public javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -489,5 +489,7 @@ public class TraIni extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmEmpresa2;
     private javax.swing.JMenuItem jmEmpresa3;
     private javax.swing.JMenuItem jmEmpresa4;
+    private javax.swing.JLabel lblEmpresa;
+    private javax.swing.JLabel lblSucursal;
     // End of variables declaration//GEN-END:variables
 }

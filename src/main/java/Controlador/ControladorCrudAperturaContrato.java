@@ -4,15 +4,22 @@ import Uti.GestionCeldas;
 import Uti.GestionEncabezadoTabla;
 import Uti.ModeloTabla;
 import Uti.UtilidadApC;
+import static Uti.UtilidadesExtras.reiniciarJTable;
 import dao.AperturaContratoDao;
+import dao.ListaCombosDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
 import modelo.AperturaContrato;
+import modelo.ListaCombos;
 import vista.RAperturaContrato;
 
 /**
@@ -24,6 +31,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
     RAperturaContrato vistaCRUD = new RAperturaContrato();
     AperturaContratoDao modeloCRUD = new AperturaContratoDao();
     ArrayList<AperturaContrato> listaAperturaContrato;
+    ArrayList<AperturaContrato> idNuevoAperturaContrato;
     int idempresa;
     int idsucursal;
     ModeloTabla modelojt;
@@ -35,7 +43,6 @@ public class ControladorCrudAperturaContrato implements ActionListener {
     public ControladorCrudAperturaContrato(RAperturaContrato vistaCRUD, AperturaContratoDao modeloCRUD) {
         this.modeloCRUD = modeloCRUD;
         this.vistaCRUD = vistaCRUD;
-
         this.vistaCRUD.btnNuevo.addActionListener(this);
         this.vistaCRUD.btnEditar.addActionListener(this);
         this.vistaCRUD.btnRegistrar.addActionListener(this);
@@ -44,17 +51,89 @@ public class ControladorCrudAperturaContrato implements ActionListener {
     public void InicializarCrud() {
 
     }
+  
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vistaCRUD.btnNuevo) {
+            idNuevoAperturaContrato = dao.AperturaContratoDao.idNuevoAperturaContrato();
+            vistaCRUD.txtIdApC.setText(String.valueOf(idNuevoAperturaContrato.get(0).getIdaperturacontrato() + 1));
+            DefaultComboBoxModel value;
+            value = new DefaultComboBoxModel();
+            vistaCRUD.jcbPersona.setModel(value);
             idempresa = 1;
             idsucursal = 1;
-            construirTabla(idempresa,idsucursal);
+            for (int i = 0; i < ListaCombosDao.idCliente(idempresa, idsucursal).size(); i++) {
+                value.addElement(new ListaCombos(Integer.valueOf(ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getIdpersona()), ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getRazonsocial()));
+            }
+            vistaCRUD.btnRegistrar.setEnabled(true);
+            vistaCRUD.btnNuevo.setEnabled(false);
+            vistaCRUD.btnEditar.setEnabled(false);
+            vistaCRUD.txtIdApC.setEnabled(false);
+            vistaCRUD.txtPeso.setEnabled(true);
+            vistaCRUD.txtPrecio.setEnabled(true);
+            vistaCRUD.txtImpTotal.setEnabled(true);
+            vistaCRUD.txtContrato.setEnabled(true);
+            vistaCRUD.txtCalidad.setEnabled(true);
+            vistaCRUD.txtHumedad.setEnabled(true);
+            vistaCRUD.txtFecha.setEnabled(true);
+            vistaCRUD.txtPrecio.requestFocus();
+
         }
+        if (e.getSource() == vistaCRUD.btnRegistrar) {
+            idempresa = 1;
+            idsucursal = 1;
+            int idapc = Integer.valueOf(vistaCRUD.txtIdApC.getText());
+            ListaCombos cli = (ListaCombos) vistaCRUD.jcbPersona.getSelectedItem();
+            int cliente = cli.getIdpersona();
+            double peso = Double.valueOf(vistaCRUD.txtPeso.getText());
+            double precio = Double.valueOf(vistaCRUD.txtPrecio.getText());
+            double imptotal = Double.valueOf(vistaCRUD.txtImpTotal.getText());
+            String contrato = vistaCRUD.txtCalidad.getText();
+            String calidad = vistaCRUD.txtCalidad.getText();
+            String humedad = vistaCRUD.txtHumedad.getText();
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            String fecha = formatoFecha.format(vistaCRUD.txtFecha.getDate());
+            System.out.println(fecha);
+            String Estado = "";
+            if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Iniciado") {
+                Estado = "I";
+            }
+            if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Anulado") {
+                Estado = "A";
+            }
+            String rptaRegistro = modeloCRUD.insertAperturaContrato(0, idempresa, idsucursal, peso, precio, calidad, humedad, contrato, cliente, fecha, Estado);
+            if (rptaRegistro != null) {
+                vistaCRUD.btnRegistrar.setEnabled(false);
+                vistaCRUD.btnNuevo.setEnabled(true);
+                vistaCRUD.btnEditar.setEnabled(true);
+                vistaCRUD.txtIdApC.setEnabled(false);
+                vistaCRUD.txtPeso.setEnabled(false);
+                vistaCRUD.txtPrecio.setEnabled(false);
+                vistaCRUD.txtImpTotal.setEnabled(false);
+                vistaCRUD.txtContrato.setEnabled(false);
+                vistaCRUD.txtCalidad.setEnabled(false);
+                vistaCRUD.txtHumedad.setEnabled(false);
+                vistaCRUD.txtFecha.setEnabled(false);
+                JOptionPane.showMessageDialog(null, rptaRegistro);
+                vistaCRUD.txtIdApC.setText("");
+                vistaCRUD.txtPeso.setText("");
+                vistaCRUD.txtPrecio.setText("");
+                vistaCRUD.txtImpTotal.setText("");
+                vistaCRUD.txtContrato.setText("");
+                vistaCRUD.txtCalidad.setText("");
+                vistaCRUD.txtHumedad.setText("");
+                vistaCRUD.txtFecha.setCalendar(null);
+                reiniciarJTable(vistaCRUD.jtAperturaContrato);
+                construirTabla(idempresa, idsucursal);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo realizar el registro.");
+            }
+        }
+
     }
 
-    public void construirTabla(int empresa,int sucursal) {
+    public void construirTabla(int empresa, int sucursal) {
 
         listaAperturaContrato = dao.AperturaContratoDao.listAperturaContrato(empresa, sucursal);
 
@@ -68,6 +147,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         titulosList.add("Calidad");
         titulosList.add("Humedad");
         titulosList.add("Contrato");
+        titulosList.add("Cliente");
         titulosList.add("Fecha");
         titulosList.add("Estado");
 
@@ -93,6 +173,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         titulosList.add("Calidad");
         titulosList.add("Humedad");
         titulosList.add("Contrato");
+        titulosList.add("Cliente");
         titulosList.add("Fecha");
         titulosList.add("Estado");
 
@@ -111,7 +192,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
 
         for (int x = 0; x < informacion.length; x++) {
 
-            informacion[x][UtilidadApC.idaperturacontrato] = listaAperturaContrato.get(x).getIdaperturacontrato()+ "";
+            informacion[x][UtilidadApC.idaperturacontrato] = listaAperturaContrato.get(x).getIdaperturacontrato() + "";
             informacion[x][UtilidadApC.idempresa] = listaAperturaContrato.get(x).getIdempresa() + "";
             informacion[x][UtilidadApC.idsucursal] = listaAperturaContrato.get(x).getIdsucursal() + "";
             informacion[x][UtilidadApC.peso] = listaAperturaContrato.get(x).getPeso() + "";
@@ -119,6 +200,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
             informacion[x][UtilidadApC.calidad] = listaAperturaContrato.get(x).getCalidad() + "";
             informacion[x][UtilidadApC.humedad] = listaAperturaContrato.get(x).getHumedad() + "";
             informacion[x][UtilidadApC.contrato] = listaAperturaContrato.get(x).getContrato() + "";
+            informacion[x][UtilidadApC.cliente] = listaAperturaContrato.get(x).getIdpersona() + "";
             informacion[x][UtilidadApC.fecha] = listaAperturaContrato.get(x).getFecha() + "";
             informacion[x][UtilidadApC.estado] = listaAperturaContrato.get(x).getEstado() + "";
         }
@@ -148,6 +230,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(7).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(8).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(9).setCellRenderer(new GestionCeldas("texto"));
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(10).setCellRenderer(new GestionCeldas("texto"));
 
         vistaCRUD.jtAperturaContrato.getTableHeader().setReorderingAllowed(false);
         vistaCRUD.jtAperturaContrato.setRowHeight(25);//tamaño de las celdas
@@ -161,6 +244,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.calidad).setPreferredWidth(50);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.humedad).setPreferredWidth(70);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.contrato).setPreferredWidth(70);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.cliente).setPreferredWidth(70);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.fecha).setPreferredWidth(50);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.estado).setPreferredWidth(60);
 
@@ -184,11 +268,12 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         ApC.setCalidad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.calidad).toString());
         ApC.setHumedad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.humedad).toString());
         ApC.setContrato(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.contrato).toString());
+        ApC.setIdpersona(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.cliente).toString()));
         ApC.setFecha(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.fecha).toString());
         ApC.setEstado(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.estado).toString());
 
         String info = "INFO DOCUMENTO\n";
-        info += "IdAperturaContrato: " + ApC.getIdaperturacontrato()+ "\n";
+        info += "IdAperturaContrato: " + ApC.getIdaperturacontrato() + "\n";
         info += "IdEmpresa: " + ApC.getIdempresa() + "\n";
         info += "IdSucursal: " + ApC.getIdsucursal() + "\n";
         info += "Peso: " + ApC.getPeso() + "\n";
@@ -196,6 +281,7 @@ public class ControladorCrudAperturaContrato implements ActionListener {
         info += "Calidad: " + ApC.getCalidad() + "\n";
         info += "Humedad: " + ApC.getHumedad() + "\n";
         info += "Contrato: " + ApC.getContrato() + "\n";
+        info += "Cliente: " + ApC.getIdpersona() + "\n";
         info += "Fecha: " + ApC.getFecha() + "\n";
         info += "Estado: " + ApC.getEstado() + "\n";
 

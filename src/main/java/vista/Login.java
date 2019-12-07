@@ -21,11 +21,11 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        jLabel1.setBackground(new Color(0, 0, 0, 0));
-        ImageIcon fot = new ImageIcon("E:/Sistemas_Escritorio/Trac_Api/src/main/java/Images/cafelogin.png");
-        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
-        jLabel4.setIcon(icono);
-        this.repaint();        
+//        jLabel1.setBackground(new Color(0, 0, 0, 0));
+//        ImageIcon fot = new ImageIcon("E:/Sistemas_Escritorio/Trac_Api/src/main/java/Images/cafelogin.png");
+//        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+//        jLabel4.setIcon(icono);
+//        this.repaint();        
     }
 
     /**
@@ -46,10 +46,9 @@ public class Login extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(311, 540));
@@ -70,7 +69,6 @@ public class Login extends javax.swing.JFrame {
         btnIngresar.setBackground(new java.awt.Color(255, 102, 102));
         btnIngresar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
-        btnIngresar.setIcon(new javax.swing.ImageIcon("E:\\Sistemas_Escritorio\\Trac_Api\\src\\main\\java\\Images\\icons8_login_rounded_right_50px_1.png")); // NOI18N
         btnIngresar.setText("INGRESAR");
         btnIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         btnIngresar.setBorderPainted(false);
@@ -90,11 +88,11 @@ public class Login extends javax.swing.JFrame {
         lblContrasena.setPlaceholder("Contraseña");
         jPanel2.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 210, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\Sistemas_Escritorio\\Trac_Api\\src\\main\\java\\Images\\icons8_forgot_password_20px.png")); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_forgot_password_20px.png")); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 30, 30));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("E:\\Sistemas_Escritorio\\Trac_Api\\src\\main\\java\\Images\\icons8_user_male_circle_20px.png")); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_user_male_circle_20px.png")); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 30, 30));
 
         jSeparator1.setForeground(new java.awt.Color(255, 102, 102));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 210, 10));
@@ -110,8 +108,10 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 310, 290));
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel4.setBackground(new java.awt.Color(255, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_user_120px.png")); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 270, 210));
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -127,10 +127,10 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 50, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 50, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Sistemas_Escritorio\\Trac_Api\\src\\main\\java\\Images\\icons8_user_120px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\cafelogin.png")); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jLabel1MouseDragged(evt);
@@ -141,14 +141,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel1MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 250));
-
-        jLabel4.setBackground(new java.awt.Color(255, 102, 102));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon("E:\\Sistemas_Escritorio\\Trac_Api\\src\\main\\java\\Images\\cafelogin.png")); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 230));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 250));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 250));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,11 +154,11 @@ public class Login extends javax.swing.JFrame {
         vistaP.setVisible(true);
         vistaP.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnIngresarActionPerformed
-
+    int xx, xy;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-    int xx, xy;
+
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
         xx = evt.getX();
         xy = evt.getY();
@@ -220,7 +213,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

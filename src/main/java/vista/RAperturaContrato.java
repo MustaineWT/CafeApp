@@ -17,9 +17,15 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         initComponents();
         btnRegistrar.setEnabled(false);
         btnNuevo.setEnabled(true);
+        btnEditar.setEnabled(true);
         txtIdApC.setEnabled(false);
         txtPeso.setEnabled(false);
         txtPrecio.setEnabled(false);
+        txtImpTotal.setEnabled(false);
+        txtContrato.setEnabled(false);
+        txtCalidad.setEnabled(false);
+        txtHumedad.setEnabled(false);
+        txtFecha.setEnabled(false);        
     }
 
     /**
@@ -45,7 +51,7 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         txtPeso = new javax.swing.JTextField();
         btnNuevo = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        jcbCliente = new javax.swing.JComboBox<>();
+        jcbPersona = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         txtCalidad = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
@@ -183,12 +189,12 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 100, 30));
 
-        jcbCliente.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbCliente.setForeground(new java.awt.Color(0, 0, 153));
-        jcbCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "wtorres" }));
-        jcbCliente.setToolTipText("");
-        jcbCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel2.add(jcbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 470, 20));
+        jcbPersona.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbPersona.setForeground(new java.awt.Color(0, 0, 153));
+        jcbPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "wtorres" }));
+        jcbPersona.setToolTipText("");
+        jcbPersona.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel2.add(jcbPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 470, 20));
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -274,7 +280,7 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
 
         jcbEstado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jcbEstado.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Iniciado", "En Proceso", "Finalizado" }));
+        jcbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Iniciado", "Anulado" }));
         jcbEstado.setToolTipText("");
         jcbEstado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
         jPanel2.add(jcbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 150, 20));
@@ -333,13 +339,13 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JComboBox<String> jcbCliente;
     public javax.swing.JComboBox<String> jcbEstado;
+    public javax.swing.JComboBox<String> jcbPersona;
     public javax.swing.JTable jtAperturaContrato;
     public javax.swing.JTextField txtBuscarApC;
     public javax.swing.JTextField txtCalidad;
     public javax.swing.JTextField txtContrato;
-    private com.toedter.calendar.JDateChooser txtFecha;
+    public com.toedter.calendar.JDateChooser txtFecha;
     public javax.swing.JTextField txtHumedad;
     public javax.swing.JTextField txtIdApC;
     public javax.swing.JTextField txtImpTotal;
