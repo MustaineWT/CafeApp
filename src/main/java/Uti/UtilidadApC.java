@@ -18,7 +18,8 @@ public class UtilidadApC {
     public static final int calidad = 5;
     public static final int humedad = 6;
     public static final int contrato = 7;
-    public static final int fecha = 8;
-    public static final int estado = 9;
+    public static final int cliente = 8;
+    public static final int fecha = 9;
+    public static final int estado = 10;
     public static int filaSeleccionada;
 }
