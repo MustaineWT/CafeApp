@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -82,32 +82,37 @@ public class CompraContratoDao {
         return rptaRegistro;
     }
 
-    public ArrayList<CompraContrato> listCompraContrato(
+    public static ArrayList<CompraContrato> listCompraContrato(
+            int idcompracontrato,
             int idempresa,
-            int idsucursal) {
-        ArrayList listaAperturaContrato = new ArrayList();
+            int idsucursal,
+            int idaperturacontrato) {
+        ArrayList listaCompraContrato = new ArrayList();
         CompraContrato compracontrato;
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
-            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERCOMPRACONTRATO(?,?)}");
-            ps.setInt(1, idempresa);
-            ps.setInt(2, idsucursal);
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERCOMPRACONTRATO(?,?,?,?)}");
+            ps.setInt(1, idcompracontrato);
+            ps.setInt(2, idempresa);
+            ps.setInt(3, idsucursal);
+            ps.setInt(4, idaperturacontrato);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 compracontrato = new CompraContrato();
-                compracontrato.setIdaperturacontrato(rs.getInt(1));
+                compracontrato.setIdcompracontrato(rs.getInt(1));
                 compracontrato.setIdempresa(rs.getInt(2));
                 compracontrato.setIdsucursal(rs.getInt(3));
-                compracontrato.setPeso(rs.getDouble(4));
-                compracontrato.setPrecio(rs.getDouble(5));
-                compracontrato.setFecha(rs.getString(6));
-                compracontrato.setEstado(rs.getString(7));
-                listaAperturaContrato.add(compracontrato);
+                compracontrato.setIdaperturacontrato(rs.getInt(4));
+                compracontrato.setPeso(rs.getDouble(5));
+                compracontrato.setPrecio(rs.getDouble(6));
+                compracontrato.setFecha(rs.getString(7));
+                compracontrato.setEstado(rs.getString(8));
+                listaCompraContrato.add(compracontrato);
             }
         } catch (Exception e) {
 
         }
-        return listaAperturaContrato;
+        return listaCompraContrato;
     }
 
 }

@@ -41,7 +41,7 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
         txtRSocial2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtEmpresa1 = new javax.swing.JTable();
+        jtAperturaContrato = new javax.swing.JTable();
         jLabel26 = new javax.swing.JLabel();
         txtId1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -139,9 +139,9 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
         jLabel6.setToolTipText("");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
-        jtEmpresa1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jtEmpresa1.setForeground(new java.awt.Color(51, 51, 255));
-        jtEmpresa1.setModel(new javax.swing.table.DefaultTableModel(
+        jtAperturaContrato.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jtAperturaContrato.setForeground(new java.awt.Color(51, 51, 255));
+        jtAperturaContrato.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -152,8 +152,8 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtEmpresa1.setGridColor(new java.awt.Color(0, 51, 153));
-        jScrollPane2.setViewportView(jtEmpresa1);
+        jtAperturaContrato.setGridColor(new java.awt.Color(0, 51, 153));
+        jScrollPane2.setViewportView(jtAperturaContrato);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 760, 220));
 
@@ -182,7 +182,6 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
         btnRegistrar.setBackground(new java.awt.Color(153, 0, 51));
         btnRegistrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(0, 0, 153));
-        btnRegistrar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +194,6 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
         btnEditar2.setBackground(new java.awt.Color(153, 0, 51));
         btnEditar2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnEditar2.setForeground(new java.awt.Color(0, 0, 153));
-        btnEditar2.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
         btnEditar2.setText("Editar");
         btnEditar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         btnEditar2.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +206,6 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
         btnNuevo1.setBackground(new java.awt.Color(153, 0, 51));
         btnNuevo1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnNuevo1.setForeground(new java.awt.Color(0, 0, 153));
-        btnNuevo1.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
         btnNuevo1.setText("Nuevo");
         btnNuevo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         btnNuevo1.addActionListener(new java.awt.event.ActionListener() {
@@ -451,8 +448,8 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JComboBox<String> jcbEstado;
+    public javax.swing.JTable jtAperturaContrato;
     public javax.swing.JTable jtEmpresa;
-    public javax.swing.JTable jtEmpresa1;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtId1;
