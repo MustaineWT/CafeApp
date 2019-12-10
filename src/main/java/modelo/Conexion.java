@@ -20,7 +20,7 @@ public class Conexion {
 
         boolean produccion = false;//cambiar a true para produccion.
         if (produccion == false) {
-            String url = "jdbc:sqlserver://DESKTOP-3CPB4UK\\MSSQLSERVER:1433;databaseName=Cafebd";
+            String url = "jdbc:sqlserver://TITO\\MSSQLSERVER2017:1433;databaseName=Cafebd";
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             } catch (ClassNotFoundException e) {
@@ -32,7 +32,7 @@ public class Conexion {
                 JOptionPane.showConfirmDialog(null, "Error" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            String url = "jdbc:sqlserver://CAFEAPROSEM\\MSSQLSERVER:1433;databaseName=Cafebd";
+            String url = "jdbc:sqlserver://CAFEAPROSEM\\MSSQLSERVER2017:1433;databaseName=Cafebd";
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             } catch (ClassNotFoundException e) {

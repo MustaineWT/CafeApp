@@ -4,6 +4,7 @@ import Uti.GestionCeldas;
 import Uti.GestionEncabezadoTabla;
 import Uti.ModeloTabla;
 import Uti.UtilidadApC;
+import Uti.UtilidadCC;
 import dao.AperturaContratoDao;
 import dao.CompraContratoDao;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.JTableHeader;
 import modelo.CompraContrato;
-//import vista.CompraContrato;
 import vista.RCompraContrato;
 
 /**
@@ -79,8 +79,8 @@ public class ControladorCrudCompraContrato implements ActionListener {
         for (int i = 0; i < titulos.length; i++) {
             titulos[i] = titulosList.get(i);
         } 
-//        Object[][] data = obtenerMatrizDatos(titulosList);
-//        construirTabla(titulos, data);
+        Object[][] data = obtenerMatrizDatos(titulosList);
+        construirTabla(titulos, data);
     }
 
 //    public void construirTablabuscar() {
@@ -109,25 +109,23 @@ public class ControladorCrudCompraContrato implements ActionListener {
 //        construirTabla(titulos, data);
 //    }
 //
-//    private Object[][] obtenerMatrizDatos(ArrayList<String> titulosList) {
-//
-//        String informacion[][] = new String[listaAperturaContrato.size()][titulosList.size()];
-//
-//        for (int x = 0; x < informacion.length; x++) {
-//
-//            informacion[x][UtilidadApC.idaperturacontrato] = listaAperturaContrato.get(x).getIdaperturacontrato()+ "";
-//            informacion[x][UtilidadApC.idempresa] = listaAperturaContrato.get(x).getIdempresa() + "";
-//            informacion[x][UtilidadApC.idsucursal] = listaAperturaContrato.get(x).getIdsucursal() + "";
-//            informacion[x][UtilidadApC.peso] = listaAperturaContrato.get(x).getPeso() + "";
-//            informacion[x][UtilidadApC.precio] = listaAperturaContrato.get(x).getPrecio() + "";
-//            informacion[x][UtilidadApC.calidad] = listaAperturaContrato.get(x).getCalidad() + "";
-//            informacion[x][UtilidadApC.humedad] = listaAperturaContrato.get(x).getHumedad() + "";
-//            informacion[x][UtilidadApC.contrato] = listaAperturaContrato.get(x).getContrato() + "";
-//            informacion[x][UtilidadApC.fecha] = listaAperturaContrato.get(x).getFecha() + "";
-//            informacion[x][UtilidadApC.estado] = listaAperturaContrato.get(x).getEstado() + "";
-//        }
-//        return informacion;
-//    }
+    private Object[][] obtenerMatrizDatos(ArrayList<String> titulosList) {
+
+        String informacion[][] = new String[listaCompraContrato.size()][titulosList.size()];
+
+        for (int x = 0; x < informacion.length; x++) {
+
+            informacion[x][UtilidadCC.idcompracontrato] = listaCompraContrato.get(x).getIdcompracontrato() + "";
+            informacion[x][UtilidadCC.idempresa] = listaCompraContrato.get(x).getIdempresa() + "";
+            informacion[x][UtilidadCC.idsucursal] = listaCompraContrato.get(x).getIdsucursal() + "";
+            informacion[x][UtilidadCC.idaperturacontrato] = listaCompraContrato.get(x).getIdaperturacontrato() + "";
+            informacion[x][UtilidadCC.peso] = listaCompraContrato.get(x).getPeso() + "";
+            informacion[x][UtilidadCC.precio] = listaCompraContrato.get(x).getPrecio() + "";
+            informacion[x][UtilidadCC.fecha] = listaCompraContrato.get(x).getFecha() + "";
+            informacion[x][UtilidadCC.estado] = listaCompraContrato.get(x).getEstado() + "";
+        }
+        return informacion;
+    }
 
     private void construirTabla(String[] titulos, Object[][] data) {
         modelojt = new ModeloTabla(data, titulos);
@@ -157,60 +155,54 @@ public class ControladorCrudCompraContrato implements ActionListener {
         vistaCRUD.jtAperturaContrato.setRowHeight(25);//tamaño de las celdas
         vistaCRUD.jtAperturaContrato.setGridColor(new java.awt.Color(0, 0, 0));
 
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idaperturacontrato).setPreferredWidth(40);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idempresa).setPreferredWidth(40);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idsucursal).setPreferredWidth(40);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.peso).setPreferredWidth(60);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.precio).setPreferredWidth(60);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.calidad).setPreferredWidth(50);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.humedad).setPreferredWidth(70);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.contrato).setPreferredWidth(70);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.fecha).setPreferredWidth(50);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.estado).setPreferredWidth(60);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.idcompracontrato).setPreferredWidth(40);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.idempresa).setPreferredWidth(40);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.idsucursal).setPreferredWidth(40);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.idaperturacontrato).setPreferredWidth(40);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.peso).setPreferredWidth(60);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.precio).setPreferredWidth(60);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.fecha).setPreferredWidth(50);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadCC.estado).setPreferredWidth(60);
 
         JTableHeader jtableHeader = vistaCRUD.jtAperturaContrato.getTableHeader();
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
         vistaCRUD.jtAperturaContrato.setTableHeader(jtableHeader);
 
-//        vistaCRUD.jScrollPane1.setViewportView(vistaCRUD.jtAperturaContrato);
+        vistaCRUD.jScrollPane1.setViewportView(vistaCRUD.jtAperturaContrato);
     }
 
     private void validarSeleccionMouse(int fila) {
         UtilidadApC.filaSeleccionada = fila;
 
         //teniendo la fila entonces se obtiene el objeto correspondiente para enviarse como parammetro o imprimir la información
-        //CompraContrato ApC = new AperturaContrato();
-//        ApC.setIdaperturacontrato(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idaperturacontrato).toString()));
-//        ApC.setIdempresa(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idempresa).toString()));
-//        ApC.setIdsucursal(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idsucursal).toString()));
-//        ApC.setPeso(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.peso).toString()));
-//        ApC.setPrecio(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.precio).toString()));
-//        ApC.setCalidad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.calidad).toString());
-//        ApC.setHumedad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.humedad).toString());
-//        ApC.setContrato(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.contrato).toString());
-//        ApC.setFecha(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.fecha).toString());
-//        ApC.setEstado(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.estado).toString());
+        CompraContrato CC = new CompraContrato();
+        CC.setIdcompracontrato(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.idcompracontrato).toString()));
+        CC.setIdempresa(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.idempresa).toString()));
+        CC.setIdsucursal(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.idsucursal).toString()));
+        CC.setIdaperturacontrato(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.idaperturacontrato).toString()));
+        CC.setPeso(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.peso).toString()));
+        CC.setPrecio(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.precio).toString()));
+        CC.setFecha(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.fecha).toString());
+        CC.setEstado(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.estado).toString());
 
         String info = "INFO DOCUMENTO\n";
-//        info += "IdAperturaContrato: " + ApC.getIdaperturacontrato()+ "\n";
-//        info += "IdEmpresa: " + ApC.getIdempresa() + "\n";
-//        info += "IdSucursal: " + ApC.getIdsucursal() + "\n";
-//        info += "Peso: " + ApC.getPeso() + "\n";
-//        info += "Precio: " + ApC.getPrecio() + "\n";
-//        info += "Calidad: " + ApC.getCalidad() + "\n";
-//        info += "Humedad: " + ApC.getHumedad() + "\n";
-//        info += "Contrato: " + ApC.getContrato() + "\n";
-//        info += "Fecha: " + ApC.getFecha() + "\n";
-//        info += "Estado: " + ApC.getEstado() + "\n";
+        info += "IdCompracontrato: " + CC.getIdcompracontrato()+ "\n";
+        info += "IdEmpresa: " + CC.getIdempresa() + "\n";
+        info += "IdSucursal: " + CC.getIdsucursal() + "\n";
+        info += "IdAperturaContrato: " + CC.getIdaperturacontrato()+ "\n";
+        info += "Peso: " + CC.getPeso() + "\n";
+        info += "Precio: " + CC.getPrecio() + "\n";
+        info += "Fecha: " + CC.getFecha() + "\n";
+        info += "Estado: " + CC.getEstado() + "\n";
 
         JOptionPane.showMessageDialog(null, info);
     }
 
     private void validarSeleccionMouseDetalle(int fila) {
-        UtilidadApC.filaSeleccionada = fila;
+        UtilidadCC.filaSeleccionada = fila;
 
         //teniendo la fila entonces se obtiene el objeto correspondiente para enviarse como parammetro o imprimir la información        
-        idempresa = Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idempresa).toString());
+        idempresa = Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadCC.idempresa).toString());
     }
 
     public void mouseClicked(MouseEvent me) {
