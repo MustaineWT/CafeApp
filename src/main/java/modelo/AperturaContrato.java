@@ -12,24 +12,44 @@ package modelo;
 public class AperturaContrato {
     int idaperturacontrato;
     int idempresa;
-    int idsucursal;
-    int idpersona;
+    int idsucursal;    
+    String cliente;
     double peso;
     double precio;
+    double imptotal;
     String calidad;
     String humedad;
     String contrato;
+    int idpersona;
     String fecha;
     String estado;
 
     public AperturaContrato() {
     }
 
-    public AperturaContrato(int idaperturacontrato, int idempresa, int idsucursal, int idpersona, double peso, double precio, String calidad, String humedad, String contrato, String fecha, String estado) {
+    public AperturaContrato(int idaperturacontrato, int idempresa, int idsucursal, String cliente, double peso, double precio, double imptotal, String calidad, String humedad, String contrato, int idpersona, String fecha, String estado) {
         this.idaperturacontrato = idaperturacontrato;
         this.idempresa = idempresa;
         this.idsucursal = idsucursal;
+        this.cliente = cliente;
+        this.peso = peso;
+        this.precio = precio;
+        this.imptotal = imptotal;
+        this.calidad = calidad;
+        this.humedad = humedad;
+        this.contrato = contrato;
         this.idpersona = idpersona;
+        this.fecha = fecha;
+        this.estado = estado;
+    }
+
+   
+
+    public AperturaContrato(int idaperturacontrato, int idempresa, int idsucursal, String cliente, double peso, double precio, String calidad, String humedad, String contrato, String fecha, String estado) {
+        this.idaperturacontrato = idaperturacontrato;
+        this.idempresa = idempresa;
+        this.idsucursal = idsucursal;
+        this.cliente = cliente;
         this.peso = peso;
         this.precio = precio;
         this.calidad = calidad;
@@ -37,6 +57,23 @@ public class AperturaContrato {
         this.contrato = contrato;
         this.fecha = fecha;
         this.estado = estado;
+    }
+
+    public double getImptotal() {
+        return imptotal;
+    }
+
+    public void setImptotal(double imptotal) {
+        this.imptotal = imptotal;
+    }
+    
+
+    public int getIdpersona() {
+        return idpersona;
+    }
+
+    public void setIdpersona(int idpersona) {
+        this.idpersona = idpersona;
     }
 
     public int getIdaperturacontrato() {
@@ -63,12 +100,12 @@ public class AperturaContrato {
         this.idsucursal = idsucursal;
     }
 
-    public int getIdpersona() {
-        return idpersona;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setIdpersona(int idpersona) {
-        this.idpersona = idpersona;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public double getPeso() {
@@ -126,6 +163,6 @@ public class AperturaContrato {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
     
 }

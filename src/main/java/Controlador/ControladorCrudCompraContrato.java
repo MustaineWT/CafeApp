@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.JTableHeader;
 import modelo.CompraContrato;
-import vista.CompraContrato;
+//import vista.CompraContrato;
 import vista.RCompraContrato;
 
 /**
@@ -79,8 +79,8 @@ public class ControladorCrudCompraContrato implements ActionListener {
         for (int i = 0; i < titulos.length; i++) {
             titulos[i] = titulosList.get(i);
         } 
-        Object[][] data = obtenerMatrizDatos(titulosList);
-        construirTabla(titulos, data);
+//        Object[][] data = obtenerMatrizDatos(titulosList);
+//        construirTabla(titulos, data);
     }
 
 //    public void construirTablabuscar() {
@@ -172,36 +172,36 @@ public class ControladorCrudCompraContrato implements ActionListener {
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
         vistaCRUD.jtAperturaContrato.setTableHeader(jtableHeader);
 
-        vistaCRUD.jScrollPane1.setViewportView(vistaCRUD.jtAperturaContrato);
+//        vistaCRUD.jScrollPane1.setViewportView(vistaCRUD.jtAperturaContrato);
     }
 
     private void validarSeleccionMouse(int fila) {
         UtilidadApC.filaSeleccionada = fila;
 
         //teniendo la fila entonces se obtiene el objeto correspondiente para enviarse como parammetro o imprimir la información
-        CompraContrato ApC = new AperturaContrato();
-        ApC.setIdaperturacontrato(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idaperturacontrato).toString()));
-        ApC.setIdempresa(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idempresa).toString()));
-        ApC.setIdsucursal(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idsucursal).toString()));
-        ApC.setPeso(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.peso).toString()));
-        ApC.setPrecio(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.precio).toString()));
-        ApC.setCalidad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.calidad).toString());
-        ApC.setHumedad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.humedad).toString());
-        ApC.setContrato(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.contrato).toString());
-        ApC.setFecha(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.fecha).toString());
-        ApC.setEstado(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.estado).toString());
+        //CompraContrato ApC = new AperturaContrato();
+//        ApC.setIdaperturacontrato(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idaperturacontrato).toString()));
+//        ApC.setIdempresa(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idempresa).toString()));
+//        ApC.setIdsucursal(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idsucursal).toString()));
+//        ApC.setPeso(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.peso).toString()));
+//        ApC.setPrecio(Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.precio).toString()));
+//        ApC.setCalidad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.calidad).toString());
+//        ApC.setHumedad(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.humedad).toString());
+//        ApC.setContrato(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.contrato).toString());
+//        ApC.setFecha(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.fecha).toString());
+//        ApC.setEstado(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.estado).toString());
 
         String info = "INFO DOCUMENTO\n";
-        info += "IdAperturaContrato: " + ApC.getIdaperturacontrato()+ "\n";
-        info += "IdEmpresa: " + ApC.getIdempresa() + "\n";
-        info += "IdSucursal: " + ApC.getIdsucursal() + "\n";
-        info += "Peso: " + ApC.getPeso() + "\n";
-        info += "Precio: " + ApC.getPrecio() + "\n";
-        info += "Calidad: " + ApC.getCalidad() + "\n";
-        info += "Humedad: " + ApC.getHumedad() + "\n";
-        info += "Contrato: " + ApC.getContrato() + "\n";
-        info += "Fecha: " + ApC.getFecha() + "\n";
-        info += "Estado: " + ApC.getEstado() + "\n";
+//        info += "IdAperturaContrato: " + ApC.getIdaperturacontrato()+ "\n";
+//        info += "IdEmpresa: " + ApC.getIdempresa() + "\n";
+//        info += "IdSucursal: " + ApC.getIdsucursal() + "\n";
+//        info += "Peso: " + ApC.getPeso() + "\n";
+//        info += "Precio: " + ApC.getPrecio() + "\n";
+//        info += "Calidad: " + ApC.getCalidad() + "\n";
+//        info += "Humedad: " + ApC.getHumedad() + "\n";
+//        info += "Contrato: " + ApC.getContrato() + "\n";
+//        info += "Fecha: " + ApC.getFecha() + "\n";
+//        info += "Estado: " + ApC.getEstado() + "\n";
 
         JOptionPane.showMessageDialog(null, info);
     }

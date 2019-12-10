@@ -5,13 +5,14 @@
  */
 package vista;
 
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author MustainE
  */
 public class RAperturaContrato extends javax.swing.JInternalFrame {
+
+    private static final long serialVersionUID = 1L;
 
     public RAperturaContrato() {
         initComponents();
@@ -42,8 +43,6 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtIdApC = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtAperturaContrato = new javax.swing.JTable();
         btnEditar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel19 = new javax.swing.JLabel();
@@ -67,6 +66,8 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jcbEstado = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtAperturaContrato = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 0, 51));
@@ -112,27 +113,9 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         });
         jPanel2.add(txtIdApC, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 70, 20));
 
-        jtAperturaContrato.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jtAperturaContrato.setForeground(new java.awt.Color(51, 51, 255));
-        jtAperturaContrato.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jtAperturaContrato.setGridColor(new java.awt.Color(0, 51, 153));
-        jScrollPane1.setViewportView(jtAperturaContrato);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 520, 300));
-
-        btnEditar.setBackground(new java.awt.Color(153, 0, 51));
-        btnEditar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(0, 0, 153));
+        btnEditar.setBackground(new java.awt.Color(0, 153, 153));
+        btnEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -163,9 +146,9 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         txtPeso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 120, 20));
 
-        btnNuevo.setBackground(new java.awt.Color(153, 0, 51));
-        btnNuevo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(0, 0, 153));
+        btnNuevo.setBackground(new java.awt.Color(0, 153, 153));
+        btnNuevo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevo.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -176,9 +159,9 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 100, 30));
 
-        btnRegistrar.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegistrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(0, 0, 153));
+        btnRegistrar.setBackground(new java.awt.Color(0, 153, 153));
+        btnRegistrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -284,6 +267,71 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         jcbEstado.setToolTipText("");
         jcbEstado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
         jPanel2.add(jcbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 150, 20));
+
+        jtAperturaContrato.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 1, true));
+        jtAperturaContrato.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jtAperturaContrato.setForeground(new java.awt.Color(51, 51, 51));
+        jtAperturaContrato.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Emp", "IdOrg", "IdCp", "IdCafeP.", "Codigo", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12"
+            }
+        ));
+        jtAperturaContrato.setGridColor(new java.awt.Color(153, 0, 0));
+        jScrollPane1.setViewportView(jtAperturaContrato);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 520, 290));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 550, 530));
 

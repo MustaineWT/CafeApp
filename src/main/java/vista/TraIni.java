@@ -489,7 +489,7 @@ public class TraIni extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmEmpresa2;
     private javax.swing.JMenuItem jmEmpresa3;
     private javax.swing.JMenuItem jmEmpresa4;
-    private javax.swing.JLabel lblEmpresa;
-    private javax.swing.JLabel lblSucursal;
+    public static javax.swing.JLabel lblEmpresa;
+    public static javax.swing.JLabel lblSucursal;
     // End of variables declaration//GEN-END:variables
 }
