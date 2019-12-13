@@ -238,8 +238,9 @@ public class RAperturaContrato extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, -1, 20));
 
         txtImpTotal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtImpTotal.setForeground(new java.awt.Color(0, 0, 102));
+        txtImpTotal.setForeground(new java.awt.Color(255, 255, 255));
         txtImpTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtImpTotal.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         jPanel2.add(txtImpTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 130, 20));
 
         txtBuscarApC.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N

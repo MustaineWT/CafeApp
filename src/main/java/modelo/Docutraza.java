@@ -49,14 +49,13 @@ public class Docutraza {
         this.estado = estado;
     }
 
-    public Docutraza(int iddocutraza, int idempresa, int idsucursal, int idcompracontrato, int idpersona, String razonsocial, String cliente, String serieguia, String correlativo, String certificado, int sacos, double kb, double kn, String fairtrade, String condicion, String fecha, String estado) {
+    public Docutraza(int iddocutraza, int idempresa, int idsucursal, int idcompracontrato, int idpersona, String razonsocial,  String serieguia, String correlativo, String certificado, int sacos, double kb, double kn, String fairtrade, String condicion, String fecha, String estado) {
         this.iddocutraza = iddocutraza;
         this.idempresa = idempresa;
         this.idsucursal = idsucursal;
         this.idcompracontrato = idcompracontrato;
         this.idpersona = idpersona;
         this.razonsocial = razonsocial;
-        this.cliente = cliente;
         this.serieguia = serieguia;
         this.correlativo = correlativo;
         this.certificado = certificado;

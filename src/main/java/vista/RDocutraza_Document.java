@@ -27,6 +27,13 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         txtKb.setEnabled(false);
         txtKn.setEnabled(false);
         txtFairtrade.setEnabled(false);
+        //
+        txtSerie.setEnabled(false);
+        txtDocCorrelativo.setEnabled(false);
+        txtFecha.setEnabled(false);
+        btnNDocumento.setEnabled(false);
+        btnEditDocumento.setEnabled(false);
+        btnRegDocumento.setEnabled(false);
     }
 
     /**
@@ -217,7 +224,7 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
         jcbCondicion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jcbCondicion.setForeground(new java.awt.Color(0, 0, 153));
-        jcbCondicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbCondicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Real", "Anulado", "Papeles" }));
         jcbCondicion.setToolTipText("");
         jcbCondicion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
         jPanel3.add(jcbCondicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 150, -1));
@@ -291,14 +298,14 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
         jcbCertificado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jcbCertificado.setForeground(new java.awt.Color(0, 0, 153));
-        jcbCertificado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbCertificado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CP", "CPO", "FT", "FTCP", "FTO", "FTOCP", "CASCARILLA", "FTO-MCM", "ANULADO" }));
         jcbCertificado.setToolTipText("");
         jcbCertificado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
         jPanel3.add(jcbCertificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, -1));
 
-        btnRegTrack.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegTrack.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegTrack.setForeground(new java.awt.Color(0, 0, 153));
+        btnRegTrack.setBackground(new java.awt.Color(0, 153, 153));
+        btnRegTrack.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegTrack.setForeground(new java.awt.Color(255, 255, 255));
         btnRegTrack.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
         btnRegTrack.setText("Registrar");
         btnRegTrack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -309,9 +316,9 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         });
         jPanel3.add(btnRegTrack, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 100, 30));
 
-        btnEditDocutraza.setBackground(new java.awt.Color(153, 0, 51));
-        btnEditDocutraza.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnEditDocutraza.setForeground(new java.awt.Color(0, 0, 153));
+        btnEditDocutraza.setBackground(new java.awt.Color(0, 153, 153));
+        btnEditDocutraza.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnEditDocutraza.setForeground(new java.awt.Color(255, 255, 255));
         btnEditDocutraza.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
         btnEditDocutraza.setText("Editar");
         btnEditDocutraza.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -322,9 +329,9 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         });
         jPanel3.add(btnEditDocutraza, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 100, 30));
 
-        btnNTrack.setBackground(new java.awt.Color(153, 0, 51));
-        btnNTrack.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNTrack.setForeground(new java.awt.Color(0, 0, 153));
+        btnNTrack.setBackground(new java.awt.Color(0, 153, 153));
+        btnNTrack.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnNTrack.setForeground(new java.awt.Color(255, 255, 255));
         btnNTrack.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
         btnNTrack.setText("Nuevo");
         btnNTrack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -437,9 +444,9 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jcbTDocumento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
         jPanel4.add(jcbTDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 150, -1));
 
-        btnNDocumento.setBackground(new java.awt.Color(153, 0, 51));
-        btnNDocumento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNDocumento.setForeground(new java.awt.Color(0, 0, 153));
+        btnNDocumento.setBackground(new java.awt.Color(0, 153, 153));
+        btnNDocumento.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnNDocumento.setForeground(new java.awt.Color(255, 255, 255));
         btnNDocumento.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
         btnNDocumento.setText("Nuevo");
         btnNDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -450,9 +457,9 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         });
         jPanel4.add(btnNDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, 30));
 
-        btnRegDocumento.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegDocumento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegDocumento.setForeground(new java.awt.Color(0, 0, 153));
+        btnRegDocumento.setBackground(new java.awt.Color(0, 153, 153));
+        btnRegDocumento.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegDocumento.setForeground(new java.awt.Color(255, 255, 255));
         btnRegDocumento.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
         btnRegDocumento.setText("Registrar");
         btnRegDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -481,9 +488,9 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel16.setToolTipText("");
         jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, 20));
 
-        btnEditDocumento.setBackground(new java.awt.Color(153, 0, 51));
-        btnEditDocumento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnEditDocumento.setForeground(new java.awt.Color(0, 0, 153));
+        btnEditDocumento.setBackground(new java.awt.Color(0, 153, 153));
+        btnEditDocumento.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnEditDocumento.setForeground(new java.awt.Color(255, 255, 255));
         btnEditDocumento.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
         btnEditDocumento.setText("Editar");
         btnEditDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -532,9 +539,9 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
         jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 220, 470, 430));
 
-        btnVerConf.setBackground(new java.awt.Color(153, 0, 51));
-        btnVerConf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnVerConf.setForeground(new java.awt.Color(0, 0, 153));
+        btnVerConf.setBackground(new java.awt.Color(0, 153, 153));
+        btnVerConf.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnVerConf.setForeground(new java.awt.Color(255, 255, 255));
         btnVerConf.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
         btnVerConf.setText("Ver Conformación");
         btnVerConf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -545,9 +552,9 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnVerConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 160, 30));
 
-        btnAsigConf.setBackground(new java.awt.Color(153, 0, 51));
-        btnAsigConf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnAsigConf.setForeground(new java.awt.Color(0, 0, 153));
+        btnAsigConf.setBackground(new java.awt.Color(0, 153, 153));
+        btnAsigConf.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnAsigConf.setForeground(new java.awt.Color(255, 255, 255));
         btnAsigConf.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
         btnAsigConf.setText("Asignar Conformación");
         btnAsigConf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -674,7 +681,7 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtCorrelativo;
     public javax.swing.JTextField txtDocCorrelativo;
     public javax.swing.JTextField txtFairtrade;
-    private com.toedter.calendar.JDateChooser txtFecha;
+    public com.toedter.calendar.JDateChooser txtFecha;
     public javax.swing.JTextField txtIdDocutraza;
     public javax.swing.JTextField txtIdDocutrza;
     public javax.swing.JTextField txtIddocumento;

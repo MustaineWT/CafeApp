@@ -18,6 +18,8 @@ import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -78,10 +80,12 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
             vistaCRUD.txtIdApC.setEnabled(false);
             vistaCRUD.txtPeso.setEnabled(true);
             vistaCRUD.txtPrecio.setEnabled(true);
-            vistaCRUD.txtImpTotal.setEnabled(true);
+            vistaCRUD.txtImpTotal.setEnabled(false);
             vistaCRUD.txtContrato.setEnabled(true);
             vistaCRUD.txtCalidad.setEnabled(true);
             vistaCRUD.txtHumedad.setEnabled(true);
+            Calendar c2 = new GregorianCalendar();
+            vistaCRUD.txtFecha.setCalendar(c2);
             vistaCRUD.txtFecha.setEnabled(true);
             vistaCRUD.txtPrecio.requestFocus();
 
@@ -246,7 +250,7 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
                     vistaCRUD.txtIdApC.setEnabled(false);
                     vistaCRUD.txtPeso.setEnabled(true);
                     vistaCRUD.txtPrecio.setEnabled(true);
-                    vistaCRUD.txtImpTotal.setEnabled(true);
+                    vistaCRUD.txtImpTotal.setEnabled(false);
                     vistaCRUD.txtContrato.setEnabled(true);
                     vistaCRUD.txtCalidad.setEnabled(true);
                     vistaCRUD.txtHumedad.setEnabled(true);
@@ -486,7 +490,22 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
 
     @Override
     public void keyReleased(KeyEvent ke) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           if (ke.getSource() == vistaCRUD.txtPeso || ke.getSource() == vistaCRUD.txtPrecio) {
+            try {
+                //texto = vistaCRUD.txtBuscador.getText();
+                //construirTablabuscar();
+                if (vistaCRUD.txtPeso.getText().isEmpty() || vistaCRUD.txtPrecio.getText().isEmpty()) {
+
+                } else {
+                    long rt = (long) (Double.valueOf(vistaCRUD.txtPeso.getText()) * Double.valueOf(vistaCRUD.txtPrecio.getText()));
+                    vistaCRUD.txtImpTotal.setText(String.valueOf(rt));//                   
+                }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCUENTRA EL REGISTRO");
+            }
+
+        }
     }
 
 }

@@ -12,14 +12,33 @@ package modelo;
 public class ListaCombos {
     int idpersona;
     String razonsocial;
+    int idtdocumento;
+    String identificador;
 
     public ListaCombos() {
     }
-
+      
     public ListaCombos(int idpersona, String razonsocial) {
         this.idpersona = idpersona;
         this.razonsocial = razonsocial;
     }
+
+    public int getIdtdocumento() {
+        return idtdocumento;
+    }
+
+    public void setIdtdocumento(int idtdocumento) {
+        this.idtdocumento = idtdocumento;
+    }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+    
 
     public int getIdpersona() {
         return idpersona;

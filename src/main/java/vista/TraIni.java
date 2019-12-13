@@ -7,8 +7,10 @@ package vista;
 
 import Controlador.ControladorCrudAperturaContrato;
 import Controlador.ControladorCrudCompraContrato;
+import Controlador.ControladorCrudDocutraza;
 import dao.AperturaContratoDao;
 import dao.CompraContratoDao;
+import dao.DocutrazaDao;
 
 /**
  *
@@ -60,6 +62,7 @@ public class TraIni extends javax.swing.JFrame {
         jMApC = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Trazabilidad");
@@ -298,6 +301,19 @@ public class TraIni extends javax.swing.JFrame {
         });
         jMApC.add(jMenuItem7);
 
+        jMenuItem8.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuItem8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jMenuItem8.setForeground(new java.awt.Color(51, 0, 153));
+        jMenuItem8.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Order_History_25px.png")); // NOI18N
+        jMenuItem8.setText("Reg Doc.Trazabilidad");
+        jMenuItem8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 1, true));
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMApC.add(jMenuItem8);
+
         jMenuBar1.add(jMApC);
 
         setJMenuBar(jMenuBar1);
@@ -440,6 +456,20 @@ public class TraIni extends javax.swing.JFrame {
         ventana2.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        RDocutraza_Document ventana2 = new RDocutraza_Document();
+        DocutrazaDao modeloC2 = new DocutrazaDao();
+        ControladorCrudDocutraza controlaC = new ControladorCrudDocutraza(ventana2, modeloC2);
+        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
+        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+        int apc=0;
+        controlaC.construirTablaCompraContrato(empresa, idsucursal);
+        controlaC.construirTablaDocutraza(empresa, idsucursal);
+        dskPrincipal.add(ventana2);
+        ventana2.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -495,6 +525,7 @@ public class TraIni extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem jmEmpresa;
     private javax.swing.JMenuItem jmEmpresa2;

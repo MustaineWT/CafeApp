@@ -38,4 +38,21 @@ public class ListaCombosDao {
         }
         return ListaCombos;
     }
+     public static ArrayList<ListaCombos> idTdocumento() {
+        ArrayList ListaCombos = new ArrayList();
+        ListaCombos tdocumento;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERTD()}");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                tdocumento = new ListaCombos();
+                tdocumento.setIdtdocumento(rs.getInt(1));             
+                tdocumento.setIdentificador(rs.getString(2));
+                ListaCombos.add(tdocumento);
+            }
+        } catch (Exception e) {
+        }
+        return ListaCombos;
+    }
 }

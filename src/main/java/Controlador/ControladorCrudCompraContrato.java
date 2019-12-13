@@ -21,6 +21,8 @@ import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -91,6 +93,8 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
                 vistaCRUD.txtPrecio.setEnabled(true);
                 vistaCRUD.txtPeso.setEnabled(true);
                 vistaCRUD.txtImptotal.setEnabled(false);
+                Calendar c2 = new GregorianCalendar();
+                vistaCRUD.jdFecha.setCalendar(c2);
                 vistaCRUD.jdFecha.setEnabled(true);
                 vistaCRUD.txtPrecio.requestFocus();
             }
