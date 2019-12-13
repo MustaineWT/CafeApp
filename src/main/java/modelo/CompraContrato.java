@@ -16,22 +16,33 @@ public class CompraContrato {
     int idaperturacontrato;
     double peso;
     double precio;
+    double imptotal;
     String fecha;
     String estado;
 
     public CompraContrato() {
     }
 
-    public CompraContrato(int idcompracontrato, int idempresa, int idsucursal, int idaperturacontrato, double peso, double precio, String fecha, String estado) {
+    public CompraContrato(int idcompracontrato, int idempresa, int idsucursal, int idaperturacontrato, double peso, double precio, double imptotal, String fecha, String estado) {
         this.idcompracontrato = idcompracontrato;
         this.idempresa = idempresa;
         this.idsucursal = idsucursal;
         this.idaperturacontrato = idaperturacontrato;
         this.peso = peso;
         this.precio = precio;
+        this.imptotal = imptotal;
         this.fecha = fecha;
         this.estado = estado;
     }
+
+    public double getImptotal() {
+        return imptotal;
+    }
+
+    public void setImptotal(double imptotal) {
+        this.imptotal = imptotal;
+    }
+
 
     public int getIdcompracontrato() {
         return idcompracontrato;

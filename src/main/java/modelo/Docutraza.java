@@ -15,6 +15,8 @@ public class Docutraza {
     int idsucursal;
     int idcompracontrato;
     int idpersona;
+    String razonsocial;
+    String cliente;
     String serieguia;
     String correlativo;
     String certificado;
@@ -29,12 +31,12 @@ public class Docutraza {
     public Docutraza() {
     }
 
-    public Docutraza(int iddocutraza, int idempresa, int idsucursal, int idcompracontrato, int idpersona, String serieguia, String correlativo, String certificado, int sacos, double kb, double kn, String fairtrade, String condicion, String fecha, String estado) {
+    public Docutraza(int iddocutraza, int idempresa, int idsucursal, int idcompracontrato, String cliente, String serieguia, String correlativo, String certificado, int sacos, double kb, double kn, String fairtrade, String condicion, String fecha, String estado) {
         this.iddocutraza = iddocutraza;
         this.idempresa = idempresa;
         this.idsucursal = idsucursal;
         this.idcompracontrato = idcompracontrato;
-        this.idpersona = idpersona;
+        this.cliente = cliente;
         this.serieguia = serieguia;
         this.correlativo = correlativo;
         this.certificado = certificado;
@@ -45,6 +47,45 @@ public class Docutraza {
         this.condicion = condicion;
         this.fecha = fecha;
         this.estado = estado;
+    }
+
+    public Docutraza(int iddocutraza, int idempresa, int idsucursal, int idcompracontrato, int idpersona, String razonsocial, String cliente, String serieguia, String correlativo, String certificado, int sacos, double kb, double kn, String fairtrade, String condicion, String fecha, String estado) {
+        this.iddocutraza = iddocutraza;
+        this.idempresa = idempresa;
+        this.idsucursal = idsucursal;
+        this.idcompracontrato = idcompracontrato;
+        this.idpersona = idpersona;
+        this.razonsocial = razonsocial;
+        this.cliente = cliente;
+        this.serieguia = serieguia;
+        this.correlativo = correlativo;
+        this.certificado = certificado;
+        this.sacos = sacos;
+        this.kb = kb;
+        this.kn = kn;
+        this.fairtrade = fairtrade;
+        this.condicion = condicion;
+        this.fecha = fecha;
+        this.estado = estado;
+    }
+
+    public String getRazonsocial() {
+        return razonsocial;
+    }
+
+    public void setRazonsocial(String razonsocial) {
+        this.razonsocial = razonsocial;
+    }
+
+ 
+    
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public int getIddocutraza() {

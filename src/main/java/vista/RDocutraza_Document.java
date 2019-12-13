@@ -15,11 +15,18 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
     public RDocutraza_Document() {
         initComponents();
-        btnRegistrar.setEnabled(false);
-        //btnNuevo.setEnabled(true);
-        txtId.setEnabled(false);
-        txtRSocial.setEnabled(false);
-        //txtDireccion.setEnabled(false);
+        btnRegTrack.setEnabled(false);
+        btnNTrack.setEnabled(false);
+        btnEditDocutraza.setEnabled(false);
+        txtIdDocutrza.setEnabled(false);
+        txtidCompContrato.setEnabled(false);
+        txtSerieGuia.setEnabled(false);
+        txtCorrelativo.setEnabled(false);
+        jdFecha.setEnabled(false);
+        txtSacos.setEnabled(false);
+        txtKb.setEnabled(false);
+        txtKn.setEnabled(false);
+        txtFairtrade.setEnabled(false);
     }
 
     /**
@@ -33,77 +40,63 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        txtId = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtEmpresa = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel22 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtEmpresa1 = new javax.swing.JTable();
-        jLabel26 = new javax.swing.JLabel();
-        txtId1 = new javax.swing.JTextField();
+        jtCompraContrato = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jcbEstado = new javax.swing.JComboBox<>();
+        jcbCliente = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jdFecha = new com.toedter.calendar.JDateChooser();
         jLabel21 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtId3 = new javax.swing.JTextField();
-        txtRSocial = new javax.swing.JTextField();
+        txtIdDocutrza = new javax.swing.JTextField();
+        txtKb = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jcbEstado1 = new javax.swing.JComboBox<>();
+        jcbCondicion = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
-        txtDireccion1 = new javax.swing.JTextField();
+        txtSerieGuia = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        txtDireccion2 = new javax.swing.JTextField();
-        jcbEstado2 = new javax.swing.JComboBox<>();
-        txtRSocial3 = new javax.swing.JTextField();
+        txtCorrelativo = new javax.swing.JTextField();
+        jcbEstTrack = new javax.swing.JComboBox<>();
+        txtSacos = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtRSocial4 = new javax.swing.JTextField();
+        txtKn = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtRSocial5 = new javax.swing.JTextField();
+        txtFairtrade = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jcbEstado3 = new javax.swing.JComboBox<>();
-        btnNuevo1 = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
+        jcbCertificado = new javax.swing.JComboBox<>();
+        btnRegTrack = new javax.swing.JButton();
+        btnEditDocutraza = new javax.swing.JButton();
+        btnNTrack = new javax.swing.JButton();
+        txtidCompContrato = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        txtFecha = new com.toedter.calendar.JDateChooser();
         jLabel32 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtId7 = new javax.swing.JTextField();
+        txtIddocumento = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        txtDireccion3 = new javax.swing.JTextField();
+        txtSerie = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        txtDireccion4 = new javax.swing.JTextField();
-        jcbEstado6 = new javax.swing.JComboBox<>();
-        jcbEstado7 = new javax.swing.JComboBox<>();
-        btnNuevo2 = new javax.swing.JButton();
-        btnRegistrar1 = new javax.swing.JButton();
-        txtId8 = new javax.swing.JTextField();
+        txtDocCorrelativo = new javax.swing.JTextField();
+        jcbEstDoc = new javax.swing.JComboBox<>();
+        jcbTDocumento = new javax.swing.JComboBox<>();
+        btnNDocumento = new javax.swing.JButton();
+        btnRegDocumento = new javax.swing.JButton();
+        txtIdDocutraza = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        btnEditar2 = new javax.swing.JButton();
+        btnEditDocumento = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jtEmpresa2 = new javax.swing.JTable();
+        jtDocutraza = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jtEmpresa3 = new javax.swing.JTable();
-        btnRegistrar2 = new javax.swing.JButton();
-        jLabel33 = new javax.swing.JLabel();
-        txtId2 = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        txtId9 = new javax.swing.JTextField();
-        txtId10 = new javax.swing.JTextField();
-        jLabel37 = new javax.swing.JLabel();
-        txtId11 = new javax.swing.JTextField();
-        jLabel38 = new javax.swing.JLabel();
-        btnRegistrar3 = new javax.swing.JButton();
-        btnEditar3 = new javax.swing.JButton();
-        btnNuevo3 = new javax.swing.JButton();
-        btnRegistrar4 = new javax.swing.JButton();
+        jtAscDocumentos = new javax.swing.JTable();
+        btnVerConf = new javax.swing.JButton();
+        btnAsigConf = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 0, 51));
@@ -119,53 +112,17 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 1, true), "Mantenimiento de Apertura Contrato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12), new java.awt.Color(153, 0, 51))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 1, true), "Mantenimiento de Control de Tracking", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12), new java.awt.Color(153, 0, 51))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(153, 0, 51));
         jPanel2.setToolTipText("");
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtId.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId.setForeground(new java.awt.Color(0, 0, 102));
-        txtId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId.setEnabled(false);
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 670, 110, 20));
-
-        jtEmpresa.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jtEmpresa.setForeground(new java.awt.Color(51, 51, 255));
-        jtEmpresa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jtEmpresa.setGridColor(new java.awt.Color(0, 51, 153));
-        jScrollPane1.setViewportView(jtEmpresa);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 1030, 320));
-
         jSeparator1.setForeground(new java.awt.Color(153, 0, 51));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1510, 10));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 870, 10));
 
-        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel22.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel22.setText("Falta Comprar:");
-        jLabel22.setToolTipText("");
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 670, -1, 20));
-
-        jtEmpresa1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jtEmpresa1.setForeground(new java.awt.Color(51, 51, 255));
-        jtEmpresa1.setModel(new javax.swing.table.DefaultTableModel(
+        jtCompraContrato.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jtCompraContrato.setForeground(new java.awt.Color(51, 51, 255));
+        jtCompraContrato.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -176,53 +133,35 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtEmpresa1.setGridColor(new java.awt.Color(0, 51, 153));
-        jScrollPane2.setViewportView(jtEmpresa1);
+        jtCompraContrato.setGridColor(new java.awt.Color(0, 51, 153));
+        jScrollPane2.setViewportView(jtCompraContrato);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 390, 250));
-
-        jLabel26.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel26.setText("Total Compra:");
-        jLabel26.setToolTipText("");
-        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 670, -1, 20));
-
-        txtId1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId1.setForeground(new java.awt.Color(0, 0, 102));
-        txtId1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId1.setEnabled(false);
-        txtId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 670, 110, 20));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 1, true), "Registro de control de trackinglist", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 11), new java.awt.Color(153, 0, 51))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcbEstado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "wtorres" }));
-        jcbEstado.setToolTipText("");
-        jcbEstado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel3.add(jcbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 400, -1));
+        jcbCliente.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbCliente.setForeground(new java.awt.Color(0, 0, 153));
+        jcbCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "wtorres" }));
+        jcbCliente.setToolTipText("");
+        jcbCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel3.add(jcbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 400, -1));
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 0, 51));
         jLabel19.setText("Estado:");
         jLabel19.setToolTipText("");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, 20));
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, 20));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 51));
         jLabel5.setText("Condicion:");
         jLabel5.setToolTipText("");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, 20));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, 20));
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -230,37 +169,37 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel25.setText("Certificado:");
         jLabel25.setToolTipText("");
         jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
-        jPanel3.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 110, -1));
+        jPanel3.add(jdFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 110, -1));
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(153, 0, 51));
         jLabel21.setText("Fecha:");
         jLabel21.setToolTipText("");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 20));
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, 20));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel3.setText("idCContrato:");
+        jLabel3.setText("idDocutraza:");
         jLabel3.setToolTipText("");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
-        txtId3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId3.setForeground(new java.awt.Color(0, 0, 102));
-        txtId3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId3.setEnabled(false);
-        txtId3.addActionListener(new java.awt.event.ActionListener() {
+        txtIdDocutrza.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdDocutrza.setForeground(new java.awt.Color(0, 0, 102));
+        txtIdDocutrza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdDocutrza.setEnabled(false);
+        txtIdDocutrza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId3ActionPerformed(evt);
+                txtIdDocutrzaActionPerformed(evt);
             }
         });
-        jPanel3.add(txtId3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 70, -1));
+        jPanel3.add(txtIdDocutrza, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 60, -1));
 
-        txtRSocial.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtRSocial.setForeground(new java.awt.Color(0, 0, 102));
-        txtRSocial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(txtRSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 80, -1));
+        txtKb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtKb.setForeground(new java.awt.Color(0, 0, 102));
+        txtKb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(txtKb, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 80, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -274,14 +213,14 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel28.setForeground(new java.awt.Color(153, 0, 51));
         jLabel28.setText("Cliente:");
         jLabel28.setToolTipText("");
-        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
 
-        jcbEstado1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado1.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        jcbEstado1.setToolTipText("");
-        jcbEstado1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel3.add(jcbEstado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 150, -1));
+        jcbCondicion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbCondicion.setForeground(new java.awt.Color(0, 0, 153));
+        jcbCondicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbCondicion.setToolTipText("");
+        jcbCondicion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel3.add(jcbCondicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 150, -1));
 
         jLabel29.setBackground(new java.awt.Color(255, 255, 255));
         jLabel29.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -290,10 +229,10 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel29.setToolTipText("");
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
 
-        txtDireccion1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtDireccion1.setForeground(new java.awt.Color(0, 0, 102));
-        txtDireccion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(txtDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 70, -1));
+        txtSerieGuia.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtSerieGuia.setForeground(new java.awt.Color(0, 0, 102));
+        txtSerieGuia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(txtSerieGuia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 70, -1));
 
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
         jLabel30.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -302,22 +241,22 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel30.setToolTipText("");
         jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, 20));
 
-        txtDireccion2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtDireccion2.setForeground(new java.awt.Color(0, 0, 102));
-        txtDireccion2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(txtDireccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, -1));
+        txtCorrelativo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtCorrelativo.setForeground(new java.awt.Color(0, 0, 102));
+        txtCorrelativo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(txtCorrelativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, -1));
 
-        jcbEstado2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado2.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        jcbEstado2.setToolTipText("");
-        jcbEstado2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel3.add(jcbEstado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 150, -1));
+        jcbEstTrack.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbEstTrack.setForeground(new java.awt.Color(0, 0, 153));
+        jcbEstTrack.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbEstTrack.setToolTipText("");
+        jcbEstTrack.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel3.add(jcbEstTrack, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 120, -1));
 
-        txtRSocial3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtRSocial3.setForeground(new java.awt.Color(0, 0, 102));
-        txtRSocial3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(txtRSocial3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 60, -1));
+        txtSacos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtSacos.setForeground(new java.awt.Color(0, 0, 102));
+        txtSacos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(txtSacos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 60, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -326,10 +265,10 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel7.setToolTipText("");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
 
-        txtRSocial4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtRSocial4.setForeground(new java.awt.Color(0, 0, 102));
-        txtRSocial4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(txtRSocial4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 80, -1));
+        txtKn.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtKn.setForeground(new java.awt.Color(0, 0, 102));
+        txtKn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(txtKn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 80, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -338,10 +277,10 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel8.setToolTipText("");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, 20));
 
-        txtRSocial5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtRSocial5.setForeground(new java.awt.Color(0, 0, 102));
-        txtRSocial5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(txtRSocial5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 160, -1));
+        txtFairtrade.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtFairtrade.setForeground(new java.awt.Color(0, 0, 102));
+        txtFairtrade.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(txtFairtrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 160, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -350,41 +289,71 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel9.setToolTipText("");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
 
-        jcbEstado3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado3.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        jcbEstado3.setToolTipText("");
-        jcbEstado3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel3.add(jcbEstado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, -1));
+        jcbCertificado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbCertificado.setForeground(new java.awt.Color(0, 0, 153));
+        jcbCertificado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbCertificado.setToolTipText("");
+        jcbCertificado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel3.add(jcbCertificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, -1));
 
-        btnNuevo1.setBackground(new java.awt.Color(153, 0, 51));
-        btnNuevo1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNuevo1.setForeground(new java.awt.Color(0, 0, 153));
-        btnNuevo1.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
-        btnNuevo1.setText("Nuevo");
-        btnNuevo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnNuevo1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegTrack.setBackground(new java.awt.Color(153, 0, 51));
+        btnRegTrack.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnRegTrack.setForeground(new java.awt.Color(0, 0, 153));
+        btnRegTrack.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
+        btnRegTrack.setText("Registrar");
+        btnRegTrack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnRegTrack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevo1ActionPerformed(evt);
+                btnRegTrackActionPerformed(evt);
             }
         });
-        jPanel3.add(btnNuevo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 100, 30));
+        jPanel3.add(btnRegTrack, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 100, 30));
 
-        btnRegistrar.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegistrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(0, 0, 153));
-        btnRegistrar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnEditDocutraza.setBackground(new java.awt.Color(153, 0, 51));
+        btnEditDocutraza.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnEditDocutraza.setForeground(new java.awt.Color(0, 0, 153));
+        btnEditDocutraza.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
+        btnEditDocutraza.setText("Editar");
+        btnEditDocutraza.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnEditDocutraza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                btnEditDocutrazaActionPerformed(evt);
             }
         });
-        jPanel3.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 100, 30));
+        jPanel3.add(btnEditDocutraza, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 100, 30));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 470, 250));
-        jPanel3.getAccessibleContext().setAccessibleName("Registro de control de trackinglist");
+        btnNTrack.setBackground(new java.awt.Color(153, 0, 51));
+        btnNTrack.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnNTrack.setForeground(new java.awt.Color(0, 0, 153));
+        btnNTrack.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
+        btnNTrack.setText("Nuevo");
+        btnNTrack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnNTrack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNTrackActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnNTrack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 100, 30));
+
+        txtidCompContrato.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtidCompContrato.setForeground(new java.awt.Color(0, 0, 102));
+        txtidCompContrato.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtidCompContrato.setEnabled(false);
+        txtidCompContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidCompContratoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtidCompContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 60, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel6.setText("idCContrato:");
+        jLabel6.setToolTipText("");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 20));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 480, 250));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 1, true), "Registro de Documentos Asociados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 11), new java.awt.Color(153, 0, 51))); // NOI18N
@@ -403,7 +372,7 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel31.setText("Tipo Documento:");
         jLabel31.setToolTipText("");
         jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
-        jPanel4.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 110, -1));
+        jPanel4.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 110, -1));
 
         jLabel32.setBackground(new java.awt.Color(255, 255, 255));
         jLabel32.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -419,16 +388,16 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel11.setToolTipText("");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
 
-        txtId7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId7.setForeground(new java.awt.Color(0, 0, 102));
-        txtId7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId7.setEnabled(false);
-        txtId7.addActionListener(new java.awt.event.ActionListener() {
+        txtIddocumento.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIddocumento.setForeground(new java.awt.Color(0, 0, 102));
+        txtIddocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIddocumento.setEnabled(false);
+        txtIddocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId7ActionPerformed(evt);
+                txtIddocumentoActionPerformed(evt);
             }
         });
-        jPanel4.add(txtId7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 50, -1));
+        jPanel4.add(txtIddocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 50, -1));
 
         jLabel34.setBackground(new java.awt.Color(255, 255, 255));
         jLabel34.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -437,10 +406,10 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel34.setToolTipText("");
         jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
 
-        txtDireccion3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtDireccion3.setForeground(new java.awt.Color(0, 0, 102));
-        txtDireccion3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(txtDireccion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 70, -1));
+        txtSerie.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtSerie.setForeground(new java.awt.Color(0, 0, 102));
+        txtSerie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 70, -1));
 
         jLabel35.setBackground(new java.awt.Color(255, 255, 255));
         jLabel35.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -449,61 +418,61 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel35.setToolTipText("");
         jPanel4.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, 20));
 
-        txtDireccion4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtDireccion4.setForeground(new java.awt.Color(0, 0, 102));
-        txtDireccion4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(txtDireccion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 90, -1));
+        txtDocCorrelativo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtDocCorrelativo.setForeground(new java.awt.Color(0, 0, 102));
+        txtDocCorrelativo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.add(txtDocCorrelativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 90, -1));
 
-        jcbEstado6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado6.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        jcbEstado6.setToolTipText("");
-        jcbEstado6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel4.add(jcbEstado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 110, -1));
+        jcbEstDoc.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbEstDoc.setForeground(new java.awt.Color(0, 0, 153));
+        jcbEstDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbEstDoc.setToolTipText("");
+        jcbEstDoc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel4.add(jcbEstDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 110, -1));
 
-        jcbEstado7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado7.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        jcbEstado7.setToolTipText("");
-        jcbEstado7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel4.add(jcbEstado7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 150, -1));
+        jcbTDocumento.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbTDocumento.setForeground(new java.awt.Color(0, 0, 153));
+        jcbTDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbTDocumento.setToolTipText("");
+        jcbTDocumento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel4.add(jcbTDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 150, -1));
 
-        btnNuevo2.setBackground(new java.awt.Color(153, 0, 51));
-        btnNuevo2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNuevo2.setForeground(new java.awt.Color(0, 0, 153));
-        btnNuevo2.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
-        btnNuevo2.setText("Nuevo");
-        btnNuevo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnNuevo2.addActionListener(new java.awt.event.ActionListener() {
+        btnNDocumento.setBackground(new java.awt.Color(153, 0, 51));
+        btnNDocumento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnNDocumento.setForeground(new java.awt.Color(0, 0, 153));
+        btnNDocumento.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
+        btnNDocumento.setText("Nuevo");
+        btnNDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnNDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevo2ActionPerformed(evt);
+                btnNDocumentoActionPerformed(evt);
             }
         });
-        jPanel4.add(btnNuevo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, 30));
+        jPanel4.add(btnNDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, 30));
 
-        btnRegistrar1.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegistrar1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar1.setForeground(new java.awt.Color(0, 0, 153));
-        btnRegistrar1.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnRegistrar1.setText("Registrar");
-        btnRegistrar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnRegistrar1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegDocumento.setBackground(new java.awt.Color(153, 0, 51));
+        btnRegDocumento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnRegDocumento.setForeground(new java.awt.Color(0, 0, 153));
+        btnRegDocumento.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
+        btnRegDocumento.setText("Registrar");
+        btnRegDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnRegDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrar1ActionPerformed(evt);
+                btnRegDocumentoActionPerformed(evt);
             }
         });
-        jPanel4.add(btnRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 100, 30));
+        jPanel4.add(btnRegDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 100, 30));
 
-        txtId8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId8.setForeground(new java.awt.Color(0, 0, 102));
-        txtId8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId8.setEnabled(false);
-        txtId8.addActionListener(new java.awt.event.ActionListener() {
+        txtIdDocutraza.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdDocutraza.setForeground(new java.awt.Color(0, 0, 102));
+        txtIdDocutraza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdDocutraza.setEnabled(false);
+        txtIdDocutraza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId8ActionPerformed(evt);
+                txtIdDocutrazaActionPerformed(evt);
             }
         });
-        jPanel4.add(txtId8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 50, -1));
+        jPanel4.add(txtIdDocutraza, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 50, -1));
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -512,24 +481,24 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel16.setToolTipText("");
         jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, 20));
 
-        btnEditar2.setBackground(new java.awt.Color(153, 0, 51));
-        btnEditar2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnEditar2.setForeground(new java.awt.Color(0, 0, 153));
-        btnEditar2.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
-        btnEditar2.setText("Editar");
-        btnEditar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnEditar2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditDocumento.setBackground(new java.awt.Color(153, 0, 51));
+        btnEditDocumento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnEditDocumento.setForeground(new java.awt.Color(0, 0, 153));
+        btnEditDocumento.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
+        btnEditDocumento.setText("Editar");
+        btnEditDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnEditDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar2ActionPerformed(evt);
+                btnEditDocumentoActionPerformed(evt);
             }
         });
-        jPanel4.add(btnEditar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 100, 30));
+        jPanel4.add(btnEditDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 100, 30));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 470, 470, 190));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, 470, 190));
 
-        jtEmpresa2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jtEmpresa2.setForeground(new java.awt.Color(51, 51, 255));
-        jtEmpresa2.setModel(new javax.swing.table.DefaultTableModel(
+        jtDocutraza.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jtDocutraza.setForeground(new java.awt.Color(51, 51, 255));
+        jtDocutraza.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -540,14 +509,14 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtEmpresa2.setGridColor(new java.awt.Color(0, 51, 153));
-        jScrollPane3.setViewportView(jtEmpresa2);
+        jtDocutraza.setGridColor(new java.awt.Color(0, 51, 153));
+        jScrollPane3.setViewportView(jtDocutraza);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 30, 630, 240));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 880, 320));
 
-        jtEmpresa3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jtEmpresa3.setForeground(new java.awt.Color(51, 51, 255));
-        jtEmpresa3.setModel(new javax.swing.table.DefaultTableModel(
+        jtAscDocumentos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jtAscDocumentos.setForeground(new java.awt.Color(51, 51, 255));
+        jtAscDocumentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -558,149 +527,38 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtEmpresa3.setGridColor(new java.awt.Color(0, 51, 153));
-        jScrollPane4.setViewportView(jtEmpresa3);
+        jtAscDocumentos.setGridColor(new java.awt.Color(0, 51, 153));
+        jScrollPane4.setViewportView(jtAscDocumentos);
 
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 290, 470, 170));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 220, 470, 430));
 
-        btnRegistrar2.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegistrar2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar2.setForeground(new java.awt.Color(0, 0, 153));
-        btnRegistrar2.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnRegistrar2.setText("Excel");
-        btnRegistrar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnRegistrar2.addActionListener(new java.awt.event.ActionListener() {
+        btnVerConf.setBackground(new java.awt.Color(153, 0, 51));
+        btnVerConf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnVerConf.setForeground(new java.awt.Color(0, 0, 153));
+        btnVerConf.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
+        btnVerConf.setText("Ver Conformación");
+        btnVerConf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnVerConf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrar2ActionPerformed(evt);
+                btnVerConfActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegistrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, 100, 30));
+        jPanel2.add(btnVerConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 160, 30));
 
-        jLabel33.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel33.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel33.setText("Total Compra:");
-        jLabel33.setToolTipText("");
-        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, 20));
-
-        txtId2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId2.setForeground(new java.awt.Color(0, 0, 102));
-        txtId2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId2.setEnabled(false);
-        txtId2.addActionListener(new java.awt.event.ActionListener() {
+        btnAsigConf.setBackground(new java.awt.Color(153, 0, 51));
+        btnAsigConf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnAsigConf.setForeground(new java.awt.Color(0, 0, 153));
+        btnAsigConf.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
+        btnAsigConf.setText("Asignar Conformación");
+        btnAsigConf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnAsigConf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId2ActionPerformed(evt);
+                btnAsigConfActionPerformed(evt);
             }
         });
-        jPanel2.add(txtId2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 110, 20));
+        jPanel2.add(btnAsigConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 160, 30));
 
-        jLabel36.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel36.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel36.setText("Falta Comprar:");
-        jLabel36.setToolTipText("");
-        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, -1, 20));
-
-        txtId9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId9.setForeground(new java.awt.Color(0, 0, 102));
-        txtId9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId9.setEnabled(false);
-        txtId9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId9ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtId9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 110, 20));
-
-        txtId10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId10.setForeground(new java.awt.Color(0, 0, 102));
-        txtId10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId10.setEnabled(false);
-        txtId10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId10ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtId10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 110, 20));
-
-        jLabel37.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel37.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel37.setText("Falta Comprar:");
-        jLabel37.setToolTipText("");
-        jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, 20));
-
-        txtId11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId11.setForeground(new java.awt.Color(0, 0, 102));
-        txtId11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId11.setEnabled(false);
-        txtId11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId11ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtId11, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 300, 110, 20));
-
-        jLabel38.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel38.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel38.setText("Falta Comprar:");
-        jLabel38.setToolTipText("");
-        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, -1, 20));
-
-        btnRegistrar3.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegistrar3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar3.setForeground(new java.awt.Color(0, 0, 153));
-        btnRegistrar3.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnRegistrar3.setText("Registrar");
-        btnRegistrar3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnRegistrar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrar3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnRegistrar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 660, 100, 40));
-
-        btnEditar3.setBackground(new java.awt.Color(153, 0, 51));
-        btnEditar3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnEditar3.setForeground(new java.awt.Color(0, 0, 153));
-        btnEditar3.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
-        btnEditar3.setText("Editar");
-        btnEditar3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnEditar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEditar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 660, 100, 40));
-
-        btnNuevo3.setBackground(new java.awt.Color(153, 0, 51));
-        btnNuevo3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNuevo3.setForeground(new java.awt.Color(0, 0, 153));
-        btnNuevo3.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
-        btnNuevo3.setText("Nuevo");
-        btnNuevo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnNuevo3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevo3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnNuevo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 660, 100, 40));
-
-        btnRegistrar4.setBackground(new java.awt.Color(153, 0, 51));
-        btnRegistrar4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar4.setForeground(new java.awt.Color(0, 0, 153));
-        btnRegistrar4.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnRegistrar4.setText("Procesar");
-        btnRegistrar4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnRegistrar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrar4ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnRegistrar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 290, 100, 30));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1530, 710));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1380, 660));
         jPanel2.getAccessibleContext().setAccessibleName("Mantenimiento de Compra Contrato");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -709,126 +567,89 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("REGISTRO DE CONTROL DE TRACKINGLIST");
         jLabel2.setToolTipText("");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1550, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1400, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 760));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+    private void btnRegTrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegTrackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
+    }//GEN-LAST:event_btnRegTrackActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    private void btnEditDocutrazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDocutrazaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    }//GEN-LAST:event_btnEditDocutrazaActionPerformed
 
-    private void txtId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId1ActionPerformed
+    private void btnVerConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerConfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId1ActionPerformed
+    }//GEN-LAST:event_btnVerConfActionPerformed
 
-    private void btnEditar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar2ActionPerformed
+    private void txtIdDocutrzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdDocutrzaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditar2ActionPerformed
+    }//GEN-LAST:event_txtIdDocutrzaActionPerformed
 
-    private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
+    private void btnRegDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevo1ActionPerformed
+    }//GEN-LAST:event_btnRegDocumentoActionPerformed
 
-    private void txtId3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId3ActionPerformed
+    private void btnNDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId3ActionPerformed
+    }//GEN-LAST:event_btnNDocumentoActionPerformed
 
-    private void btnRegistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar1ActionPerformed
+    private void txtIddocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIddocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrar1ActionPerformed
+    }//GEN-LAST:event_txtIddocumentoActionPerformed
 
-    private void btnNuevo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo2ActionPerformed
+    private void txtIdDocutrazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdDocutrazaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevo2ActionPerformed
+    }//GEN-LAST:event_txtIdDocutrazaActionPerformed
 
-    private void txtId7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId7ActionPerformed
+    private void btnEditDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId7ActionPerformed
+    }//GEN-LAST:event_btnEditDocumentoActionPerformed
 
-    private void txtId8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId8ActionPerformed
+    private void btnNTrackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNTrackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId8ActionPerformed
+    }//GEN-LAST:event_btnNTrackActionPerformed
 
-    private void btnRegistrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar2ActionPerformed
+    private void btnAsigConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsigConfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrar2ActionPerformed
+    }//GEN-LAST:event_btnAsigConfActionPerformed
 
-    private void txtId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId2ActionPerformed
+    private void txtidCompContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidCompContratoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId2ActionPerformed
-
-    private void txtId9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtId9ActionPerformed
-
-    private void txtId10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtId10ActionPerformed
-
-    private void txtId11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtId11ActionPerformed
-
-    private void btnRegistrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrar3ActionPerformed
-
-    private void btnEditar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditar3ActionPerformed
-
-    private void btnNuevo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevo3ActionPerformed
-
-    private void btnRegistrar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrar4ActionPerformed
+    }//GEN-LAST:event_txtidCompContratoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnEditar2;
-    public javax.swing.JButton btnEditar3;
-    public javax.swing.JButton btnNuevo1;
-    public javax.swing.JButton btnNuevo2;
-    public javax.swing.JButton btnNuevo3;
-    public javax.swing.JButton btnRegistrar;
-    public javax.swing.JButton btnRegistrar1;
-    public javax.swing.JButton btnRegistrar2;
-    public javax.swing.JButton btnRegistrar3;
-    public javax.swing.JButton btnRegistrar4;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public javax.swing.JButton btnAsigConf;
+    public javax.swing.JButton btnEditDocumento;
+    public javax.swing.JButton btnEditDocutraza;
+    public javax.swing.JButton btnNDocumento;
+    public javax.swing.JButton btnNTrack;
+    public javax.swing.JButton btnRegDocumento;
+    public javax.swing.JButton btnRegTrack;
+    public javax.swing.JButton btnVerConf;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -836,37 +657,32 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JComboBox<String> jcbEstado;
-    public javax.swing.JComboBox<String> jcbEstado1;
-    public javax.swing.JComboBox<String> jcbEstado2;
-    public javax.swing.JComboBox<String> jcbEstado3;
-    public javax.swing.JComboBox<String> jcbEstado6;
-    public javax.swing.JComboBox<String> jcbEstado7;
-    public javax.swing.JTable jtEmpresa;
-    public javax.swing.JTable jtEmpresa1;
-    public javax.swing.JTable jtEmpresa2;
-    public javax.swing.JTable jtEmpresa3;
-    public javax.swing.JTextField txtDireccion1;
-    public javax.swing.JTextField txtDireccion2;
-    public javax.swing.JTextField txtDireccion3;
-    public javax.swing.JTextField txtDireccion4;
-    public javax.swing.JTextField txtId;
-    public javax.swing.JTextField txtId1;
-    public javax.swing.JTextField txtId10;
-    public javax.swing.JTextField txtId11;
-    public javax.swing.JTextField txtId2;
-    public javax.swing.JTextField txtId3;
-    public javax.swing.JTextField txtId7;
-    public javax.swing.JTextField txtId8;
-    public javax.swing.JTextField txtId9;
-    public javax.swing.JTextField txtRSocial;
-    public javax.swing.JTextField txtRSocial3;
-    public javax.swing.JTextField txtRSocial4;
-    public javax.swing.JTextField txtRSocial5;
+    public javax.swing.JComboBox<String> jcbCertificado;
+    public javax.swing.JComboBox<String> jcbCliente;
+    public javax.swing.JComboBox<String> jcbCondicion;
+    public javax.swing.JComboBox<String> jcbEstDoc;
+    public javax.swing.JComboBox<String> jcbEstTrack;
+    public javax.swing.JComboBox<String> jcbTDocumento;
+    public com.toedter.calendar.JDateChooser jdFecha;
+    public javax.swing.JTable jtAscDocumentos;
+    public javax.swing.JTable jtCompraContrato;
+    public javax.swing.JTable jtDocutraza;
+    public javax.swing.JTextField txtCorrelativo;
+    public javax.swing.JTextField txtDocCorrelativo;
+    public javax.swing.JTextField txtFairtrade;
+    private com.toedter.calendar.JDateChooser txtFecha;
+    public javax.swing.JTextField txtIdDocutraza;
+    public javax.swing.JTextField txtIdDocutrza;
+    public javax.swing.JTextField txtIddocumento;
+    public javax.swing.JTextField txtKb;
+    public javax.swing.JTextField txtKn;
+    public javax.swing.JTextField txtSacos;
+    public javax.swing.JTextField txtSerie;
+    public javax.swing.JTextField txtSerieGuia;
+    public javax.swing.JTextField txtidCompContrato;
     // End of variables declaration//GEN-END:variables
 }

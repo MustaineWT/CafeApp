@@ -16,8 +16,9 @@ public class UtilidadCC {
     public static final int idaperturacontrato = 3;
     public static final int peso = 4;
     public static final int precio = 5;
-    public static final int fecha = 6;
-    public static final int estado = 7;
+    public static final int imptotal = 6;
+    public static final int fecha = 7;
+    public static final int estado = 8;
     public static int filaSeleccionada;
 
 }

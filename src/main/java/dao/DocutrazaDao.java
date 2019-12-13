@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import modelo.CompraContrato;
 import modelo.Docutraza;
 
 /**
@@ -18,13 +19,13 @@ import modelo.Docutraza;
  */
 public class DocutrazaDao {
 
-    public String insertDocutraza(
+      public String insertDocutraza(
             int iddocutraza,
             int idempresa,
             int idsucursal,
             int idcompracontrato,
             int idpersona,
-            String serieguia,
+            String serie,
             String correlativo,
             String certificado,
             int sacos,
@@ -37,23 +38,22 @@ public class DocutrazaDao {
         String rptaRegistro = null;
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
-            CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZARDOCUTRAZA(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZARDOCUTRAZA(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt(1, iddocutraza);
             cs.setInt(2, idempresa);
             cs.setInt(3, idsucursal);
             cs.setInt(4, idcompracontrato);
             cs.setInt(5, idpersona);
-            cs.setString(6, serieguia);
+            cs.setString(6, serie);
             cs.setString(7, correlativo);
             cs.setString(8, certificado);
-            cs.setString(9, certificado);
-            cs.setInt(10, sacos);
-            cs.setDouble(11, kb);
-            cs.setDouble(12, kn);
-            cs.setString(13, fairtrade);
-            cs.setString(14, condicion);
-            cs.setString(15, fecha);
-            cs.setString(16, estado);
+            cs.setInt(9, sacos);
+            cs.setDouble(10, kb);
+            cs.setDouble(11, kn);
+            cs.setString(12, fairtrade);
+            cs.setString(13, condicion);
+            cs.setString(14, fecha);
+            cs.setString(15, estado);
 
             int numFAfectas = cs.executeUpdate();
 
@@ -72,7 +72,7 @@ public class DocutrazaDao {
             int idsucursal,
             int idcompracontrato,
             int idpersona,
-            String serieguia,
+            String serie,
             String correlativo,
             String certificado,
             int sacos,
@@ -85,23 +85,22 @@ public class DocutrazaDao {
         String rptaRegistro = null;
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
-            CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZARDOCUTRAZA(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZARDOCUTRAZA(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt(1, iddocutraza);
             cs.setInt(2, idempresa);
             cs.setInt(3, idsucursal);
             cs.setInt(4, idcompracontrato);
             cs.setInt(5, idpersona);
-            cs.setString(6, serieguia);
+            cs.setString(6, serie);
             cs.setString(7, correlativo);
             cs.setString(8, certificado);
-            cs.setString(9, certificado);
-            cs.setInt(10, sacos);
-            cs.setDouble(11, kb);
-            cs.setDouble(12, kn);
-            cs.setString(13, fairtrade);
-            cs.setString(14, condicion);
-            cs.setString(15, fecha);
-            cs.setString(16, estado);
+            cs.setInt(9, sacos);
+            cs.setDouble(10, kb);
+            cs.setDouble(11, kn);
+            cs.setString(12, fairtrade);
+            cs.setString(13, condicion);
+            cs.setString(14, fecha);
+            cs.setString(15, estado);
 
             int numFAfectas = cs.executeUpdate();
 
@@ -114,29 +113,142 @@ public class DocutrazaDao {
         return rptaRegistro;
     }
 
-    public ArrayList<Docutraza> listDocutraza() {
+    public static ArrayList<Docutraza> listDocutraza(
+            int idempresa,
+            int idsucursal) {
         ArrayList listaDocutraza = new ArrayList();
         Docutraza docutraza;
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
-            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERDOCUTRAZA()}");
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERDOCUTRAZA(?,?)}");            
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                docutraza = new Docutraza();                                
+                docutraza.setIddocutraza(rs.getInt(1));
+                docutraza.setIdempresa(rs.getInt(2));
+                docutraza.setIdsucursal(rs.getInt(3));
+                docutraza.setIdcompracontrato(rs.getInt(4));
+                docutraza.setCliente(rs.getString(5));
+                docutraza.setSerieguia(rs.getString(6));
+                docutraza.setCorrelativo(rs.getString(7));
+                docutraza.setCertificado(rs.getString(8));
+                docutraza.setSacos(rs.getInt(9));
+                docutraza.setKb(rs.getDouble(10));
+                docutraza.setKn(rs.getDouble(11));
+                docutraza.setFairtrade(rs.getString(12));
+                docutraza.setCondicion(rs.getString(13));
+                docutraza.setFecha(rs.getString(14));
+                docutraza.setEstado(rs.getString(15));
+                listaDocutraza.add(docutraza);
+            }
+            rs.close();
+        } catch (Exception e) {
+
+        }
+        return listaDocutraza;
+    }
+    public static ArrayList<CompraContrato> listCompraContrato(
+            int idempresa,
+            int idsucursal) {
+        ArrayList listaCompracontrato = new ArrayList();
+        CompraContrato compracontrato;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERCOMPRACONTRATO(?,?)}");            
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                compracontrato = new CompraContrato();                                
+                compracontrato.setIdcompracontrato(rs.getInt(1));
+                compracontrato.setIdempresa(rs.getInt(2));
+                compracontrato.setIdsucursal(rs.getInt(3));
+                compracontrato.setIdaperturacontrato(rs.getInt(4));
+                compracontrato.setPeso(rs.getDouble(5));
+                compracontrato.setPrecio(rs.getDouble(6));
+                compracontrato.setImptotal(rs.getDouble(7));
+                compracontrato.setFecha(rs.getString(8));
+                compracontrato.setEstado(rs.getString(9));
+                listaCompracontrato.add(compracontrato);
+            }
+            rs.close();
+        } catch (Exception e) {
+
+        }
+        return listaCompracontrato;
+    }
+    
+    public static ArrayList<Docutraza> SelectDocutraza(
+            int idempresa,
+            int idsucursal,
+            int iddocutraza) {
+        ArrayList listaDocutraza = new ArrayList();
+        Docutraza docutraza;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERDOCUTRAZA_SELECT(?,?,?)}");            
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ps.setInt(3, iddocutraza);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                docutraza = new Docutraza();                                
+                docutraza.setIddocutraza(rs.getInt(1));
+                docutraza.setIdempresa(rs.getInt(2));
+                docutraza.setIdsucursal(rs.getInt(3));
+                docutraza.setIdcompracontrato(rs.getInt(4));
+                docutraza.setCliente(rs.getString(5));
+                docutraza.setSerieguia(rs.getString(6));
+                docutraza.setCorrelativo(rs.getString(7));
+                docutraza.setCertificado(rs.getString(8));
+                docutraza.setSacos(rs.getInt(9));
+                docutraza.setKb(rs.getDouble(10));
+                docutraza.setKn(rs.getDouble(11));
+                docutraza.setFairtrade(rs.getString(12));
+                docutraza.setCondicion(rs.getString(13));
+                docutraza.setFecha(rs.getString(14));
+                docutraza.setEstado(rs.getString(15));
+                listaDocutraza.add(docutraza);
+            }
+            rs.close();
+        } catch (Exception e) {
+
+        }
+        return listaDocutraza;
+    }
+       
+    public static ArrayList<CompraContrato> listCompraContratoBuscar(
+            int idempresa,
+            int idsucursal,
+            String texto) {
+        ArrayList listaDocutraza = new ArrayList();
+        CompraContrato docutraza;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERAPERTURACONTRATOBUSCAR(?,?,?)}");
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ps.setString(3, texto);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                docutraza = new Docutraza();
-                docutraza.setIdempresa(rs.getInt(1));
-                docutraza.setIdsucursal(rs.getInt(2));
-                docutraza.setIdcompracontrato(rs.getInt(3));//armar otro para la vista
-                docutraza.setIdpersona(rs.getInt(4));//armar otro para la vista
-                docutraza.setSerieguia(rs.getString(5));
-                docutraza.setCorrelativo(rs.getString(6));
-                docutraza.setCertificado(rs.getString(7));
-                docutraza.setSacos(rs.getInt(8));
-                docutraza.setKb(rs.getDouble(9));
-                docutraza.setKn(rs.getDouble(10));
-                docutraza.setFairtrade(rs.getString(11));
-                docutraza.setCondicion(rs.getString(12));
-                docutraza.setFecha(rs.getString(13));
-                docutraza.setEstado(rs.getString(14));
+                docutraza = new CompraContrato();                                
+//                docutraza.setIddocutraza(rs.getInt(1));
+//                docutraza.setIdempresa(rs.getInt(2));
+//                docutraza.setIdsucursal(rs.getInt(3));
+//                docutraza.setIdcompracontrato(rs.getInt(4));
+//                docutraza.setCliente(rs.getString(5));
+//                docutraza.setSerieguia(rs.getString(6));
+//                docutraza.setCorrelativo(rs.getString(7));
+//                docutraza.setCertificado(rs.getString(8));
+//                docutraza.setSacos(rs.getInt(9));
+//                docutraza.setKb(rs.getDouble(10));
+//                docutraza.setKn(rs.getDouble(11));
+//                docutraza.setFairtrade(rs.getString(12));
+//                docutraza.setCondicion(rs.getString(13));
+//                docutraza.setFecha(rs.getString(14));
+//                docutraza.setEstado(rs.getString(15));
                 listaDocutraza.add(docutraza);
             }
         } catch (Exception e) {
@@ -144,5 +256,63 @@ public class DocutrazaDao {
         }
         return listaDocutraza;
     }
-   
+    
+    public static ArrayList<Docutraza> listDocutrazaBuscar(
+            int idempresa,
+            int idsucursal,
+            String texto) {
+        ArrayList listaDocutraza = new ArrayList();
+        Docutraza docutraza;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERAPERTURACONTRATOBUSCAR(?,?,?)}");
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ps.setString(3, texto);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                docutraza = new Docutraza();                                
+                docutraza.setIddocutraza(rs.getInt(1));
+                docutraza.setIdempresa(rs.getInt(2));
+                docutraza.setIdsucursal(rs.getInt(3));
+                docutraza.setIdcompracontrato(rs.getInt(4));
+                docutraza.setCliente(rs.getString(5));
+                docutraza.setSerieguia(rs.getString(6));
+                docutraza.setCorrelativo(rs.getString(7));
+                docutraza.setCertificado(rs.getString(8));
+                docutraza.setSacos(rs.getInt(9));
+                docutraza.setKb(rs.getDouble(10));
+                docutraza.setKn(rs.getDouble(11));
+                docutraza.setFairtrade(rs.getString(12));
+                docutraza.setCondicion(rs.getString(13));
+                docutraza.setFecha(rs.getString(14));
+                docutraza.setEstado(rs.getString(15));
+                listaDocutraza.add(docutraza);
+            }
+        } catch (Exception e) {
+
+        }
+        return listaDocutraza;
+    }
+    
+     public static ArrayList<Docutraza> idNuevoDocutraza() {
+        ArrayList listaDocutraza = new ArrayList();
+        Docutraza docutraza;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERIDNUEVOAPC()}");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                docutraza = new Docutraza();
+                docutraza.setIddocutraza(rs.getInt(1));             
+                listaDocutraza.add(docutraza);
+            }
+        } catch (Exception e) {
+        }
+        return listaDocutraza;
+    }
+
+    
+    
+    
 }

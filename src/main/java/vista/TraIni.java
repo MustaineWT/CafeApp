@@ -6,7 +6,9 @@
 package vista;
 
 import Controlador.ControladorCrudAperturaContrato;
+import Controlador.ControladorCrudCompraContrato;
 import dao.AperturaContratoDao;
+import dao.CompraContratoDao;
 
 /**
  *
@@ -426,7 +428,16 @@ public class TraIni extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
+        RCompraContrato ventana2 = new RCompraContrato();
+        CompraContratoDao modeloC2 = new CompraContratoDao();
+        ControladorCrudCompraContrato controlaC = new ControladorCrudCompraContrato(ventana2, modeloC2);
+        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
+        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+        int apc=0;
+        controlaC.construirTablaCc(empresa, idsucursal,apc);
+        controlaC.construirTablaApc(empresa, idsucursal);
+        dskPrincipal.add(ventana2);
+        ventana2.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**

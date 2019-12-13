@@ -93,7 +93,7 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
                     || vistaCRUD.txtFecha.getDate().equals("")) {
                 JOptionPane.showMessageDialog(null, "Debe Llenar todos los datos necesarios.");
             } else {
-                if (vistaCRUD.btnEditar.getText() == "Guardar") {
+                if (vistaCRUD.btnRegistrar.getText() == "Guardar") {
                     int idapc = Integer.valueOf(vistaCRUD.txtIdApC.getText());
                     ListaCombos cli = (ListaCombos) vistaCRUD.jcbPersona.getSelectedItem();
                     int cliente = cli.getIdpersona();
@@ -258,8 +258,8 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
                     } else {
                         vistaCRUD.jcbEstado.setSelectedIndex(1);
                     }
-                    reiniciarJTable(vistaCRUD.jtAperturaContrato);
-                    construirTabla(idempresa, idsucursal);
+                    //reiniciarJTable(vistaCRUD.jtAperturaContrato);
+                    //construirTabla(idempresa, idsucursal);
                 }
             } catch (HeadlessException ex) {
 
