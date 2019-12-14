@@ -353,6 +353,9 @@ public class TraIni extends javax.swing.JFrame {
         EmpresaDao modeloC = new EmpresaDao();
         //ControladorCrudEmpresa controlaC = new ControladorCrudEmpresa(ventana1, modeloC);
         //controlaC.LlenarTabla(ventana1.jtEmpresa);
+        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
+        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+        //controlaC.construirTablaEmpresa();
         dskPrincipal.add(ventana1);
         ventana1.setVisible(true);
     }//GEN-LAST:event_jmEmpresaActionPerformed
