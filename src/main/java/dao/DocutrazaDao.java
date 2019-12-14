@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import modelo.CompraContrato;
+import modelo.Documento;
 import modelo.Docutraza;
 import modelo.TipoDocumento;
 
@@ -55,6 +56,75 @@ public class DocutrazaDao {
             cs.setString(13, condicion);
             cs.setString(14, fecha);
             cs.setString(15, estado);
+
+            int numFAfectas = cs.executeUpdate();
+
+            if (numFAfectas == -1) {
+                rptaRegistro = "Registro Exitoso.";
+            }
+        } catch (Exception e) {
+
+        }
+        return rptaRegistro;
+    }
+      public String insertDocumento(
+            int iddocumento,
+            int idempresa,
+            int idsucursal,
+            int iddocutrazad,
+            int idtdocumento,
+            String serie,
+            String correlativo,
+            String fecha,
+            String estado) {
+        String rptaRegistro = null;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZARDOCUMENTO(?,?,?,?,?,?,?,?,?)}");
+            cs.setInt(1, iddocumento);
+            cs.setInt(2, idempresa);
+            cs.setInt(3, idsucursal);
+            cs.setInt(4, iddocutrazad);
+            cs.setInt(5, idtdocumento);
+            cs.setString(6, serie);
+            cs.setString(7, correlativo);
+            cs.setString(8, fecha);
+            cs.setString(9, estado);
+
+            int numFAfectas = cs.executeUpdate();
+
+            if (numFAfectas == -1) {
+                rptaRegistro = "Registro Exitoso.";
+            }
+        } catch (Exception e) {
+
+        }
+        return rptaRegistro;
+    }
+
+      public String updateDocumento(
+            int iddocumento,
+            int idempresa,
+            int idsucursal,
+            int iddocutrazad,
+            int idtdocumento,
+            String serie,
+            String correlativo,
+            String fecha,
+            String estado) {
+        String rptaRegistro = null;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZARDOCUMENTO(?,?,?,?,?,?,?,?,?)}");
+            cs.setInt(1, iddocumento);
+            cs.setInt(2, idempresa);
+            cs.setInt(3, idsucursal);
+            cs.setInt(4, iddocutrazad);
+            cs.setInt(5, idtdocumento);
+            cs.setString(6, serie);
+            cs.setString(7, correlativo);
+            cs.setString(8, fecha);
+            cs.setString(9, estado);
 
             int numFAfectas = cs.executeUpdate();
 
@@ -220,6 +290,101 @@ public class DocutrazaDao {
         }
         return listaDocutraza;
     }
+    public static ArrayList<Documento> listaDocumento(           
+            int idempresa,
+            int idsucursal,
+            int iddocutraza) {
+        ArrayList listaDocutraza = new ArrayList();
+        Documento documento;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERDOCUMENTO(?,?,?)}");       
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ps.setInt(3, iddocutraza);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                documento = new Documento();                                
+                documento.setIddocumento(rs.getInt(1));
+                documento.setIdempresa(rs.getInt(2));
+                documento.setIdsucursal(rs.getInt(3));
+                documento.setIddocutraza(rs.getInt(4));
+                documento.setIdentificador(rs.getString(5));
+                documento.setSerie(rs.getString(6));
+                documento.setCorrelativo(rs.getString(7));
+                documento.setFecha(rs.getString(8));
+                documento.setEstado(rs.getString(9));
+                listaDocutraza.add(documento);
+            }
+            rs.close();
+        } catch (Exception e) {
+
+        }
+        return listaDocutraza;
+    }
+    public static ArrayList<Documento> listaDocumentoBuscar(
+            int idempresa,
+            int idsucursal) {
+        ArrayList listaDocutraza = new ArrayList();
+        Documento documento;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERDOCUMENTO_SELECT(?,?)}");            
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                documento = new Documento();                                
+                documento.setIddocumento(rs.getInt(1));
+                documento.setIdempresa(rs.getInt(2));
+                documento.setIdsucursal(rs.getInt(3));
+                documento.setIddocutraza(rs.getInt(4));
+                documento.setIdentificador(rs.getString(5));
+                documento.setSerie(rs.getString(6));
+                documento.setCorrelativo(rs.getString(7));
+                documento.setFecha(rs.getString(8));
+                documento.setEstado(rs.getString(9));
+                listaDocutraza.add(documento);
+            }
+            rs.close();
+        } catch (Exception e) {
+
+        }
+        return listaDocutraza;
+    }
+    public static ArrayList<Documento> SelectDocumento(
+            int idempresa,
+            int idsucursal,
+            int iddocumento) {
+        ArrayList listaDocutraza = new ArrayList();
+        Documento documento;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERDOCUMENTO_SELECT(?,?,?)}");            
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idsucursal);
+            ps.setInt(3, iddocumento);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                documento = new Documento();                                
+                documento.setIddocumento(rs.getInt(1));
+                documento.setIdempresa(rs.getInt(2));
+                documento.setIdsucursal(rs.getInt(3));
+                documento.setIddocutraza(rs.getInt(4));
+                documento.setIdentificador(rs.getString(5));
+                documento.setSerie(rs.getString(6));
+                documento.setCorrelativo(rs.getString(7));
+                documento.setFecha(rs.getString(8));
+                documento.setEstado(rs.getString(9));
+                listaDocutraza.add(documento);
+            }
+            rs.close();
+        } catch (Exception e) {
+
+        }
+        return listaDocutraza;
+    }
+       
        
     public static ArrayList<CompraContrato> listCompraContratoBuscar(
             int idempresa,

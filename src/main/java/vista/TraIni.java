@@ -11,6 +11,7 @@ import Controlador.ControladorCrudDocutraza;
 import dao.AperturaContratoDao;
 import dao.CompraContratoDao;
 import dao.DocutrazaDao;
+import dao.EmpresaDao;
 
 /**
  *
@@ -348,12 +349,12 @@ public class TraIni extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresaActionPerformed
-//        REmpresa ventana1 = new REmpresa();
-//        EmpresaDao modeloC = new EmpresaDao();
-//        ControladorCrudEmpresa controlaC = new ControladorCrudEmpresa(ventana1, modeloC);
-//        controlaC.LlenarTabla(ventana1.jtEmpresa);
-//        dskPrincipal.add(ventana1);
-//        ventana1.setVisible(true);
+        REmpresa ventana1 = new REmpresa();
+        EmpresaDao modeloC = new EmpresaDao();
+        //ControladorCrudEmpresa controlaC = new ControladorCrudEmpresa(ventana1, modeloC);
+        //controlaC.LlenarTabla(ventana1.jtEmpresa);
+        dskPrincipal.add(ventana1);
+        ventana1.setVisible(true);
     }//GEN-LAST:event_jmEmpresaActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -465,6 +466,7 @@ public class TraIni extends javax.swing.JFrame {
         int apc=0;
         controlaC.construirTablaCompraContrato(empresa, idsucursal);
         controlaC.construirTablaDocutraza(empresa, idsucursal);
+        //controlaC.construirTablaDocumento(empresa, idsucursal);
         dskPrincipal.add(ventana2);
         ventana2.setVisible(true);
 

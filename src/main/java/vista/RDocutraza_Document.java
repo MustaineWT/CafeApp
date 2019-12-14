@@ -439,7 +439,7 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
         jcbTDocumento.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jcbTDocumento.setForeground(new java.awt.Color(0, 0, 153));
-        jcbTDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcbTDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar--" }));
         jcbTDocumento.setToolTipText("");
         jcbTDocumento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
         jPanel4.add(jcbTDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 150, -1));
@@ -666,7 +666,7 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    public javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JComboBox<String> jcbCertificado;
     public javax.swing.JComboBox<String> jcbCliente;
