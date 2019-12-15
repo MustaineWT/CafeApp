@@ -17,10 +17,10 @@ public class Conexion {
     static Connection contacto = null;
 
     public static Connection getConexion() {
-//dasdasdasd
+
         boolean produccion = false;//cambiar a true para produccion.
         if (produccion == false) {
-            String url = "jdbc:sqlserver://TITO\\MSSQLSERVER2017\\MSSQLSERVER:1433;databaseName=Cafebd";
+            String url = "jdbc:sqlserver://DESKTOP-3CPB4UK\\MSSQLSERVER:1433;databaseName=Cafebd";
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             } catch (ClassNotFoundException e) {
