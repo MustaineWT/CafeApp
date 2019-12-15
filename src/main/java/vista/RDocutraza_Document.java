@@ -5,7 +5,11 @@
  */
 package vista;
 
+import Controlador.ControladorCrudDetalleDocutraza;
+import Controlador.ControladorCrudDocutraza;
 import javax.swing.JOptionPane;
+import modelo.DetalleDocutraza;
+import static vista.TraIni.dskPrincipal;
 
 /**
  *
@@ -622,7 +626,17 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNTrackActionPerformed
 
     private void btnAsigConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsigConfActionPerformed
-        // TODO add your handling code here:
+        RAgriEstimado ventana2 = new RAgriEstimado();
+        DetalleDocutraza modeloC2 = new DetalleDocutraza();
+//        ControladorCrudDetalleDocutraza controlaC = new ControladorCrudDetalleDocutraza(ventana2, modeloC2);
+//        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
+//        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+//        int apc=0;
+//        controlaC.construirTablaCompraContrato(empresa, idsucursal);
+//        controlaC.construirTablaDocutraza(empresa, idsucursal);
+        //controlaC.construirTablaDocumento(empresa, idsucursal);
+        dskPrincipal.add(ventana2);
+        ventana2.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnAsigConfActionPerformed
 
     private void txtidCompContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidCompContratoActionPerformed
