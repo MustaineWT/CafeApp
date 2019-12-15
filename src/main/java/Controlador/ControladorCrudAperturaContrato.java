@@ -166,7 +166,7 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
                     }
                     String rptaRegistro = modeloCRUD.insertAperturaContrato(idapc, idempresa, idsucursal, peso, precio,imptotal, calidad, humedad, contrato, cliente, fecha, Estado);
                     if (rptaRegistro != null) {
-                        vistaCRUD.btnRegistrar.setEnabled(false);
+                        vistaCRUD.btnRegistrar.setEnabled(true);
                         vistaCRUD.btnNuevo.setEnabled(true);
                         vistaCRUD.btnEditar.setEnabled(true);
                         vistaCRUD.txtIdApC.setEnabled(false);
