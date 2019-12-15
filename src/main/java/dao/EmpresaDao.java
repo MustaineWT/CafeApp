@@ -129,8 +129,7 @@ public class EmpresaDao {
         return rptaRegistro;
     }
 
-    public static ArrayList<Empresa> listEmpresa(
-            int idempresa) {
+    public static ArrayList<Empresa> listEmpresa() {
         ArrayList listaEmpresa = new ArrayList();
         Empresa empresa;
         try {

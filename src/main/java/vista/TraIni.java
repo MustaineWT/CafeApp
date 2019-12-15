@@ -8,6 +8,7 @@ package vista;
 import Controlador.ControladorCrudAperturaContrato;
 import Controlador.ControladorCrudCompraContrato;
 import Controlador.ControladorCrudDocutraza;
+import Controlador.ControladorCrudEmpresa;
 import dao.AperturaContratoDao;
 import dao.CompraContratoDao;
 import dao.DocutrazaDao;
@@ -351,11 +352,11 @@ public class TraIni extends javax.swing.JFrame {
     private void jmEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresaActionPerformed
         REmpresa ventana1 = new REmpresa();
         EmpresaDao modeloC = new EmpresaDao();
-        //ControladorCrudEmpresa controlaC = new ControladorCrudEmpresa(ventana1, modeloC);
+        ControladorCrudEmpresa controlaC = new ControladorCrudEmpresa(ventana1, modeloC);
         //controlaC.LlenarTabla(ventana1.jtEmpresa);
-        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
-        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
-        //controlaC.construirTablaEmpresa();
+//        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
+//        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+        controlaC.construirTabla();
         dskPrincipal.add(ventana1);
         ventana1.setVisible(true);
     }//GEN-LAST:event_jmEmpresaActionPerformed

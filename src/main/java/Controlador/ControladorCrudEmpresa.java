@@ -5,8 +5,6 @@ import Uti.GestionEncabezadoTabla;
 import Uti.ModeloTabla;
 import Uti.UtilidadEmp;
 import static Uti.UtilidadesExtras.reiniciarJTable;
-import dao.AperturaContratoDao;
-import static dao.EmpresaDao.idNuevoEmpresa;
 import dao.EmpresaDao;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -15,15 +13,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.Date;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import modelo.AperturaContrato;
 import modelo.Empresa;
-import vista.RAperturaContrato;
 import vista.REmpresa;
 import vista.TraIni;
 
@@ -62,16 +57,11 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
         idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
         if (e.getSource() == vistaCRUD.btnNuevo) {
             idNuevoEmpresa = dao.EmpresaDao.idNuevoEmpresa();
-            vistaCRUD.txtId.setText(String.valueOf(idNuevoEmpresa.get(0).getIdempresa() + 1));
-
-
-//            for (int i = 0; i < ListaCombosDao.idCliente(idempresa ).size(); i++) {
-//                value.addElement(new ListaCombos(Integer.valueOf(ListaCombosDao.idCliente(idempresa ).get(i).getIdpersona()), ListaCombosDao.idCliente(idempresa).get(i).getRazonsocial()));
-//            }
+            vistaCRUD.txtIdempresa.setText(String.valueOf(idNuevoEmpresa.get(0).getIdempresa() + 1));            
             vistaCRUD.btnRegistrar.setEnabled(true);
             vistaCRUD.btnNuevo.setEnabled(false);
             vistaCRUD.btnEditar.setEnabled(false);
-            vistaCRUD.txtId.setEnabled(false);
+            vistaCRUD.txtIdempresa.setEnabled(false);
             vistaCRUD.txtRSocial.setEnabled(true);
             vistaCRUD.txtRuc.setEnabled(true);
             vistaCRUD.txtDireccion.setEnabled(true);
@@ -79,20 +69,19 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
             vistaCRUD.txtCiudad.setEnabled(true);
             vistaCRUD.txtPais.setEnabled(true);
             vistaCRUD.txtGnegocio.setEnabled(true);
-            vistaCRUD.txtTexportacion.requestFocus(true);
+            vistaCRUD.txtTexportacion.setEnabled(true);
+            vistaCRUD.txtRSocial.requestFocus();
 
         }
         if (e.getSource() == vistaCRUD.btnRegistrar) {
-            if (vistaCRUD.txtId.getText().isEmpty()
+            if (vistaCRUD.txtIdempresa.getText().isEmpty()
                     || vistaCRUD.txtRSocial.getText().isEmpty() || vistaCRUD.txtRuc.getText().isEmpty()|| vistaCRUD.txtDireccion.getText().isEmpty()
                     || vistaCRUD.txtDistrito.getText().isEmpty()|| vistaCRUD.txtCiudad.getText().isEmpty()|| vistaCRUD.txtPais.getText().isEmpty()
                     || vistaCRUD.txtGnegocio.getText().isEmpty() || vistaCRUD.txtTexportacion.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe Llenar todos los datos necesarios.");
             } else {
                 if (vistaCRUD.btnRegistrar.getText() == "Guardar") {
-                    int id = Integer.valueOf(vistaCRUD.txtId.getText());
-//                    ListaCombos cli = (ListaCombos) vistaCRUD.jcbPersona.getSelectedItem();
-//                    int cliente = cli.getIdpersona();
+                    int id = Integer.valueOf(vistaCRUD.txtIdempresa.getText());
                     String razonsocial = vistaCRUD.txtRSocial.getText();
                     String ruc = vistaCRUD.txtRuc.getText();
                     String direccion = vistaCRUD.txtDireccion.getText();
@@ -101,9 +90,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                     String pais = vistaCRUD.txtPais.getText();
                     String gironegocio = vistaCRUD.txtGnegocio.getText();
                     String tipoexportacion = vistaCRUD.txtTexportacion.getText();
-//                    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-//                    String fecha = formatoFecha.format(vistaCRUD.txtFecha.getDate());
-//                    System.out.println(fecha);
+                    
                     String Estado = "";
                     if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Inactivo") {
                         Estado = "I";
@@ -116,7 +103,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         vistaCRUD.btnRegistrar.setEnabled(false);
                         vistaCRUD.btnNuevo.setEnabled(true);
                         vistaCRUD.btnEditar.setEnabled(true);
-                        vistaCRUD.txtId.setEnabled(false);
+                        vistaCRUD.txtIdempresa.setEnabled(false);
                         vistaCRUD.txtRSocial.setEnabled(false);
                         vistaCRUD.txtRuc.setEnabled(false);
                         vistaCRUD.txtCiudad.setEnabled(false);
@@ -127,7 +114,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         vistaCRUD.txtGnegocio.setEnabled(false);
                         vistaCRUD.txtTexportacion.setEnabled(false);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtId.setText("");
+                        vistaCRUD.txtIdempresa.setText("");
                         vistaCRUD.txtRSocial.setText("");
                         vistaCRUD.txtRuc.setText("");
                         vistaCRUD.txtCiudad.setText("");
@@ -138,25 +125,20 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         vistaCRUD.txtGnegocio.setText("");
                         vistaCRUD.txtTexportacion.setText("");
                         reiniciarJTable(vistaCRUD.jtEmpresa);
-                        construirTabla(idempresa);
+                        construirTabla();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo realizar la actualización.");
                     }
                 } else {
-                    int id = Integer.valueOf(vistaCRUD.txtId.getText());
-//                    ListaCombos cli = (ListaCombos) vistaCRUD.jcbPersona.getSelectedItem();
-//                    int cliente = cli.getIdpersona();
+                    int id = Integer.valueOf(vistaCRUD.txtIdempresa.getText());
                     String razonsocial = vistaCRUD.txtRSocial.getText();
-                    String ruc = vistaCRUD.txtCiudad.getText();
+                    String ruc = vistaCRUD.txtRuc.getText();
                     String direccion = vistaCRUD.txtDireccion.getText();
                     String distrito = vistaCRUD.txtDistrito.getText();
                     String ciudad = vistaCRUD.txtCiudad.getText();
                     String pais = vistaCRUD.txtPais.getText();
                     String gironegocio = vistaCRUD.txtGnegocio.getText();
                     String tipoexportacion = vistaCRUD.txtTexportacion.getText();
-//                    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-//                    String fecha = formatoFecha.format(vistaCRUD.txtFecha.getDate());
-//                    System.out.println(fecha);
                     String Estado = "";
                     if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Inactivo") {
                         Estado = "I";
@@ -166,10 +148,10 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                     }
                     String rptaRegistro = modeloCRUD.insertEmpresa(id, razonsocial, ruc, direccion, distrito, ciudad, pais, gironegocio, tipoexportacion, Estado);
                     if (rptaRegistro != null) {
-                        vistaCRUD.btnRegistrar.setEnabled(true);
+                        vistaCRUD.btnRegistrar.setEnabled(false);
                         vistaCRUD.btnNuevo.setEnabled(true);
                         vistaCRUD.btnEditar.setEnabled(true);
-                        vistaCRUD.txtId.setEnabled(false);
+                        vistaCRUD.txtIdempresa.setEnabled(false);
                         vistaCRUD.txtRSocial.setEnabled(false);
                         vistaCRUD.txtRuc.setEnabled(false);
                         vistaCRUD.txtDireccion.setEnabled(false);
@@ -179,7 +161,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         vistaCRUD.txtGnegocio.setEnabled(false);
                         vistaCRUD.txtTexportacion.setEnabled(false);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtId.setText("");
+                        vistaCRUD.txtIdempresa.setText("");
                         vistaCRUD.txtRSocial.setText("");
                         vistaCRUD.txtRuc.setText("");
                         vistaCRUD.txtDireccion.setText("");
@@ -189,7 +171,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         vistaCRUD.txtGnegocio.setText("");
                         vistaCRUD.txtTexportacion.setText("");
                         reiniciarJTable(vistaCRUD.jtEmpresa);
-                        construirTabla(idempresa);
+                        construirTabla();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo realizar el registro.");
                     }
@@ -200,14 +182,6 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
         if (e.getSource() == vistaCRUD.btnEditar) {
             vistaCRUD.btnRegistrar.setEnabled(true);
             vistaCRUD.btnRegistrar.setText("Guardar");
-
-//            DefaultComboBoxModel value;
-//            value = new DefaultComboBoxModel();
-//            vistaCRUD.jcbPersona.setModel(value);
-//
-//            for (int i = 0; i < ListaCombosDao.idCliente(idempresa, idsucursal).size(); i++) {
-//                value.addElement(new ListaCombos(Integer.valueOf(ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getIdpersona()), ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getRazonsocial()));
-//            }
 
             int filaseleccionada;
 
@@ -225,7 +199,6 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
 
                     String id = (String) modelotabla.getValueAt(filaseleccionada, 0);
 
-//                    int id = EmpresaDao.SelectEmpresa(idempresa, Integer.valueOf(id)).get(0).getId();
                     int idempresa = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getIdempresa();
                     String razonsocial = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getRazonSocial();
                     String ruc = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getRuc();
@@ -236,8 +209,8 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                     String gironegocio = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getGironegocio();
                     String tipoexportacion = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getTipoexportacion();
                     String Estado = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getEstado();
-                    System.out.println(idempresa);
-                    vistaCRUD.txtId.setText(String.valueOf(id));
+                    
+                    vistaCRUD.txtIdempresa.setText(String.valueOf(id));
                     vistaCRUD.txtRSocial.setText(String.valueOf(razonsocial));
                     vistaCRUD.txtRuc.setText(String.valueOf(ruc));
                     vistaCRUD.txtDireccion.setText(String.valueOf(direccion));
@@ -248,23 +221,25 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                     vistaCRUD.txtTexportacion.setText(String.valueOf(tipoexportacion));
                     vistaCRUD.btnNuevo.setEnabled(false);
                     vistaCRUD.btnEditar.setEnabled(false);
-                    vistaCRUD.txtId.setEnabled(false);
+                    vistaCRUD.txtIdempresa.setEnabled(false);
                     vistaCRUD.txtRSocial.setEnabled(true);
+                    vistaCRUD.txtRuc.setEnabled(true);
                     vistaCRUD.txtCiudad.setEnabled(true);
                     vistaCRUD.txtDireccion.setEnabled(true);
                     vistaCRUD.txtDistrito.setEnabled(true);
                     vistaCRUD.txtCiudad.setEnabled(true);
                     vistaCRUD.txtPais.setEnabled(true);
                     vistaCRUD.txtGnegocio.setEnabled(true);
+                    vistaCRUD.txtTexportacion.setEnabled(true);
                     vistaCRUD.txtTexportacion.requestFocus();
 
-                    if (Estado.equals("I")) {
+                    if (Estado.equals("A")) {
                         vistaCRUD.jcbEstado.setSelectedIndex(0);
                     } else {
                         vistaCRUD.jcbEstado.setSelectedIndex(1);
                     }
                     reiniciarJTable(vistaCRUD.jtEmpresa);
-                    construirTabla(idempresa);
+                    construirTabla();
                 }
             } catch (HeadlessException ex) {
 
@@ -274,9 +249,9 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
         }
     }
 
-    public void construirTabla(int empresa ) {
+    public void construirTabla() {
 
-        listaEmpresa = dao.EmpresaDao.listEmpresa(empresa);
+        listaEmpresa = dao.EmpresaDao.listEmpresa();
 
         ArrayList<String> titulosList = new ArrayList<>();
 
@@ -334,6 +309,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
             informacion[x][UtilidadEmp.idempresa] = listaEmpresa.get(x).getIdempresa() + "";
             informacion[x][UtilidadEmp.razonsocial] = listaEmpresa.get(x).getRazonSocial()+ "";
             informacion[x][UtilidadEmp.direccion] = listaEmpresa.get(x).getDireccion()+ "";
+            informacion[x][UtilidadEmp.ruc] = listaEmpresa.get(x).getRuc()+ "";
             informacion[x][UtilidadEmp.distrito] = listaEmpresa.get(x).getDistrito() + "";
             informacion[x][UtilidadEmp.ciudad] = listaEmpresa.get(x).getCiudad()+ "";
             informacion[x][UtilidadEmp.pais] = listaEmpresa.get(x).getPais()+ "";
@@ -352,14 +328,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
         filasTabla = vistaCRUD.jtEmpresa.getRowCount();
         columnasTabla = vistaCRUD.jtEmpresa.getColumnCount();
 
-        //se asigna el tipo de dato que tendrán las celdas de cada columna definida respectivamente para validar su personalización
-        vistaCRUD.jtEmpresa.getColumnModel().getColumn(UtilidadEmp.ruc).setCellRenderer(new GestionCeldas("numerico"));
-//        vistaCRUD.jtEmpresa.getColumnModel().getColumn(UtilidadEmp.precio).setCellRenderer(new GestionCeldas("numerico"));
-//        vistaCRUD.jtEmpresa.getColumnModel().getColumn(UtilidadEmp.imptotal).setCellRenderer(new GestionCeldas("numerico"));
 
-        //se recorre y asigna el resto de celdas que serian las que almacenen datos de tipo texto
-        // for (int i = 0; i < titulos.length - 8; i++) {//se resta 7 porque las ultimas 7 columnas se definen arriba
-        //    System.out.println(i);
         vistaCRUD.jtEmpresa.getColumnModel().getColumn(0).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtEmpresa.getColumnModel().getColumn(1).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtEmpresa.getColumnModel().getColumn(2).setCellRenderer(new GestionCeldas("texto"));
@@ -368,6 +337,8 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
         vistaCRUD.jtEmpresa.getColumnModel().getColumn(5).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtEmpresa.getColumnModel().getColumn(6).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtEmpresa.getColumnModel().getColumn(7).setCellRenderer(new GestionCeldas("texto"));
+        vistaCRUD.jtEmpresa.getColumnModel().getColumn(8).setCellRenderer(new GestionCeldas("texto"));
+        vistaCRUD.jtEmpresa.getColumnModel().getColumn(9).setCellRenderer(new GestionCeldas("texto"));
 
         vistaCRUD.jtEmpresa.getTableHeader().setReorderingAllowed(false);
         vistaCRUD.jtEmpresa.setRowHeight(25);//tamaño de las celdas
@@ -422,13 +393,6 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
         JOptionPane.showMessageDialog(null, info);
     }
 
-    private void validarSeleccionMouseDetalle(int fila) {
-        UtilidadEmp.filaSeleccionada = fila;
-
-        //teniendo la fila entonces se obtiene el objeto correspondiente para enviarse como parammetro o imprimir la información        
-        idempresa = Integer.valueOf(vistaCRUD.jtEmpresa.getValueAt(fila, UtilidadEmp.idempresa).toString());
-    }
-
     @Override
     public void mouseClicked(MouseEvent me) {
 
@@ -438,7 +402,7 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                 int fila = vistaCRUD.jtEmpresa.rowAtPoint(me.getPoint());
                 int columna = vistaCRUD.jtEmpresa.columnAtPoint(me.getPoint());
                 validarSeleccionMouse(fila);
-            }
+            }         
         }
     }
 
