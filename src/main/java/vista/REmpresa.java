@@ -38,21 +38,20 @@ public class REmpresa extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtEmpresa = new javax.swing.JTable();
-        btnEditar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel13 = new javax.swing.JLabel();
         txtCiudad = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         txtRSocial = new javax.swing.JTextField();
-        btnNuevo = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         jcbEstado = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
@@ -65,8 +64,29 @@ public class REmpresa extends javax.swing.JInternalFrame {
         txtRuc = new javax.swing.JTextField();
         txtTexportacion = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        btnNuevo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(153, 0, 51));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 1, true));
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("..Registro Empresa..");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("REGISTRO DE EMPRESA");
+        jLabel2.setToolTipText("");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 660, 20));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 1, true), "Mantenimiento de Empresa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12), new java.awt.Color(153, 0, 51))); // NOI18N
@@ -117,18 +137,6 @@ public class REmpresa extends javax.swing.JInternalFrame {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 620, 180));
 
-        btnEditar.setBackground(new java.awt.Color(204, 204, 255));
-        btnEditar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(0, 0, 153));
-        btnEditar.setText("Editar");
-        btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 100, 30));
-
         jSeparator1.setForeground(new java.awt.Color(153, 0, 51));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 620, 10));
 
@@ -160,30 +168,6 @@ public class REmpresa extends javax.swing.JInternalFrame {
         txtRSocial.setForeground(new java.awt.Color(0, 0, 102));
         txtRSocial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(txtRSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 290, 20));
-
-        btnNuevo.setBackground(new java.awt.Color(204, 204, 255));
-        btnNuevo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(0, 0, 153));
-        btnNuevo.setText("Nuevo");
-        btnNuevo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 100, 30));
-
-        btnRegistrar.setBackground(new java.awt.Color(204, 204, 255));
-        btnRegistrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(0, 0, 153));
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 100, 30));
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -259,34 +243,51 @@ public class REmpresa extends javax.swing.JInternalFrame {
         jLabel25.setToolTipText("");
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, 20));
 
-        setBackground(new java.awt.Color(153, 0, 51));
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 1, true));
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
-        setTitle("..Registro Empresa..");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnNuevo.setBackground(new java.awt.Color(0, 153, 153));
+        btnNuevo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
+        btnNuevo.setText("Nuevo");
+        btnNuevo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 100, 30));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnEditar.setBackground(new java.awt.Color(0, 153, 153));
+        btnEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 100, 30));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("REGISTRO DE EMPRESA");
-        jLabel2.setToolTipText("");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 660, 20));
+        btnRegistrar.setBackground(new java.awt.Color(0, 153, 153));
+        btnRegistrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 100, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 660, 420));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
@@ -295,6 +296,10 @@ public class REmpresa extends javax.swing.JInternalFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
