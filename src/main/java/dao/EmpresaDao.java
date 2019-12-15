@@ -19,7 +19,7 @@ import modelo.Empresa;
 public class EmpresaDao {
 
     public String insertEmpresa(
-            int idempresa,
+            int id,
             String razonsocial,
             String ruc,
             String direccion,
@@ -55,8 +55,8 @@ public class EmpresaDao {
         return rptaRegistro;
     }
 
-    public String updateEmpresa(
-            int idempresa,
+    public String UpdateEmpresa(
+            int id,
             String razonsocial,
             String ruc,
             String direccion,
@@ -70,7 +70,7 @@ public class EmpresaDao {
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
             CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZAR_EMPRESA(?,?,?,?,?,?,?,?,?,?)}");
-            cs.setInt(1, idempresa);
+            cs.setInt(1, id);
             cs.setString(2, razonsocial);
             cs.setString(3, ruc);
             cs.setString(4, direccion);
@@ -93,7 +93,7 @@ public class EmpresaDao {
     }
 
     public String DeleteEmpresa(
-            int idempresa,
+            int id,
             String razonsocial,
             String ruc,
             String direccion,
@@ -107,7 +107,7 @@ public class EmpresaDao {
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
             CallableStatement cs = accesoDB.prepareCall("{call SP_ACTUALIZAR_EMPRESA(?,?,?,?,?,?,?,?,?,?)}");
-            cs.setInt(1, idempresa);
+            cs.setInt(1, id);
             cs.setString(2, razonsocial);
             cs.setString(3, ruc);
             cs.setString(4, direccion);
@@ -129,7 +129,8 @@ public class EmpresaDao {
         return rptaRegistro;
     }
 
-    public ArrayList<Empresa> listEmpresa() {
+    public static ArrayList<Empresa> listEmpresa(
+            int idempresa) {
         ArrayList listaEmpresa = new ArrayList();
         Empresa empresa;
         try {
@@ -156,4 +157,86 @@ public class EmpresaDao {
         return listaEmpresa;
     }   
 
+    public static ArrayList<Empresa> SelectEmpresa(
+            int idempresa) {
+        ArrayList listaEmpresa = new ArrayList();
+        Empresa empresa;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENEREMPRESA_SELECT(?)}");            
+            ps.setInt(1, idempresa);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                empresa = new Empresa();                                
+                empresa.setIdempresa(rs.getInt(1));
+                empresa.setRazonSocial(rs.getString(2));//armar otro para la vista
+                empresa.setRuc(rs.getString(3));
+                empresa.setDireccion(rs.getString(4));
+                empresa.setDistrito(rs.getString(5));                
+                empresa.setCiudad(rs.getString(6));
+                empresa.setPais(rs.getString(7));
+                empresa.setGironegocio(rs.getString(8));
+                empresa.setTipoexportacion(rs.getString(9));
+                empresa.setEstado(rs.getString(10));                
+                listaEmpresa.add(empresa);
+            }
+            rs.close();
+        } catch (Exception e) {
+
+        }
+        return listaEmpresa;
+    }
+    
+    public static ArrayList<Empresa> listEmpresaBuscar(
+            int idempresa,
+            String texto) {
+        ArrayList listaEmpresa = new ArrayList();
+        Empresa empresa;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENEREMPRESABUSCAR(?,?)}");
+            ps.setInt(1, idempresa);
+            ps.setString(2, texto);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                empresa = new Empresa();
+                empresa.setIdempresa(rs.getInt(1));
+                empresa.setRazonSocial(rs.getString(2));//armar otro para la vista
+                empresa.setRuc(rs.getString(3));
+                empresa.setDireccion(rs.getString(4));//armar otro para la vista
+                empresa.setDistrito(rs.getString(5));//armar otro para la vista
+                empresa.setCiudad(rs.getString(6));
+                empresa.setPais(rs.getString(7));
+                empresa.setGironegocio(rs.getString(8));
+                empresa.setTipoexportacion(rs.getString(9));
+                empresa.setEstado(rs.getString(10));
+                listaEmpresa.add(empresa);
+            }
+        } catch (Exception e) {
+
+        }
+        return listaEmpresa;
+    }
+    
+    
+    
+     public static ArrayList<Empresa> idNuevoEmpresa() {
+        ArrayList listaEmpresa = new ArrayList();
+        Empresa empresa;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENEREMPRESA()}");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                empresa = new Empresa();
+                empresa.setIdempresa(rs.getInt(1));             
+                listaEmpresa.add(empresa);
+            }
+        } catch (Exception e) {
+        }
+        return listaEmpresa;
+    }
+    
+    
+    
 }

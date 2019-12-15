@@ -116,7 +116,14 @@ public class Empresa {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
+   public int getIdEmpresa() {
+        return idempresa;
+    }
+
+    public void setIdaperturacontrato(int idaperturacontrato) {
+        this.idempresa = idempresa;
+    }
     
     
 }
