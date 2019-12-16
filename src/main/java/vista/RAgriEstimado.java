@@ -41,10 +41,9 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel37 = new javax.swing.JLabel();
         txtId11 = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        btnRegistrar3 = new javax.swing.JButton();
-        btnEditar3 = new javax.swing.JButton();
-        btnNuevo3 = new javax.swing.JButton();
-        btnProcesar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnImportar = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         txtId4 = new javax.swing.JTextField();
@@ -54,7 +53,7 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel34 = new javax.swing.JLabel();
         txtId12 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        btnProcesar1 = new javax.swing.JButton();
+        btnProcesar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -193,57 +192,44 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel38.setToolTipText("");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, 20));
 
-        btnRegistrar3.setBackground(new java.awt.Color(0, 102, 102));
-        btnRegistrar3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnRegistrar3.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrar3.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnRegistrar3.setText("Registrar");
-        btnRegistrar3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnRegistrar3.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setBackground(new java.awt.Color(0, 102, 102));
+        btnRegistrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrar3ActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegistrar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 100, 40));
+        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 100, 40));
 
-        btnEditar3.setBackground(new java.awt.Color(0, 102, 102));
-        btnEditar3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnEditar3.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditar3.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
-        btnEditar3.setText("Editar");
-        btnEditar3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnEditar3.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setBackground(new java.awt.Color(0, 102, 102));
+        btnEditar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Edit_Property_20px.png")); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar3ActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEditar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 660, 100, 40));
+        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 660, 100, 40));
 
-        btnNuevo3.setBackground(new java.awt.Color(0, 102, 102));
-        btnNuevo3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnNuevo3.setForeground(new java.awt.Color(255, 255, 255));
-        btnNuevo3.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
-        btnNuevo3.setText("Nuevo");
-        btnNuevo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnNuevo3.addActionListener(new java.awt.event.ActionListener() {
+        btnImportar.setBackground(new java.awt.Color(0, 102, 102));
+        btnImportar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnImportar.setForeground(new java.awt.Color(255, 255, 255));
+        btnImportar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
+        btnImportar.setText("IMPORTAR DE EXCEL");
+        btnImportar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevo3ActionPerformed(evt);
+                btnImportarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnNuevo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 660, 100, 40));
-
-        btnProcesar.setBackground(new java.awt.Color(0, 102, 102));
-        btnProcesar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnProcesar.setForeground(new java.awt.Color(255, 255, 255));
-        btnProcesar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnProcesar.setText("IMPORTAR DE EXCEL");
-        btnProcesar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnProcesar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProcesarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnProcesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 170, 30));
+        jPanel2.add(btnImportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 170, 30));
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -328,18 +314,18 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel39.setToolTipText("");
         jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, 20));
 
-        btnProcesar1.setBackground(new java.awt.Color(0, 102, 102));
-        btnProcesar1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnProcesar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnProcesar1.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
-        btnProcesar1.setText("Procesar");
-        btnProcesar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnProcesar1.addActionListener(new java.awt.event.ActionListener() {
+        btnProcesar.setBackground(new java.awt.Color(0, 102, 102));
+        btnProcesar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnProcesar.setForeground(new java.awt.Color(255, 255, 255));
+        btnProcesar.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Save_20px.png")); // NOI18N
+        btnProcesar.setText("Procesar");
+        btnProcesar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btnProcesar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProcesar1ActionPerformed(evt);
+                btnProcesarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnProcesar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 100, 30));
+        jPanel2.add(btnProcesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 40, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -382,21 +368,17 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtId11ActionPerformed
 
-    private void btnRegistrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar3ActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrar3ActionPerformed
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void btnEditar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar3ActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditar3ActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void btnNuevo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo3ActionPerformed
+    private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevo3ActionPerformed
-
-    private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProcesarActionPerformed
+    }//GEN-LAST:event_btnImportarActionPerformed
 
     private void txtId4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId4ActionPerformed
         // TODO add your handling code here:
@@ -418,18 +400,17 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtId12ActionPerformed
 
-    private void btnProcesar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesar1ActionPerformed
+    private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnProcesar1ActionPerformed
+    }//GEN-LAST:event_btnProcesarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnEditar3;
+    public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnExcel;
-    public javax.swing.JButton btnNuevo3;
+    public javax.swing.JButton btnImportar;
     public javax.swing.JButton btnProcesar;
-    public javax.swing.JButton btnProcesar1;
-    public javax.swing.JButton btnRegistrar3;
+    public javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
@@ -445,7 +426,7 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jtListProveedores;
+    public static javax.swing.JTable jtListProveedores;
     public javax.swing.JTextField txtId10;
     public javax.swing.JTextField txtId11;
     public javax.swing.JTextField txtId12;

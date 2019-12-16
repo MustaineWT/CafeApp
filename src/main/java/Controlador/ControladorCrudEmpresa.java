@@ -57,38 +57,38 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
         idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
         if (e.getSource() == vistaCRUD.btnNuevo) {
             idNuevoEmpresa = dao.EmpresaDao.idNuevoEmpresa();
-            vistaCRUD.txtIdempresa.setText(String.valueOf(idNuevoEmpresa.get(0).getIdempresa() + 1));            
+            vistaCRUD.txtIdEmp.setText(String.valueOf(idNuevoEmpresa.get(0).getIdempresa() + 1));            
             vistaCRUD.btnRegistrar.setEnabled(true);
             vistaCRUD.btnNuevo.setEnabled(false);
             vistaCRUD.btnEditar.setEnabled(false);
-            vistaCRUD.txtIdempresa.setEnabled(false);
-            vistaCRUD.txtRSocial.setEnabled(true);
-            vistaCRUD.txtRuc.setEnabled(true);
-            vistaCRUD.txtDireccion.setEnabled(true);
-            vistaCRUD.txtDistrito.setEnabled(true);
-            vistaCRUD.txtCiudad.setEnabled(true);
-            vistaCRUD.txtPais.setEnabled(true);
-            vistaCRUD.txtGnegocio.setEnabled(true);
+            vistaCRUD.txtIdEmp.setEnabled(false);
+            vistaCRUD.txtSerieGuia.setEnabled(true);
+            vistaCRUD.txtCertificado.setEnabled(true);
+            vistaCRUD.txtIdPerLPAEst.setEnabled(true);
+            vistaCRUD.txtKb.setEnabled(true);
+            vistaCRUD.txtNomLPACon.setEnabled(true);
+            vistaCRUD.txtDniRuc.setEnabled(true);
+            vistaCRUD.txtCPDisp.setEnabled(true);
             vistaCRUD.txtTexportacion.setEnabled(true);
-            vistaCRUD.txtRSocial.requestFocus();
+            vistaCRUD.txtSerieGuia.requestFocus();
 
         }
         if (e.getSource() == vistaCRUD.btnRegistrar) {
-            if (vistaCRUD.txtIdempresa.getText().isEmpty()
-                    || vistaCRUD.txtRSocial.getText().isEmpty() || vistaCRUD.txtRuc.getText().isEmpty()|| vistaCRUD.txtDireccion.getText().isEmpty()
-                    || vistaCRUD.txtDistrito.getText().isEmpty()|| vistaCRUD.txtCiudad.getText().isEmpty()|| vistaCRUD.txtPais.getText().isEmpty()
-                    || vistaCRUD.txtGnegocio.getText().isEmpty() || vistaCRUD.txtTexportacion.getText().isEmpty()) {
+            if (vistaCRUD.txtIdEmp.getText().isEmpty()
+                    || vistaCRUD.txtSerieGuia.getText().isEmpty() || vistaCRUD.txtCertificado.getText().isEmpty()|| vistaCRUD.txtIdPerLPAEst.getText().isEmpty()
+                    || vistaCRUD.txtKb.getText().isEmpty()|| vistaCRUD.txtNomLPACon.getText().isEmpty()|| vistaCRUD.txtDniRuc.getText().isEmpty()
+                    || vistaCRUD.txtCPDisp.getText().isEmpty() || vistaCRUD.txtTexportacion.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe Llenar todos los datos necesarios.");
             } else {
                 if (vistaCRUD.btnRegistrar.getText() == "Guardar") {
-                    int id = Integer.valueOf(vistaCRUD.txtIdempresa.getText());
-                    String razonsocial = vistaCRUD.txtRSocial.getText();
-                    String ruc = vistaCRUD.txtRuc.getText();
-                    String direccion = vistaCRUD.txtDireccion.getText();
-                    String distrito = vistaCRUD.txtDistrito.getText();
-                    String ciudad = vistaCRUD.txtCiudad.getText();
-                    String pais = vistaCRUD.txtPais.getText();
-                    String gironegocio = vistaCRUD.txtGnegocio.getText();
+                    int id = Integer.valueOf(vistaCRUD.txtIdEmp.getText());
+                    String razonsocial = vistaCRUD.txtSerieGuia.getText();
+                    String ruc = vistaCRUD.txtCertificado.getText();
+                    String direccion = vistaCRUD.txtIdPerLPAEst.getText();
+                    String distrito = vistaCRUD.txtKb.getText();
+                    String ciudad = vistaCRUD.txtNomLPACon.getText();
+                    String pais = vistaCRUD.txtDniRuc.getText();
+                    String gironegocio = vistaCRUD.txtCPDisp.getText();
                     String tipoexportacion = vistaCRUD.txtTexportacion.getText();
                     
                     String Estado = "";
@@ -103,26 +103,26 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         vistaCRUD.btnRegistrar.setEnabled(false);
                         vistaCRUD.btnNuevo.setEnabled(true);
                         vistaCRUD.btnEditar.setEnabled(true);
-                        vistaCRUD.txtIdempresa.setEnabled(false);
-                        vistaCRUD.txtRSocial.setEnabled(false);
-                        vistaCRUD.txtRuc.setEnabled(false);
-                        vistaCRUD.txtCiudad.setEnabled(false);
-                        vistaCRUD.txtDireccion.setEnabled(false);
-                        vistaCRUD.txtDistrito.setEnabled(false);
-                        vistaCRUD.txtCiudad.setEnabled(false);
-                        vistaCRUD.txtPais.setEnabled(false);
-                        vistaCRUD.txtGnegocio.setEnabled(false);
+                        vistaCRUD.txtIdEmp.setEnabled(false);
+                        vistaCRUD.txtSerieGuia.setEnabled(false);
+                        vistaCRUD.txtCertificado.setEnabled(false);
+                        vistaCRUD.txtNomLPACon.setEnabled(false);
+                        vistaCRUD.txtIdPerLPAEst.setEnabled(false);
+                        vistaCRUD.txtKb.setEnabled(false);
+                        vistaCRUD.txtNomLPACon.setEnabled(false);
+                        vistaCRUD.txtDniRuc.setEnabled(false);
+                        vistaCRUD.txtCPDisp.setEnabled(false);
                         vistaCRUD.txtTexportacion.setEnabled(false);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtIdempresa.setText("");
-                        vistaCRUD.txtRSocial.setText("");
-                        vistaCRUD.txtRuc.setText("");
-                        vistaCRUD.txtCiudad.setText("");
-                        vistaCRUD.txtDireccion.setText("");
-                        vistaCRUD.txtDistrito.setText("");
-                        vistaCRUD.txtCiudad.setText("");
-                        vistaCRUD.txtPais.setText("");
-                        vistaCRUD.txtGnegocio.setText("");
+                        vistaCRUD.txtIdEmp.setText("");
+                        vistaCRUD.txtSerieGuia.setText("");
+                        vistaCRUD.txtCertificado.setText("");
+                        vistaCRUD.txtNomLPACon.setText("");
+                        vistaCRUD.txtIdPerLPAEst.setText("");
+                        vistaCRUD.txtKb.setText("");
+                        vistaCRUD.txtNomLPACon.setText("");
+                        vistaCRUD.txtDniRuc.setText("");
+                        vistaCRUD.txtCPDisp.setText("");
                         vistaCRUD.txtTexportacion.setText("");
                         reiniciarJTable(vistaCRUD.jtEmpresa);
                         construirTabla();
@@ -130,14 +130,14 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         JOptionPane.showMessageDialog(null, "No se pudo realizar la actualización.");
                     }
                 } else {
-                    int id = Integer.valueOf(vistaCRUD.txtIdempresa.getText());
-                    String razonsocial = vistaCRUD.txtRSocial.getText();
-                    String ruc = vistaCRUD.txtRuc.getText();
-                    String direccion = vistaCRUD.txtDireccion.getText();
-                    String distrito = vistaCRUD.txtDistrito.getText();
-                    String ciudad = vistaCRUD.txtCiudad.getText();
-                    String pais = vistaCRUD.txtPais.getText();
-                    String gironegocio = vistaCRUD.txtGnegocio.getText();
+                    int id = Integer.valueOf(vistaCRUD.txtIdEmp.getText());
+                    String razonsocial = vistaCRUD.txtSerieGuia.getText();
+                    String ruc = vistaCRUD.txtCertificado.getText();
+                    String direccion = vistaCRUD.txtIdPerLPAEst.getText();
+                    String distrito = vistaCRUD.txtKb.getText();
+                    String ciudad = vistaCRUD.txtNomLPACon.getText();
+                    String pais = vistaCRUD.txtDniRuc.getText();
+                    String gironegocio = vistaCRUD.txtCPDisp.getText();
                     String tipoexportacion = vistaCRUD.txtTexportacion.getText();
                     String Estado = "";
                     if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Inactivo") {
@@ -151,24 +151,24 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                         vistaCRUD.btnRegistrar.setEnabled(false);
                         vistaCRUD.btnNuevo.setEnabled(true);
                         vistaCRUD.btnEditar.setEnabled(true);
-                        vistaCRUD.txtIdempresa.setEnabled(false);
-                        vistaCRUD.txtRSocial.setEnabled(false);
-                        vistaCRUD.txtRuc.setEnabled(false);
-                        vistaCRUD.txtDireccion.setEnabled(false);
-                        vistaCRUD.txtDistrito.setEnabled(false);
-                        vistaCRUD.txtCiudad.setEnabled(false);
-                        vistaCRUD.txtPais.setEnabled(false);
-                        vistaCRUD.txtGnegocio.setEnabled(false);
+                        vistaCRUD.txtIdEmp.setEnabled(false);
+                        vistaCRUD.txtSerieGuia.setEnabled(false);
+                        vistaCRUD.txtCertificado.setEnabled(false);
+                        vistaCRUD.txtIdPerLPAEst.setEnabled(false);
+                        vistaCRUD.txtKb.setEnabled(false);
+                        vistaCRUD.txtNomLPACon.setEnabled(false);
+                        vistaCRUD.txtDniRuc.setEnabled(false);
+                        vistaCRUD.txtCPDisp.setEnabled(false);
                         vistaCRUD.txtTexportacion.setEnabled(false);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtIdempresa.setText("");
-                        vistaCRUD.txtRSocial.setText("");
-                        vistaCRUD.txtRuc.setText("");
-                        vistaCRUD.txtDireccion.setText("");
-                        vistaCRUD.txtDistrito.setText("");
-                        vistaCRUD.txtCiudad.setText("");
-                        vistaCRUD.txtPais.setText("");
-                        vistaCRUD.txtGnegocio.setText("");
+                        vistaCRUD.txtIdEmp.setText("");
+                        vistaCRUD.txtSerieGuia.setText("");
+                        vistaCRUD.txtCertificado.setText("");
+                        vistaCRUD.txtIdPerLPAEst.setText("");
+                        vistaCRUD.txtKb.setText("");
+                        vistaCRUD.txtNomLPACon.setText("");
+                        vistaCRUD.txtDniRuc.setText("");
+                        vistaCRUD.txtCPDisp.setText("");
                         vistaCRUD.txtTexportacion.setText("");
                         reiniciarJTable(vistaCRUD.jtEmpresa);
                         construirTabla();
@@ -210,26 +210,26 @@ public class ControladorCrudEmpresa implements ActionListener, MouseListener, Ke
                     String tipoexportacion = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getTipoexportacion();
                     String Estado = EmpresaDao.SelectEmpresa( Integer.valueOf(id)).get(0).getEstado();
                     
-                    vistaCRUD.txtIdempresa.setText(String.valueOf(id));
-                    vistaCRUD.txtRSocial.setText(String.valueOf(razonsocial));
-                    vistaCRUD.txtRuc.setText(String.valueOf(ruc));
-                    vistaCRUD.txtDireccion.setText(String.valueOf(direccion));
-                    vistaCRUD.txtDistrito.setText(String.valueOf(distrito));
-                    vistaCRUD.txtCiudad.setText(String.valueOf(ciudad));
-                    vistaCRUD.txtPais.setText(String.valueOf(pais));
-                    vistaCRUD.txtGnegocio.setText(String.valueOf(gironegocio));
+                    vistaCRUD.txtIdEmp.setText(String.valueOf(id));
+                    vistaCRUD.txtSerieGuia.setText(String.valueOf(razonsocial));
+                    vistaCRUD.txtCertificado.setText(String.valueOf(ruc));
+                    vistaCRUD.txtIdPerLPAEst.setText(String.valueOf(direccion));
+                    vistaCRUD.txtKb.setText(String.valueOf(distrito));
+                    vistaCRUD.txtNomLPACon.setText(String.valueOf(ciudad));
+                    vistaCRUD.txtDniRuc.setText(String.valueOf(pais));
+                    vistaCRUD.txtCPDisp.setText(String.valueOf(gironegocio));
                     vistaCRUD.txtTexportacion.setText(String.valueOf(tipoexportacion));
                     vistaCRUD.btnNuevo.setEnabled(false);
                     vistaCRUD.btnEditar.setEnabled(false);
-                    vistaCRUD.txtIdempresa.setEnabled(false);
-                    vistaCRUD.txtRSocial.setEnabled(true);
-                    vistaCRUD.txtRuc.setEnabled(true);
-                    vistaCRUD.txtCiudad.setEnabled(true);
-                    vistaCRUD.txtDireccion.setEnabled(true);
-                    vistaCRUD.txtDistrito.setEnabled(true);
-                    vistaCRUD.txtCiudad.setEnabled(true);
-                    vistaCRUD.txtPais.setEnabled(true);
-                    vistaCRUD.txtGnegocio.setEnabled(true);
+                    vistaCRUD.txtIdEmp.setEnabled(false);
+                    vistaCRUD.txtSerieGuia.setEnabled(true);
+                    vistaCRUD.txtCertificado.setEnabled(true);
+                    vistaCRUD.txtNomLPACon.setEnabled(true);
+                    vistaCRUD.txtIdPerLPAEst.setEnabled(true);
+                    vistaCRUD.txtKb.setEnabled(true);
+                    vistaCRUD.txtNomLPACon.setEnabled(true);
+                    vistaCRUD.txtDniRuc.setEnabled(true);
+                    vistaCRUD.txtCPDisp.setEnabled(true);
                     vistaCRUD.txtTexportacion.setEnabled(true);
                     vistaCRUD.txtTexportacion.requestFocus();
 

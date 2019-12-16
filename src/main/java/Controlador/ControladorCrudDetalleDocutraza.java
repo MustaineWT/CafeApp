@@ -11,6 +11,8 @@ import Uti.ModeloTabla;
 import Uti.UtilidadApC;
 import static Uti.UtilidadesExtras.reiniciarJTable;
 import dao.AperturaContratoDao;
+import dao.ConformacionDao;
+import dao.DetalleDocutrazaDao;
 import dao.ListaCombosDao;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -19,20 +21,32 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
 import modelo.AperturaContrato;
+import modelo.DetalleDocutraza;
 import modelo.ListaCombos;
-import vista.RAperturaContrato;
+import vista.RAgriEstimado;
+import vista.RPEstimado;
 import vista.TraIni;
+import static vista.TraIni.dskPrincipal;
 
 /**
  *
@@ -40,8 +54,8 @@ import vista.TraIni;
  */
 public class ControladorCrudDetalleDocutraza implements ActionListener, MouseListener, KeyListener {
 
-    RAperturaContrato vistaCRUD = new RAperturaContrato();
-    AperturaContratoDao modeloCRUD = new AperturaContratoDao();
+    RAgriEstimado vistaCRUD = new RAgriEstimado();
+    DetalleDocutraza modeloCRUD = new DetalleDocutraza();
     ArrayList<AperturaContrato> listaAperturaContrato;
     ArrayList<AperturaContrato> idNuevoAperturaContrato;
     int idempresa;
@@ -52,13 +66,15 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
     DecimalFormat formatea = new DecimalFormat("###,###.##");
     String texto;
 
-    public ControladorCrudDetalleDocutraza(RAperturaContrato vistaCRUD, AperturaContratoDao modeloCRUD) {
+    public ControladorCrudDetalleDocutraza(RAgriEstimado vistaCRUD, DetalleDocutraza modeloCRUD) {
         this.modeloCRUD = modeloCRUD;
         this.vistaCRUD = vistaCRUD;
-        this.vistaCRUD.btnNuevo.addActionListener(this);
+        this.vistaCRUD.btnImportar.addActionListener(this);
         this.vistaCRUD.btnEditar.addActionListener(this);
+        this.vistaCRUD.btnProcesar.addActionListener(this);
         this.vistaCRUD.btnRegistrar.addActionListener(this);
-        this.vistaCRUD.jtAperturaContrato.addMouseListener(this);
+        this.vistaCRUD.btnExcel.addActionListener(this);
+        this.vistaCRUD.jtListProveedores.addMouseListener(this);
     }
 
     public void InicializarCrud() {
@@ -69,211 +85,141 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
     public void actionPerformed(ActionEvent e) {
         idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
         idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
-        if (e.getSource() == vistaCRUD.btnNuevo) {
-            idNuevoAperturaContrato = dao.AperturaContratoDao.idNuevoAperturaContrato();
-            vistaCRUD.txtIdApC.setText(String.valueOf(idNuevoAperturaContrato.get(0).getIdaperturacontrato() + 1));
-            DefaultComboBoxModel value;
-            value = new DefaultComboBoxModel();
-            vistaCRUD.jcbPersona.setModel(value);
 
-            for (int i = 0; i < ListaCombosDao.idCliente(idempresa, idsucursal).size(); i++) {
-                value.addElement(new ListaCombos(Integer.valueOf(ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getIdpersona()), ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getRazonsocial()));
-            }
-            vistaCRUD.btnRegistrar.setEnabled(true);
-            vistaCRUD.btnNuevo.setEnabled(false);
-            vistaCRUD.btnEditar.setEnabled(false);
-            vistaCRUD.txtIdApC.setEnabled(false);
-            vistaCRUD.txtPeso.setEnabled(true);
-            vistaCRUD.txtPrecio.setEnabled(true);
-            vistaCRUD.txtImpTotal.setEnabled(false);
-            vistaCRUD.txtContrato.setEnabled(true);
-            vistaCRUD.txtCalidad.setEnabled(true);
-            vistaCRUD.txtHumedad.setEnabled(true);
-            Calendar c2 = new GregorianCalendar();
-            vistaCRUD.txtFecha.setCalendar(c2);
-            vistaCRUD.txtFecha.setEnabled(true);
-            vistaCRUD.txtPrecio.requestFocus();
+        
+        
+        
+         if (e.getSource() == vistaCRUD.btnEditar) {
+               int filaseleccionada;
+                    try {
+                        filaseleccionada = vistaCRUD.jtListProveedores.getSelectedRow();
+                        if (filaseleccionada == -1) {
+                            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+                        } else {
+                            RPEstimado ventana1 = new RPEstimado();
+                            ConformacionDao modeloC = new ConformacionDao();
+                            ControladorCrudConformacion controlaC = new ControladorCrudConformacion(ventana1, modeloC);
+                            dskPrincipal.add(ventana1);
+                            ventana1.setVisible(true);
 
-        }
+                            DefaultTableModel modelotabla = (DefaultTableModel) vistaCRUD.jtListProveedores.getModel();
+                            String id = (String) modelotabla.getValueAt(filaseleccionada, 0);
+
+                            int iddetalledocutraza = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIddetalledocutraza();
+                            int empresa = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdempresa();
+                            int sucursal = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdsucursal();
+                            int iddocutraza = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIddocutraza();
+                            int idcompracontrato = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdcompracontrato();
+                            String serieguia = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getSeriguia();
+                            String correlativo = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCorrelativo();
+                            String certificado = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCertificado();
+                            int idlpaest = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdlpaest();
+                            int idlpacon = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdlpacon();
+                            int idpersona = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdpersona();
+                            String idorga = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdorga();
+                            String idcp = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdcp();
+                            String codagricultor = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCodagricultor();
+                            String nombresagri = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getNombresagri();
+                            String nombresaest = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getNombesaest();
+                            String nombresacont = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getNombresacont();
+                            String dniruc = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getDniruc();
+                            long cpdisp = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCpdisp();
+                            long orgdisp = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getOrgdisp();
+                            long ftdisp = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getFtdisp();
+                            long rainfdisp = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getRainfdisp();
+                            long convdisp = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getConvdisp();
+                            int sacos = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getSacos();
+                            long kb = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getKb();
+                            long importetotal = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getImportetotal();
+                            String guia = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getGuia();
+                            String liqcompra = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getLiqcompra();
+                            String fecha = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getFecha();
+                            String estado = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getEstado();
+
+                            controlaC.vistaCRUD.txtIdDetDoc.setText(String.valueOf(iddetalledocutraza));
+                            controlaC.vistaCRUD.txtIdEmp.setText(String.valueOf(empresa));
+                            controlaC.vistaCRUD.txtIdSuc.setText(String.valueOf(sucursal));
+                            controlaC.vistaCRUD.txtIdDocT.setText(String.valueOf(iddocutraza));
+                            controlaC.vistaCRUD.txtIdCC.setText(String.valueOf(idcompracontrato));
+                            controlaC.vistaCRUD.txtSerieGuia.setText(serieguia);
+                            controlaC.vistaCRUD.txtCorrelativo.setText(correlativo);
+                            controlaC.vistaCRUD.txtCertificado.setText(certificado);
+                            controlaC.vistaCRUD.txtIdPerLPAEst.setText(String.valueOf(idlpaest));
+                            controlaC.vistaCRUD.txtIdProLPACon.setText(String.valueOf(idlpacon));
+                            controlaC.vistaCRUD.txtIdPersona.setText(String.valueOf(idpersona));
+                            controlaC.vistaCRUD.txtIdOrgaPro.setText(idorga);
+                            controlaC.vistaCRUD.txtIdCpPro.setText(idcp);
+                            controlaC.vistaCRUD.txtCodPro.setText(codagricultor);
+                            controlaC.vistaCRUD.txtNomPro.setText(nombresagri);
+                            controlaC.vistaCRUD.txtNomLPAEst.setText(nombresaest);
+                            controlaC.vistaCRUD.txtNomLPACon.setText(nombresacont);
+                            controlaC.vistaCRUD.txtDniRuc.setText(dniruc);
+                            controlaC.vistaCRUD.txtCPDisp.setText(String.valueOf(cpdisp));
+                            controlaC.vistaCRUD.txtORGDisp.setText(String.valueOf(orgdisp));
+                            controlaC.vistaCRUD.txtFTDisp.setText(String.valueOf(ftdisp));
+                            controlaC.vistaCRUD.txtRainfDisp.setText(String.valueOf(rainfdisp));
+                            controlaC.vistaCRUD.txtConvDisp.setText(String.valueOf(convdisp));
+                            controlaC.vistaCRUD.txtSacos.requestFocus();
+                        }
+                    } catch (HeadlessException ex) {
+
+                        JOptionPane.showMessageDialog(null, "Error: " + ex + "\nInténtelo nuevamente", " .::Error En la Operacion::.", JOptionPane.ERROR_MESSAGE);
+
+                    }
+         }
+        
         if (e.getSource() == vistaCRUD.btnRegistrar) {
-            if (vistaCRUD.txtIdApC.getText().isEmpty()
-                    || vistaCRUD.txtPeso.getText().isEmpty() || vistaCRUD.txtPrecio.getText().isEmpty()|| vistaCRUD.txtImpTotal.getText().isEmpty()
-                    || vistaCRUD.txtContrato.getText().isEmpty()|| vistaCRUD.txtCalidad.getText().isEmpty()|| vistaCRUD.txtHumedad.getText().isEmpty()
-                    || vistaCRUD.txtFecha.getDate().equals("")) {
-                JOptionPane.showMessageDialog(null, "Debe Llenar todos los datos necesarios.");
+            if (vistaCRUD.jtListProveedores.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "Debe Ingresar datos en la tabla.");
             } else {
                 if (vistaCRUD.btnRegistrar.getText() == "Guardar") {
-                    int idapc = Integer.valueOf(vistaCRUD.txtIdApC.getText());
-                    ListaCombos cli = (ListaCombos) vistaCRUD.jcbPersona.getSelectedItem();
-                    int cliente = cli.getIdpersona();
-                    double peso = Double.valueOf(vistaCRUD.txtPeso.getText());
-                    double precio = Double.valueOf(vistaCRUD.txtPrecio.getText());
-                    double imptotal = Double.valueOf(vistaCRUD.txtImpTotal.getText());
-                    String contrato = vistaCRUD.txtContrato.getText();
-                    String calidad = vistaCRUD.txtCalidad.getText();
-                    String humedad = vistaCRUD.txtHumedad.getText();
-                    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                    String fecha = formatoFecha.format(vistaCRUD.txtFecha.getDate());
-                    System.out.println(fecha);
-                    String Estado = "";
-                    if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Iniciado") {
-                        Estado = "I";
-                    }
-                    if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Anulado") {
-                        Estado = "A";
-                    }
-                    String rptaRegistro = modeloCRUD.UpdateAperturaContrato(idapc, idempresa, idsucursal, peso, precio,imptotal, calidad, humedad, contrato, cliente, fecha, Estado);
-                    if (rptaRegistro != null) {
-                        vistaCRUD.btnRegistrar.setEnabled(false);
-                        vistaCRUD.btnNuevo.setEnabled(true);
-                        vistaCRUD.btnEditar.setEnabled(true);
-                        vistaCRUD.txtIdApC.setEnabled(false);
-                        vistaCRUD.txtPeso.setEnabled(false);
-                        vistaCRUD.txtPrecio.setEnabled(false);
-                        vistaCRUD.txtImpTotal.setEnabled(false);
-                        vistaCRUD.txtContrato.setEnabled(false);
-                        vistaCRUD.txtCalidad.setEnabled(false);
-                        vistaCRUD.txtHumedad.setEnabled(false);
-                        vistaCRUD.txtFecha.setEnabled(false);
-                        JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtIdApC.setText("");
-                        vistaCRUD.txtPeso.setText("");
-                        vistaCRUD.txtPrecio.setText("");
-                        vistaCRUD.txtImpTotal.setText("");
-                        vistaCRUD.txtContrato.setText("");
-                        vistaCRUD.txtCalidad.setText("");
-                        vistaCRUD.txtHumedad.setText("");
-                        vistaCRUD.txtFecha.setCalendar(null);
-                        reiniciarJTable(vistaCRUD.jtAperturaContrato);
-                        construirTabla(idempresa, idsucursal);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se pudo realizar la actualización.");
-                    }
+
+                  
+
                 } else {
-                    int idapc = Integer.valueOf(vistaCRUD.txtIdApC.getText());
-                    ListaCombos cli = (ListaCombos) vistaCRUD.jcbPersona.getSelectedItem();
-                    int cliente = cli.getIdpersona();
-                    double peso = Double.valueOf(vistaCRUD.txtPeso.getText());
-                    double precio = Double.valueOf(vistaCRUD.txtPrecio.getText());
-                    double imptotal = Double.valueOf(vistaCRUD.txtImpTotal.getText());
-                    String contrato = vistaCRUD.txtCalidad.getText();
-                    String calidad = vistaCRUD.txtCalidad.getText();
-                    String humedad = vistaCRUD.txtHumedad.getText();
-                    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                    String fecha = formatoFecha.format(vistaCRUD.txtFecha.getDate());
-                    System.out.println(fecha);
-                    String Estado = "";
-                    if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Iniciado") {
-                        Estado = "I";
-                    }
-                    if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Anulado") {
-                        Estado = "A";
-                    }
-                    String rptaRegistro = modeloCRUD.insertAperturaContrato(idapc, idempresa, idsucursal, peso, precio,imptotal, calidad, humedad, contrato, cliente, fecha, Estado);
-                    if (rptaRegistro != null) {
-                        vistaCRUD.btnRegistrar.setEnabled(true);
-                        vistaCRUD.btnNuevo.setEnabled(true);
-                        vistaCRUD.btnEditar.setEnabled(true);
-                        vistaCRUD.txtIdApC.setEnabled(false);
-                        vistaCRUD.txtPeso.setEnabled(false);
-                        vistaCRUD.txtPrecio.setEnabled(false);
-                        vistaCRUD.txtImpTotal.setEnabled(false);
-                        vistaCRUD.txtContrato.setEnabled(false);
-                        vistaCRUD.txtCalidad.setEnabled(false);
-                        vistaCRUD.txtHumedad.setEnabled(false);
-                        vistaCRUD.txtFecha.setEnabled(false);
-                        JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtIdApC.setText("");
-                        vistaCRUD.txtPeso.setText("");
-                        vistaCRUD.txtPrecio.setText("");
-                        vistaCRUD.txtImpTotal.setText("");
-                        vistaCRUD.txtContrato.setText("");
-                        vistaCRUD.txtCalidad.setText("");
-                        vistaCRUD.txtHumedad.setText("");
-                        vistaCRUD.txtFecha.setCalendar(null);
-                        reiniciarJTable(vistaCRUD.jtAperturaContrato);
-                        construirTabla(idempresa, idsucursal);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se pudo realizar el registro.");
-                    }
-                }
+                   
             }
 
         }
-        if (e.getSource() == vistaCRUD.btnEditar) {
-            vistaCRUD.btnRegistrar.setEnabled(true);
-            vistaCRUD.btnRegistrar.setText("Guardar");
+            
+        if (e.getSource() == vistaCRUD.btnImportar) {
+            DefaultTableModel modelo = new DefaultTableModel();
+            vistaCRUD.jtListProveedores.setModel(modelo);
+            JFileChooser examinar = new JFileChooser("C:\\Users\\User\\Google Drive\\CAFE.");
+            examinar.setFileFilter(new FileNameExtensionFilter("Archivos excel", "xls", "xlsx"));
+            int opcion = examinar.showOpenDialog(vistaCRUD.btnImportar);
+            File archivoExcel = null;
+            if (opcion == JFileChooser.APPROVE_OPTION) {
+                archivoExcel = examinar.getSelectedFile().getAbsoluteFile();
+                //JOptionPane.showMessageDialog(null, "Este es el Excel Selecionado la Ruta\n" + archivoExcel);
+                try {
+                    Workbook leerExcel = Workbook.getWorkbook(archivoExcel);
+                    for (int hoja = 0; hoja < leerExcel.getNumberOfSheets(); hoja++) {
+                        Sheet hojaP = leerExcel.getSheet(hoja);
 
-            DefaultComboBoxModel value;
-            value = new DefaultComboBoxModel();
-            vistaCRUD.jcbPersona.setModel(value);
-
-            for (int i = 0; i < ListaCombosDao.idCliente(idempresa, idsucursal).size(); i++) {
-                value.addElement(new ListaCombos(Integer.valueOf(ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getIdpersona()), ListaCombosDao.idCliente(idempresa, idsucursal).get(i).getRazonsocial()));
-            }
-
-            int filaseleccionada;
-
-            try {
-
-                filaseleccionada = vistaCRUD.jtAperturaContrato.getSelectedRow();
-
-                if (filaseleccionada == -1) {
-
-                    JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
-
-                } else {
-
-                    DefaultTableModel modelotabla = (DefaultTableModel) vistaCRUD.jtAperturaContrato.getModel();
-
-                    String id = (String) modelotabla.getValueAt(filaseleccionada, 0);
-
-                    int idapcontrato = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdaperturacontrato();
-                    int idemp = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdempresa();
-                    int idsuc = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdsucursal();
-                    double peso = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getPeso();
-                    double precio = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getPrecio();
-                    double imptotal = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getImptotal();
-                    String calidad = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCalidad();
-                    String humedad = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getHumedad();
-                    String Contrato = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getContrato();
-                    int idpersona = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdpersona();
-                    String Fecha = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getFecha();
-                    String Estado = AperturaContratoDao.SelectAperturaContrato(idempresa, idsucursal, Integer.valueOf(id)).get(0).getEstado();
-                    System.out.println(idapcontrato);
-                    vistaCRUD.txtIdApC.setText(String.valueOf(idapcontrato));
-                    vistaCRUD.txtPeso.setText(String.valueOf(peso));
-                    vistaCRUD.txtPrecio.setText(String.valueOf(precio));
-                    vistaCRUD.txtImpTotal.setText(String.valueOf(imptotal));
-                    vistaCRUD.txtCalidad.setText(String.valueOf(calidad));
-                    vistaCRUD.txtHumedad.setText(String.valueOf(humedad));
-                    vistaCRUD.txtContrato.setText(String.valueOf(Contrato));
-                    vistaCRUD.jcbPersona.setSelectedItem(idpersona);
-                    vistaCRUD.txtFecha.setDate(Date.valueOf(Fecha));
-                    vistaCRUD.btnNuevo.setEnabled(false);
-                    vistaCRUD.btnEditar.setEnabled(false);
-                    vistaCRUD.txtIdApC.setEnabled(false);
-                    vistaCRUD.txtPeso.setEnabled(true);
-                    vistaCRUD.txtPrecio.setEnabled(true);
-                    vistaCRUD.txtImpTotal.setEnabled(false);
-                    vistaCRUD.txtContrato.setEnabled(true);
-                    vistaCRUD.txtCalidad.setEnabled(true);
-                    vistaCRUD.txtHumedad.setEnabled(true);
-                    vistaCRUD.txtFecha.setEnabled(true);
-                    vistaCRUD.txtPrecio.requestFocus();
-
-                    if (Estado.equals("I")) {
-                        vistaCRUD.jcbEstado.setSelectedIndex(0);
-                    } else {
-                        vistaCRUD.jcbEstado.setSelectedIndex(1);
+                        int columnas = hojaP.getColumns();
+                        int filas = hojaP.getRows();
+                        //JOptionPane.showMessageDialog(null, "Nro de columnas" + columnas + "\n NroFilas :" + filas);
+                        Object data[] = new Object[columnas];
+                        for (int fila = 0; fila < filas; fila++) {
+                            for (int columna = 0; columna < columnas; columna++) {
+                                if (fila == 0) {
+                                    modelo.addColumn(hojaP.getCell(columna, fila).getContents());
+                                }
+                                if (fila >= 1) {
+                                    data[columna] = hojaP.getCell(columna, fila).getContents();
+                                }
+                            }
+                            modelo.addRow(data);
+                        }
                     }
-                    //reiniciarJTable(vistaCRUD.jtAperturaContrato);
-                    //construirTabla(idempresa, idsucursal);
+                    modelo.removeRow(0);
+                    //JOptionPane.showMessageDialog(null, "Archivo excel almacenado es el Worbook" + leerExcel);
+                } catch (IOException | BiffException ex) {
+                    Logger.getLogger(ControladorCrud.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Error al almacenar el excel en el workbook");
+
                 }
-            } catch (HeadlessException ex) {
-
-                JOptionPane.showMessageDialog(null, "Error: " + ex + "\nInténtelo nuevamente", " .::Error En la Operacion::.", JOptionPane.ERROR_MESSAGE);
-
             }
         }
     }
@@ -495,7 +441,7 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
 
     @Override
     public void keyReleased(KeyEvent ke) {
-           if (ke.getSource() == vistaCRUD.txtPeso || ke.getSource() == vistaCRUD.txtPrecio) {
+        if (ke.getSource() == vistaCRUD.txtPeso || ke.getSource() == vistaCRUD.txtPrecio) {
             try {
                 //texto = vistaCRUD.txtBuscador.getText();
                 //construirTablabuscar();
