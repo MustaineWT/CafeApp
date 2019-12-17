@@ -21,10 +21,11 @@ public class UtilidadDocu {
     public static final int certificado = 8;
     public static final int sacos = 9;
     public static final int kb = 10;
-    public static final int kn = 11;
-    public static final int fairtrade = 12;
-    public static final int condicion = 13;
-    public static final int fecha = 14;
-    public static final int estado = 15;
+    public static final int precio = 11;
+    public static final int kn = 12;
+    public static final int fairtrade = 13;
+    public static final int condicion = 14;
+    public static final int fecha = 15;
+    public static final int estado = 16;
     public static int filaSeleccionada;
 }

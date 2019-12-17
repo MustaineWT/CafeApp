@@ -29,17 +29,17 @@ public class DetalleDocutrazaSelect {
     String nombresaest;
     String nombresacont;
     String dniruc;
-    long cpdisp;
-    long orgdisp;
-    long ftdisp;
-    long rainfdisp;
-    long convdisp;
+    double cpdisp;
+    double orgdisp;
+    double ftdisp;
+    double rainfdisp;
+    double convdisp;
     int sacos;
-    long kb;
-    long tara;
-    long kn;
-    long precio;
-    long importetotal;
+    double kb;
+    double tara;
+    double kn;
+    double precio;
+    double importetotal;
     String guia;
     String liqcompra;
     String fecha;
@@ -48,7 +48,7 @@ public class DetalleDocutrazaSelect {
     public DetalleDocutrazaSelect() {
     }
 
-    public DetalleDocutrazaSelect(int iddetalledocutraza, int idempresa, int idsucursal, int iddocutraza, int idcompracontrato, String seriguia, String correlativo, String certificado, int idlpaest, int idlpacon, int idpersona, String idorga, String idcp, String codagricultor, String nombresagri, String nombresaest, String nombresacont, String dniruc, long cpdisp, long orgdisp, long ftdisp, long rainfdisp, long convdisp, int sacos, long kb, long tara, long kn, long precio, long importetotal, String guia, String liqcompra, String fecha, String estado) {
+    public DetalleDocutrazaSelect(int iddetalledocutraza, int idempresa, int idsucursal, int iddocutraza, int idcompracontrato, String seriguia, String correlativo, String certificado, int idlpaest, int idlpacon, int idpersona, String idorga, String idcp, String codagricultor, String nombresagri, String nombresaest, String nombresacont, String dniruc, double cpdisp, double orgdisp, double ftdisp, double rainfdisp, double convdisp, int sacos, double kb, double tara, double kn, double precio, double importetotal, String guia, String liqcompra, String fecha, String estado) {
         this.iddetalledocutraza = iddetalledocutraza;
         this.idempresa = idempresa;
         this.idsucursal = idsucursal;
@@ -228,43 +228,43 @@ public class DetalleDocutrazaSelect {
         this.dniruc = dniruc;
     }
 
-    public long getCpdisp() {
+    public double getCpdisp() {
         return cpdisp;
     }
 
-    public void setCpdisp(long cpdisp) {
+    public void setCpdisp(double cpdisp) {
         this.cpdisp = cpdisp;
     }
 
-    public long getOrgdisp() {
+    public double getOrgdisp() {
         return orgdisp;
     }
 
-    public void setOrgdisp(long orgdisp) {
+    public void setOrgdisp(double orgdisp) {
         this.orgdisp = orgdisp;
     }
 
-    public long getFtdisp() {
+    public double getFtdisp() {
         return ftdisp;
     }
 
-    public void setFtdisp(long ftdisp) {
+    public void setFtdisp(double ftdisp) {
         this.ftdisp = ftdisp;
     }
 
-    public long getRainfdisp() {
+    public double getRainfdisp() {
         return rainfdisp;
     }
 
-    public void setRainfdisp(long rainfdisp) {
+    public void setRainfdisp(double rainfdisp) {
         this.rainfdisp = rainfdisp;
     }
 
-    public long getConvdisp() {
+    public double getConvdisp() {
         return convdisp;
     }
 
-    public void setConvdisp(long convdisp) {
+    public void setConvdisp(double convdisp) {
         this.convdisp = convdisp;
     }
 
@@ -276,43 +276,43 @@ public class DetalleDocutrazaSelect {
         this.sacos = sacos;
     }
 
-    public long getKb() {
+    public double getKb() {
         return kb;
     }
 
-    public void setKb(long kb) {
+    public void setKb(double kb) {
         this.kb = kb;
     }
 
-    public long getTara() {
+    public double getTara() {
         return tara;
     }
 
-    public void setTara(long tara) {
+    public void setTara(double tara) {
         this.tara = tara;
     }
 
-    public long getKn() {
+    public double getKn() {
         return kn;
     }
 
-    public void setKn(long kn) {
+    public void setKn(double kn) {
         this.kn = kn;
     }
 
-    public long getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(long precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public long getImportetotal() {
+    public double getImportetotal() {
         return importetotal;
     }
 
-    public void setImportetotal(long importetotal) {
+    public void setImportetotal(double importetotal) {
         this.importetotal = importetotal;
     }
 
@@ -348,5 +348,6 @@ public class DetalleDocutrazaSelect {
         this.estado = estado;
     }
 
+    
 
 }

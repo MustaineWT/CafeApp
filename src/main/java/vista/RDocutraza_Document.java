@@ -107,7 +107,7 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jtAscDocumentos = new javax.swing.JTable();
         btnVerConf = new javax.swing.JButton();
-        btnAsigConf = new javax.swing.JButton();
+        btnAsigCon = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 0, 51));
@@ -556,18 +556,13 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnVerConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 160, 30));
 
-        btnAsigConf.setBackground(new java.awt.Color(0, 153, 153));
-        btnAsigConf.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnAsigConf.setForeground(new java.awt.Color(255, 255, 255));
-        btnAsigConf.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
-        btnAsigConf.setText("Asignar Conformación");
-        btnAsigConf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
-        btnAsigConf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAsigConfActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnAsigConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 160, 30));
+        btnAsigCon.setBackground(new java.awt.Color(0, 153, 153));
+        btnAsigCon.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnAsigCon.setForeground(new java.awt.Color(255, 255, 255));
+        btnAsigCon.setIcon(new javax.swing.ImageIcon("D:\\Sistema\\Imagenes\\icons8_Add_List_20px.png")); // NOI18N
+        btnAsigCon.setText("Asignar Conformación");
+        btnAsigCon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        jPanel2.add(btnAsigCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 160, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1380, 660));
         jPanel2.getAccessibleContext().setAccessibleName("Mantenimiento de Compra Contrato");
@@ -625,27 +620,13 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNTrackActionPerformed
 
-    private void btnAsigConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsigConfActionPerformed
-        RAgriEstimado ventana2 = new RAgriEstimado();
-        DetalleDocutraza modeloC2 = new DetalleDocutraza();
-//        ControladorCrudDetalleDocutraza controlaC = new ControladorCrudDetalleDocutraza(ventana2, modeloC2);
-//        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
-//        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
-//        int apc=0;
-//        controlaC.construirTablaCompraContrato(empresa, idsucursal);
-//        controlaC.construirTablaDocutraza(empresa, idsucursal);
-        //controlaC.construirTablaDocumento(empresa, idsucursal);
-        dskPrincipal.add(ventana2);
-        ventana2.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAsigConfActionPerformed
-
     private void txtidCompContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidCompContratoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidCompContratoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAsigConf;
+    public javax.swing.JButton btnAsigCon;
     public javax.swing.JButton btnEditDocumento;
     public javax.swing.JButton btnEditDocutraza;
     public javax.swing.JButton btnNDocumento;

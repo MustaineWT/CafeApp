@@ -12,6 +12,8 @@ import Uti.UtilidadCC;
 import Uti.UtilidadDocu;
 import Uti.UtilidadDocumento;
 import static Uti.UtilidadesExtras.reiniciarJTable;
+import dao.ConformacionDao;
+import dao.DetalleDocutrazaDao;
 import dao.DocutrazaDao;
 import dao.ListaCombosDao;
 import java.awt.HeadlessException;
@@ -32,12 +34,16 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import modelo.CompraContrato;
+import modelo.DetalleDocutraza;
 import modelo.Documento;
 import modelo.Docutraza;
 import modelo.ListaCombos;
 import modelo.TipoDocumento;
+import vista.RAgriEstimado;
 import vista.RDocutraza_Document;
+import vista.RPEstimado;
 import vista.TraIni;
+import static vista.TraIni.dskPrincipal;
 
 /**
  *
@@ -64,7 +70,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
     public ControladorCrudDocutraza(RDocutraza_Document vistaCRUD, DocutrazaDao modeloCRUD) {
         this.modeloCRUD = modeloCRUD;
         this.vistaCRUD = vistaCRUD;
-        this.vistaCRUD.btnAsigConf.addActionListener(this);
+        this.vistaCRUD.btnAsigCon.addActionListener(this);
         this.vistaCRUD.btnEditDocumento.addActionListener(this);
         this.vistaCRUD.btnEditDocutraza.addActionListener(this);
         this.vistaCRUD.btnNDocumento.addActionListener(this);
@@ -77,7 +83,6 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         this.vistaCRUD.jtDocutraza.addMouseListener(this);
         this.vistaCRUD.txtKb.addKeyListener(this);
         this.vistaCRUD.txtKn.addKeyListener(this);
-
     }
 
     public void InicializarCrud() {
@@ -109,6 +114,94 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
             vistaCRUD.txtFecha.setEnabled(true);
             vistaCRUD.txtSerie.requestFocus();
         }
+
+        if (e.getSource() == vistaCRUD.btnAsigCon) {
+
+            int filaseleccionada;
+
+            try {
+
+                filaseleccionada = vistaCRUD.jtDocutraza.getSelectedRow();
+
+                if (filaseleccionada == -1) {
+
+                    JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+
+                } else {
+
+                    DefaultTableModel modelotabla = (DefaultTableModel) vistaCRUD.jtDocutraza.getModel();
+
+                    String id = (String) modelotabla.getValueAt(filaseleccionada, 0);
+                    String precio = (String) modelotabla.getValueAt(filaseleccionada, 12);
+                    String peso = (String) modelotabla.getValueAt(filaseleccionada, 10);
+                    String certificado = (String) modelotabla.getValueAt(filaseleccionada, 8);
+                    String sacos = (String) modelotabla.getValueAt(filaseleccionada, 9);
+                    RAgriEstimado ventana2 = new RAgriEstimado();
+                    DetalleDocutrazaDao modeloC2 = new DetalleDocutrazaDao();
+                    ControladorCrudDetalleDocutraza controlaC = new ControladorCrudDetalleDocutraza(ventana2, modeloC2);
+                    controlaC.vistaCRUD.txtIdDocutraza.setText(id);
+                    controlaC.vistaCRUD.txtPrecio.setText(precio);
+                    controlaC.vistaCRUD.txtPeso.setText(peso);
+                    controlaC.vistaCRUD.txtCertificado.setText(certificado);
+                    controlaC.vistaCRUD.txtSaco.setText(sacos);
+                    
+                   
+                    dskPrincipal.add(ventana2);
+                    ventana2.setVisible(true);
+
+                }
+            } catch (HeadlessException ex) {
+
+                JOptionPane.showMessageDialog(null, "Error: " + ex + "\nInténtelo nuevamente", " .::Error En la Operacion::.", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        if (e.getSource() == vistaCRUD.btnVerConf) {
+
+            int filaseleccionada;
+
+            try {
+
+                filaseleccionada = vistaCRUD.jtDocutraza.getSelectedRow();
+
+                if (filaseleccionada == -1) {
+
+                    JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+
+                } else {
+
+                    DefaultTableModel modelotabla = (DefaultTableModel) vistaCRUD.jtDocutraza.getModel();
+                    String id = (String) modelotabla.getValueAt(filaseleccionada, 0);
+                    
+                    String precio = (String) modelotabla.getValueAt(filaseleccionada, 12);
+                    String peso = (String) modelotabla.getValueAt(filaseleccionada, 10);
+                    String certificado = (String) modelotabla.getValueAt(filaseleccionada, 8);
+                    String sacos = (String) modelotabla.getValueAt(filaseleccionada, 9);
+                    RAgriEstimado ventana2 = new RAgriEstimado();
+                    DetalleDocutrazaDao modeloC2 = new DetalleDocutrazaDao();
+                    ControladorCrudDetalleDocutraza controlaC = new ControladorCrudDetalleDocutraza(ventana2, modeloC2);
+                    controlaC.vistaCRUD.txtIdDocutraza.setText(id);
+                    controlaC.vistaCRUD.txtPrecio.setText(precio);
+                    controlaC.vistaCRUD.txtPeso.setText(peso);
+                    controlaC.vistaCRUD.txtCertificado.setText(certificado);
+                    controlaC.vistaCRUD.txtSaco.setText(sacos);
+                    controlaC.construirTablaListConfor(idempresa, idsucursal,Integer.valueOf(id));                   
+                    dskPrincipal.add(ventana2);
+                    ventana2.setVisible(true);
+                    controlaC.vistaCRUD.btnProcesar.setVisible(false);
+                    controlaC.vistaCRUD.btnImportar.setVisible(false);
+                    
+
+                }
+            } catch (HeadlessException ex) {
+
+                JOptionPane.showMessageDialog(null, "Error: " + ex + "\nInténtelo nuevamente", " .::Error En la Operacion::.", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        }
+        
+        
+
         if (e.getSource() == vistaCRUD.btnNTrack) {
             idNuevoDocutraza = dao.DocutrazaDao.idNuevoDocutraza();
             vistaCRUD.txtIdDocutrza.setText(String.valueOf(idNuevoDocutraza.get(0).getIddocutraza() + 1));
@@ -177,7 +270,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                         //construirTablaDocutraza(idempresa, idsucursal);
                         reiniciarJTable(vistaCRUD.jtAscDocumentos);
                         int dct = Integer.valueOf(vistaCRUD.txtIdDocutraza.getText());
-                        construirTablaDocumento(idempresa, idsucursal,dct);
+                        construirTablaDocumento(idempresa, idsucursal, dct);
                         construirTablaCompraContrato(idempresa, idsucursal);
                         vistaCRUD.btnRegDocumento.setEnabled(false);
                         vistaCRUD.btnRegDocumento.setText("Registrar");
@@ -189,7 +282,6 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                     int iddocutrazad = Integer.valueOf(vistaCRUD.txtIdDocutraza.getText());
                     ListaCombos cli = (ListaCombos) vistaCRUD.jcbTDocumento.getSelectedItem();
                     int tdocumento = cli.getIdpersona();
-                    System.out.println(tdocumento);
                     String serie = vistaCRUD.txtSerie.getText();
                     String correlativo = vistaCRUD.txtDocCorrelativo.getText();
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
@@ -221,7 +313,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                         //construirTablaDocutraza(idempresa, idsucursal);
                         reiniciarJTable(vistaCRUD.jtAscDocumentos);
                         int dct = Integer.valueOf(vistaCRUD.txtIdDocutraza.getText());
-                        construirTablaDocumento(idempresa, idsucursal,dct);
+                        construirTablaDocumento(idempresa, idsucursal, dct);
                         construirTablaCompraContrato(idempresa, idsucursal);
                         vistaCRUD.btnRegDocumento.setEnabled(false);
                         vistaCRUD.btnRegDocumento.setText("Registrar");
@@ -260,27 +352,25 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
 
                     int iddocumento = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIddocumento();
                     int empresa = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdempresa();
-                    int sucursal = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdsucursal();     
-                    int iddocutraza = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIddocutraza();     
+                    int sucursal = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdsucursal();
+                    int iddocutraza = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIddocutraza();
                     String identificador = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getIdentificador();
                     String serieguia = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getSerie();
                     String correlativo = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCorrelativo();
                     String fecha = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getFecha();
                     String estado = DocutrazaDao.SelectDocumento(idempresa, idsucursal, Integer.valueOf(id)).get(0).getEstado();
-
                     vistaCRUD.txtSerie.setEnabled(true);
                     vistaCRUD.txtDocCorrelativo.setEnabled(true);
                     vistaCRUD.txtFecha.setEnabled(true);
-                    
                     vistaCRUD.txtIddocumento.setText(String.valueOf(iddocumento));
-                    vistaCRUD.txtIdDocutraza.setText(String.valueOf(iddocutraza));                    
+                    vistaCRUD.txtIdDocutraza.setText(String.valueOf(iddocutraza));
                     vistaCRUD.jcbTDocumento.setSelectedItem(identificador);
                     vistaCRUD.txtSerie.setText(serieguia);
                     vistaCRUD.txtDocCorrelativo.setText(correlativo);
                     vistaCRUD.txtSerie.requestFocus();
                     reiniciarJTable(vistaCRUD.jtAscDocumentos);
                     int dct = Integer.valueOf(vistaCRUD.txtIdDocutraza.getText());
-                        construirTablaDocumento(idempresa, idsucursal,dct);
+                    construirTablaDocumento(idempresa, idsucursal, dct);
                     if (estado.equals("I")) {
                         vistaCRUD.jcbEstDoc.setSelectedIndex(0);
                     } else {
@@ -310,8 +400,8 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                     String correlativo = vistaCRUD.txtCorrelativo.getText();
                     String certificado = String.valueOf(vistaCRUD.jcbCertificado.getSelectedItem());
                     int saco = Integer.valueOf(vistaCRUD.txtSacos.getText());
-                    float kb = Float.valueOf(vistaCRUD.txtKb.getText().replace(".", "").replace(",", "."));
-                    float kn = Float.valueOf(vistaCRUD.txtKn.getText().replace(".", "").replace(",", "."));
+                    double kb = Float.valueOf(vistaCRUD.txtKb.getText().replace(".", "").replace(",", "."));
+                    double kn = Float.valueOf(vistaCRUD.txtKn.getText().replace(".", "").replace(",", "."));
                     String fairtrade = vistaCRUD.txtCorrelativo.getText();
                     String condicion = String.valueOf(vistaCRUD.jcbCondicion.getSelectedItem());
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
@@ -451,6 +541,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                     String certificado = DocutrazaDao.SelectDocutraza(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCertificado();
                     int sacos = DocutrazaDao.SelectDocutraza(idempresa, idsucursal, Integer.valueOf(id)).get(0).getSacos();
                     float kb = (float) DocutrazaDao.SelectDocutraza(idempresa, idsucursal, Integer.valueOf(id)).get(0).getKb();
+                    //float precio = (float) DocutrazaDao.SelectDocutraza(idempresa, idsucursal, Integer.valueOf(id)).get(0).getKb();
                     float kn = (float) DocutrazaDao.SelectDocutraza(idempresa, idsucursal, Integer.valueOf(id)).get(0).getKn();
                     String fairtrade = DocutrazaDao.SelectDocutraza(idempresa, idsucursal, Integer.valueOf(id)).get(0).getFairtrade();
                     String condicion = DocutrazaDao.SelectDocutraza(idempresa, idsucursal, Integer.valueOf(id)).get(0).getCondicion();
@@ -497,7 +588,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
 
     public void construirTablaDocumento(int empresa, int sucursal, int dct) {
 
-        listaDocumento = dao.DocutrazaDao.listaDocumento(empresa, sucursal,dct);
+        listaDocumento = dao.DocutrazaDao.listaDocumento(empresa, sucursal, dct);
 
         ArrayList<String> titulosList = new ArrayList<>();
 
@@ -521,7 +612,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
 
     public void construirTablabuscarDoc(int empresa, int sucursal, String texto) {
 
-         listaDocumento = dao.DocutrazaDao.listaDocumentoBuscar(empresa, sucursal);
+        listaDocumento = dao.DocutrazaDao.listaDocumentoBuscar(empresa, sucursal);
 
         ArrayList<String> titulosList = new ArrayList<>();
 
@@ -571,14 +662,6 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         filasTabla = vistaCRUD.jtAscDocumentos.getRowCount();
         columnasTabla = vistaCRUD.jtAscDocumentos.getColumnCount();
 
-        //se asigna el tipo de dato que tendrán las celdas de cada columna definida respectivamente para validar su personalización
-//        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadCC.peso).setCellRenderer(new GestionCeldas("numerico"));
-//        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadCC.precio).setCellRenderer(new GestionCeldas("numerico"));
-//        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadCC.imptotal).setCellRenderer(new GestionCeldas("numerico"));
-
-        //se recorre y asigna el resto de celdas que serian las que almacenen datos de tipo texto
-        // for (int i = 0; i < titulos.length - 8; i++) {//se resta 7 porque las ultimas 7 columnas se definen arriba
-        //    System.out.println(i);
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(0).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(1).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(2).setCellRenderer(new GestionCeldas("texto"));
@@ -590,7 +673,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(8).setCellRenderer(new GestionCeldas("texto"));
 
         vistaCRUD.jtAscDocumentos.getTableHeader().setReorderingAllowed(false);
-        vistaCRUD.jtAscDocumentos.setRowHeight(25);//tamaño de las celdas
+        vistaCRUD.jtAscDocumentos.setRowHeight(25);
         vistaCRUD.jtAscDocumentos.setGridColor(new java.awt.Color(0, 0, 0));
 
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.iddocumento).setPreferredWidth(40);
@@ -609,7 +692,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
 
         vistaCRUD.jScrollPane4.setViewportView(vistaCRUD.jtAscDocumentos);
     }
-    
+
     public void construirTablaCompraContrato(int empresa, int sucursal) {
 
         listaCompraContrato = dao.DocutrazaDao.listCompraContrato(empresa, sucursal);
@@ -683,20 +766,15 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
 
     private void construirTablaCompContrato(String[] titulos, Object[][] data) {
         modelojt = new ModeloTabla(data, titulos);
-        //se asigna el modelo a la tabla
         vistaCRUD.jtCompraContrato.setModel(modelojt);
 
         filasTabla = vistaCRUD.jtCompraContrato.getRowCount();
         columnasTabla = vistaCRUD.jtCompraContrato.getColumnCount();
 
-        //se asigna el tipo de dato que tendrán las celdas de cada columna definida respectivamente para validar su personalización
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.peso).setCellRenderer(new GestionCeldas("numerico"));
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.precio).setCellRenderer(new GestionCeldas("numerico"));
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.imptotal).setCellRenderer(new GestionCeldas("numerico"));
 
-        //se recorre y asigna el resto de celdas que serian las que almacenen datos de tipo texto
-        // for (int i = 0; i < titulos.length - 8; i++) {//se resta 7 porque las ultimas 7 columnas se definen arriba
-        //    System.out.println(i);
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(0).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(1).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(2).setCellRenderer(new GestionCeldas("texto"));
@@ -705,7 +783,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(8).setCellRenderer(new GestionCeldas("texto"));
 
         vistaCRUD.jtCompraContrato.getTableHeader().setReorderingAllowed(false);
-        vistaCRUD.jtCompraContrato.setRowHeight(25);//tamaño de las celdas
+        vistaCRUD.jtCompraContrato.setRowHeight(25);
         vistaCRUD.jtCompraContrato.setGridColor(new java.awt.Color(0, 0, 0));
 
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idcompracontrato).setPreferredWidth(40);
@@ -742,6 +820,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         titulosList.add("Certificado");
         titulosList.add("Sacos");
         titulosList.add("Kb");
+        titulosList.add("Precio");
         titulosList.add("Kn");
         titulosList.add("Fairtrade");
         titulosList.add("Condicion");
@@ -773,6 +852,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         titulosList.add("Certificado");
         titulosList.add("Sacos");
         titulosList.add("Kb");
+        titulosList.add("Precio");
         titulosList.add("Kn");
         titulosList.add("Fairtrade");
         titulosList.add("Condicion");
@@ -791,9 +871,8 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
     private Object[][] obtenerMatrizDatosDocutraza(ArrayList<String> titulosList) {
 
         String informacion[][] = new String[listaDocutraza.size()][titulosList.size()];
-
+        System.out.println(listaDocutraza.size());
         for (int x = 0; x < informacion.length; x++) {
-
             informacion[x][UtilidadDocu.iddocutraza] = listaDocutraza.get(x).getIddocutraza() + "";
             informacion[x][UtilidadDocu.idempresa] = listaDocutraza.get(x).getIdempresa() + "";
             informacion[x][UtilidadDocu.idsucursal] = listaDocutraza.get(x).getIdsucursal() + "";
@@ -805,32 +884,26 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
             informacion[x][UtilidadDocu.certificado] = listaDocutraza.get(x).getCertificado() + "";
             informacion[x][UtilidadDocu.sacos] = listaDocutraza.get(x).getSacos() + "";
             informacion[x][UtilidadDocu.kb] = df.format(listaDocutraza.get(x).getKb()) + "";
+            informacion[x][UtilidadDocu.precio] = df.format(listaDocutraza.get(x).getPrecio()) + "";
             informacion[x][UtilidadDocu.kn] = df.format(listaDocutraza.get(x).getKn()) + "";
             informacion[x][UtilidadDocu.fairtrade] = listaDocutraza.get(x).getFairtrade() + "";
             informacion[x][UtilidadDocu.condicion] = listaDocutraza.get(x).getCondicion() + "";
             informacion[x][UtilidadDocu.fecha] = listaDocutraza.get(x).getFecha() + "";
             informacion[x][UtilidadDocu.estado] = listaDocutraza.get(x).getEstado() + "";
-
         }
         return informacion;
     }
 
     private void construirTablaDocutraza(String[] titulos, Object[][] data) {
         modelojt = new ModeloTabla(data, titulos);
-        //se asigna el modelo a la tabla
         vistaCRUD.jtDocutraza.setModel(modelojt);
-
         filasTabla = vistaCRUD.jtDocutraza.getRowCount();
         columnasTabla = vistaCRUD.jtDocutraza.getColumnCount();
-
-        //se asigna el tipo de dato que tendrán las celdas de cada columna definida respectivamente para validar su personalización
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.sacos).setCellRenderer(new GestionCeldas("numerico"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kb).setCellRenderer(new GestionCeldas("numerico"));
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.precio).setCellRenderer(new GestionCeldas("numerico"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kn).setCellRenderer(new GestionCeldas("numerico"));
 
-        //se recorre y asigna el resto de celdas que serian las que almacenen datos de tipo texto
-        // for (int i = 0; i < titulos.length - 8; i++) {//se resta 7 porque las ultimas 7 columnas se definen arriba
-        //    System.out.println(i);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(0).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(1).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(2).setCellRenderer(new GestionCeldas("texto"));
@@ -840,10 +913,10 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(6).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(7).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(8).setCellRenderer(new GestionCeldas("texto"));
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(12).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(13).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(14).setCellRenderer(new GestionCeldas("texto"));
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(15).setCellRenderer(new GestionCeldas("texto"));
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(16).setCellRenderer(new GestionCeldas("texto"));
 
         vistaCRUD.jtDocutraza.getTableHeader().setReorderingAllowed(false);
         vistaCRUD.jtDocutraza.setRowHeight(25);//tamaño de las celdas
@@ -860,6 +933,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.certificado).setPreferredWidth(40);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.sacos).setPreferredWidth(40);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kb).setPreferredWidth(40);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.precio).setPreferredWidth(40);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kn).setPreferredWidth(40);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.fairtrade).setPreferredWidth(40);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.condicion).setPreferredWidth(40);
@@ -918,6 +992,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         DT.setCertificado(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.certificado).toString());
         DT.setSacos(Integer.valueOf(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.sacos).toString()));
         DT.setKb(Double.valueOf(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.kb).toString().replace(".", "").replace(",", ".")));
+        DT.setPrecio(Double.valueOf(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.precio).toString().replace(".", "").replace(",", ".")));
         DT.setKn(Double.valueOf(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.kn).toString().replace(".", "").replace(",", ".")));
         DT.setFairtrade(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.fairtrade).toString());
         DT.setCondicion(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.condicion).toString());
@@ -936,6 +1011,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         info += "Certificado: " + DT.getCertificado() + "\n";
         info += "Sacos: " + DT.getSacos() + "\n";
         info += "Kb: " + DT.getKb() + "\n";
+        info += "Precio: " + DT.getPrecio() + "\n";
         info += "Kn: " + DT.getKn() + "\n";
         info += "Fairtrade: " + DT.getFairtrade() + "\n";
         info += "Condicion: " + DT.getCondicion() + "\n";
@@ -1005,11 +1081,22 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.btnRegDocumento.setEnabled(false);
         idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
         idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
-        
+
         int dct = Integer.valueOf(vistaCRUD.jtDocutraza.getValueAt(fila, UtilidadDocu.iddocutraza).toString());
         reiniciarJTable(vistaCRUD.jtAscDocumentos);
         construirTablaDocumento(idempresa, idsucursal, dct);
+        int iddocutraza = dao.DetalleDocutrazaDao.listIddetDocutraza(dct).get(0).getIddocutraza();
+
+        if (iddocutraza == 0) {
+            vistaCRUD.btnAsigCon.setEnabled(true);
+            vistaCRUD.btnVerConf.setEnabled(false);
+        } else {
+            vistaCRUD.btnAsigCon.setEnabled(false);
+            vistaCRUD.btnVerConf.setEnabled(true);
+        }
+
     }
+
     private void validarSeleccionMouseRgDoc(int fila) {
         UtilidadDocu.filaSeleccionada = fila;
         vistaCRUD.txtIdDocutraza.setText("");
@@ -1044,9 +1131,9 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
             }
             if (me.getClickCount() == 1) {
                 int fila = vistaCRUD.jtDocutraza.rowAtPoint(me.getPoint());
-                int columna = vistaCRUD.jtDocutraza.columnAtPoint(me.getPoint());               
-                
+                int columna = vistaCRUD.jtDocutraza.columnAtPoint(me.getPoint());
                 validarSeleccionMouseRgDT(fila);
+
             }
         }
         if (me.getSource() == vistaCRUD.jtAscDocumentos) {
@@ -1058,8 +1145,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
             }
             if (me.getClickCount() == 1) {
                 int fila = vistaCRUD.jtAscDocumentos.rowAtPoint(me.getPoint());
-                int columna = vistaCRUD.jtAscDocumentos.columnAtPoint(me.getPoint());               
-                
+                int columna = vistaCRUD.jtAscDocumentos.columnAtPoint(me.getPoint());
                 validarSeleccionMouseRgDoc(fila);
             }
         }

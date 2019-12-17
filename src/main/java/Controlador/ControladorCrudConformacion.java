@@ -40,7 +40,7 @@ public class ControladorCrudConformacion implements ActionListener, MouseListene
         this.vistaCRUD = vistaCRUD;
         this.vistaCRUD.btnRegistrar.addActionListener(this);
         this.vistaCRUD.btnCancelar.addActionListener(this);
-        this.vistaCRUD.btnBuscarPro.addActionListener(this);
+        this.vistaCRUD.btnBuscarPro.addActionListener(this);     
     }
 
     public void InicializarCrud() {
@@ -86,17 +86,21 @@ public class ControladorCrudConformacion implements ActionListener, MouseListene
                         JOptionPane.showMessageDialog(null, rptaRegistro);                       
                         
                         vistaCRUD.dispose();
-                        reiniciarJTable(vista.RAgriEstimado.jtListProveedores);
+//                        reiniciarJTable(vista.RAgriEstimado.jtListProveedores);
                         //Controlador.ControladorCrudDetalleDocutraza.construirTabla();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo realizar la actualización.");
                     }
                 } else {
-
+                        System.out.println("hola");
                 }
             }
         }
+        if (e.getSource() == vistaCRUD.btnRegistrar) {
+        
+        }
     }
+    
 
     @Override
     public void mousePressed(MouseEvent me) {

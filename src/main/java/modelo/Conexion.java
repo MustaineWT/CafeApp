@@ -20,14 +20,14 @@ public class Conexion {
 
         boolean produccion = false;//cambiar a true para produccion.
         if (produccion == false) {
-            String url = "jdbc:sqlserver://DESKTOP-3CPB4UK\\MSSQLSERVER:1433;databaseName=Cafebd";
+            String url = "jdbc:sqlserver://DESKTOP-IQMLP8I\\MSSQLSERVER:1433;databaseName=Cafebd";
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             } catch (ClassNotFoundException e) {
                 JOptionPane.showConfirmDialog(null, "No se pudo establecer" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
             }
             try {
-                contacto = DriverManager.getConnection(url, "saaa", "123456");
+                contacto = DriverManager.getConnection(url, "sa", "18345269");
             } catch (SQLException e) {
                 JOptionPane.showConfirmDialog(null, "Error" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
             }

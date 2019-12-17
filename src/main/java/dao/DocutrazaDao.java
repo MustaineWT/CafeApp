@@ -208,12 +208,14 @@ public class DocutrazaDao {
                 docutraza.setCertificado(rs.getString(9));
                 docutraza.setSacos(rs.getInt(10));
                 docutraza.setKb(rs.getDouble(11));
-                docutraza.setKn(rs.getDouble(12));
-                docutraza.setFairtrade(rs.getString(13));
-                docutraza.setCondicion(rs.getString(14));
-                docutraza.setFecha(rs.getString(15));
-                docutraza.setEstado(rs.getString(16));
+                docutraza.setPrecio(rs.getDouble(12));
+                docutraza.setKn(rs.getDouble(13));
+                docutraza.setFairtrade(rs.getString(14));
+                docutraza.setCondicion(rs.getString(15));
+                docutraza.setFecha(rs.getString(16));
+                docutraza.setEstado(rs.getString(17));
                 listaDocutraza.add(docutraza);
+                System.out.println(rs.getInt(1));
             }
             rs.close();
         } catch (Exception e) {
@@ -271,17 +273,19 @@ public class DocutrazaDao {
                 docutraza.setIdempresa(rs.getInt(2));
                 docutraza.setIdsucursal(rs.getInt(3));
                 docutraza.setIdcompracontrato(rs.getInt(4));
-                docutraza.setCliente(rs.getString(5));
-                docutraza.setSerieguia(rs.getString(6));
-                docutraza.setCorrelativo(rs.getString(7));
-                docutraza.setCertificado(rs.getString(8));
-                docutraza.setSacos(rs.getInt(9));
-                docutraza.setKb(rs.getDouble(10));
-                docutraza.setKn(rs.getDouble(11));
-                docutraza.setFairtrade(rs.getString(12));
-                docutraza.setCondicion(rs.getString(13));
-                docutraza.setFecha(rs.getString(14));
-                docutraza.setEstado(rs.getString(15));
+                docutraza.setIdpersona(rs.getInt(5));
+                docutraza.setRazonsocial(rs.getString(6));
+                docutraza.setSerieguia(rs.getString(7));
+                docutraza.setCorrelativo(rs.getString(8));
+                docutraza.setCertificado(rs.getString(9));
+                docutraza.setSacos(rs.getInt(10));
+                docutraza.setKb(rs.getDouble(11));
+                docutraza.setPrecio(rs.getDouble(12));
+                docutraza.setKn(rs.getDouble(13));
+                docutraza.setFairtrade(rs.getString(14));
+                docutraza.setCondicion(rs.getString(15));
+                docutraza.setFecha(rs.getString(16));
+                docutraza.setEstado(rs.getString(17));
                 listaDocutraza.add(docutraza);
             }
             rs.close();
@@ -449,11 +453,12 @@ public class DocutrazaDao {
                 docutraza.setCertificado(rs.getString(8));
                 docutraza.setSacos(rs.getInt(9));
                 docutraza.setKb(rs.getDouble(10));
-                docutraza.setKn(rs.getDouble(11));
-                docutraza.setFairtrade(rs.getString(12));
-                docutraza.setCondicion(rs.getString(13));
-                docutraza.setFecha(rs.getString(14));
-                docutraza.setEstado(rs.getString(15));
+                docutraza.setPrecio(rs.getDouble(11));
+                docutraza.setKn(rs.getDouble(12));
+                docutraza.setFairtrade(rs.getString(13));
+                docutraza.setCondicion(rs.getString(14));
+                docutraza.setFecha(rs.getString(15));
+                docutraza.setEstado(rs.getString(16));
                 listaDocutraza.add(docutraza);
             }
         } catch (Exception e) {

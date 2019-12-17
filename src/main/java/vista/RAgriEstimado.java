@@ -34,12 +34,12 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel26 = new javax.swing.JLabel();
         btnExcel = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
-        txtId2 = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        txtId9 = new javax.swing.JTextField();
-        txtId10 = new javax.swing.JTextField();
+        txtPeso = new javax.swing.JTextField();
+        txtCertificado = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
-        txtId11 = new javax.swing.JTextField();
+        txtSaco = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -51,10 +51,12 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         txtId6 = new javax.swing.JTextField();
         txtId7 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        txtId12 = new javax.swing.JTextField();
+        txtMezcla = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
         btnProcesar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtIdDocutraza = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 0, 51));
@@ -79,13 +81,10 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jtListProveedores.setForeground(new java.awt.Color(51, 51, 255));
         jtListProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
-
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Title 14", "Title 15", "Title 16"
             }
         ));
         jtListProveedores.setGridColor(new java.awt.Color(0, 51, 153));
@@ -127,16 +126,16 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel33.setToolTipText("");
         jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
 
-        txtId2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId2.setForeground(new java.awt.Color(0, 0, 102));
-        txtId2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId2.setEnabled(false);
-        txtId2.addActionListener(new java.awt.event.ActionListener() {
+        txtPrecio.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtPrecio.setForeground(new java.awt.Color(0, 0, 102));
+        txtPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtPrecio.setEnabled(false);
+        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId2ActionPerformed(evt);
+                txtPrecioActionPerformed(evt);
             }
         });
-        jPanel2.add(txtId2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 60, 20));
+        jPanel2.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 60, 20));
 
         jLabel36.setBackground(new java.awt.Color(255, 255, 255));
         jLabel36.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -145,27 +144,27 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel36.setToolTipText("");
         jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 20));
 
-        txtId9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId9.setForeground(new java.awt.Color(0, 0, 102));
-        txtId9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId9.setEnabled(false);
-        txtId9.addActionListener(new java.awt.event.ActionListener() {
+        txtPeso.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtPeso.setForeground(new java.awt.Color(0, 0, 102));
+        txtPeso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtPeso.setEnabled(false);
+        txtPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId9ActionPerformed(evt);
+                txtPesoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtId9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 100, 20));
+        jPanel2.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 100, 20));
 
-        txtId10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId10.setForeground(new java.awt.Color(0, 0, 102));
-        txtId10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId10.setEnabled(false);
-        txtId10.addActionListener(new java.awt.event.ActionListener() {
+        txtCertificado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtCertificado.setForeground(new java.awt.Color(0, 0, 102));
+        txtCertificado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCertificado.setEnabled(false);
+        txtCertificado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId10ActionPerformed(evt);
+                txtCertificadoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtId10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 80, 20));
+        jPanel2.add(txtCertificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 80, 20));
 
         jLabel37.setBackground(new java.awt.Color(255, 255, 255));
         jLabel37.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -174,21 +173,21 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel37.setToolTipText("");
         jPanel2.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, 20));
 
-        txtId11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId11.setForeground(new java.awt.Color(0, 0, 102));
-        txtId11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId11.setEnabled(false);
-        txtId11.addActionListener(new java.awt.event.ActionListener() {
+        txtSaco.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtSaco.setForeground(new java.awt.Color(0, 0, 102));
+        txtSaco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtSaco.setEnabled(false);
+        txtSaco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId11ActionPerformed(evt);
+                txtSacoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtId11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 60, 20));
+        jPanel2.add(txtSaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 60, 20));
 
         jLabel38.setBackground(new java.awt.Color(255, 255, 255));
         jLabel38.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel38.setText("% var sacos:");
+        jLabel38.setText("sacos:");
         jLabel38.setToolTipText("");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, 20));
 
@@ -296,23 +295,23 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel34.setToolTipText("");
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 20));
 
-        txtId12.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtId12.setForeground(new java.awt.Color(0, 0, 102));
-        txtId12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId12.setEnabled(false);
-        txtId12.addActionListener(new java.awt.event.ActionListener() {
+        txtMezcla.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtMezcla.setForeground(new java.awt.Color(0, 0, 102));
+        txtMezcla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtMezcla.setEnabled(false);
+        txtMezcla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtId12ActionPerformed(evt);
+                txtMezclaActionPerformed(evt);
             }
         });
-        jPanel2.add(txtId12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 60, 20));
+        jPanel2.add(txtMezcla, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 60, 20));
 
         jLabel39.setBackground(new java.awt.Color(255, 255, 255));
         jLabel39.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(153, 0, 51));
         jLabel39.setText("Mezcla:");
         jLabel39.setToolTipText("");
-        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, 20));
+        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, -1, 20));
 
         btnProcesar.setBackground(new java.awt.Color(0, 102, 102));
         btnProcesar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -331,6 +330,24 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Proceso Beta");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 160, -1));
+
+        txtIdDocutraza.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdDocutraza.setForeground(new java.awt.Color(0, 0, 102));
+        txtIdDocutraza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdDocutraza.setEnabled(false);
+        txtIdDocutraza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdDocutrazaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtIdDocutraza, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 60, 20));
+
+        jLabel35.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel35.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel35.setText("IdDocTraza:");
+        jLabel35.setToolTipText("");
+        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1120, 710));
         jPanel2.getAccessibleContext().setAccessibleName("Mantenimiento de Compra Contrato");
@@ -352,21 +369,21 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExcelActionPerformed
 
-    private void txtId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId2ActionPerformed
+    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId2ActionPerformed
+    }//GEN-LAST:event_txtPrecioActionPerformed
 
-    private void txtId9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId9ActionPerformed
+    private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId9ActionPerformed
+    }//GEN-LAST:event_txtPesoActionPerformed
 
-    private void txtId10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId10ActionPerformed
+    private void txtCertificadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCertificadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId10ActionPerformed
+    }//GEN-LAST:event_txtCertificadoActionPerformed
 
-    private void txtId11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId11ActionPerformed
+    private void txtSacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSacoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId11ActionPerformed
+    }//GEN-LAST:event_txtSacoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
@@ -396,13 +413,17 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtId7ActionPerformed
 
-    private void txtId12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtId12ActionPerformed
+    private void txtMezclaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMezclaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtId12ActionPerformed
+    }//GEN-LAST:event_txtMezclaActionPerformed
 
     private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProcesarActionPerformed
+
+    private void txtIdDocutrazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdDocutrazaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdDocutrazaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -419,22 +440,24 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable jtListProveedores;
-    public javax.swing.JTextField txtId10;
-    public javax.swing.JTextField txtId11;
-    public javax.swing.JTextField txtId12;
-    public javax.swing.JTextField txtId2;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable jtListProveedores;
+    public javax.swing.JTextField txtCertificado;
     public javax.swing.JTextField txtId4;
     public javax.swing.JTextField txtId5;
     public javax.swing.JTextField txtId6;
     public javax.swing.JTextField txtId7;
-    public javax.swing.JTextField txtId9;
+    public javax.swing.JTextField txtIdDocutraza;
+    public javax.swing.JTextField txtMezcla;
+    public javax.swing.JTextField txtPeso;
+    public javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtSaco;
     // End of variables declaration//GEN-END:variables
 }
