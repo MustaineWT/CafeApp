@@ -302,7 +302,7 @@ public class RDocutraza_Document extends javax.swing.JInternalFrame {
 
         jcbCertificado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jcbCertificado.setForeground(new java.awt.Color(0, 0, 153));
-        jcbCertificado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CP", "CPO", "FT", "FTCP", "FTO", "FTOCP", "CASCARILLA", "FTO-MCM", "ANULADO" }));
+        jcbCertificado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CP", "CPO", "FT", "FTCP", "FTO", "FTOCP" }));
         jcbCertificado.setToolTipText("");
         jcbCertificado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
         jPanel3.add(jcbCertificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, -1));

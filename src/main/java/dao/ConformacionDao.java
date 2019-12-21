@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import modelo.AperturaContrato;
+import modelo.PerBuscador;
 
 /**
  *
@@ -25,11 +26,11 @@ public class ConformacionDao {
             int idperLPACon,
             int idpersona,
             int sacos, 
-            long kb,
-            long tara,
-            long kn,
-            long precio,
-            long importetotal,
+            double kb,
+            double tara,
+            double kn,
+            double precio,
+            double importetotal,
             String guia,
             String liqcompra,
             String fecha,
@@ -44,11 +45,11 @@ public class ConformacionDao {
             cs.setInt(4, idperLPACon);
             cs.setInt(5, idpersona);
             cs.setInt(6, sacos);
-            cs.setLong(7, kb);
-            cs.setLong(8, tara);
-            cs.setLong(9, kn);
-            cs.setLong(10, precio);
-            cs.setLong(11, importetotal);
+            cs.setDouble(7, kb);
+            cs.setDouble(8, tara);
+            cs.setDouble(9, kn);
+            cs.setDouble(10, precio);
+            cs.setDouble(11, importetotal);
             cs.setString(12, guia);
             cs.setString(13, liqcompra);
             cs.setString(14, fecha);
@@ -64,4 +65,37 @@ public class ConformacionDao {
         }
         return rptaRegistro;
     }
+    
+        public static ArrayList<PerBuscador> listIddpersona(
+            int idempresa,int idpersona
+    ) {
+        ArrayList listaDetalleDocutraza = new ArrayList();
+        PerBuscador perbuscador;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERCLIENTE_SELECT(?,?)}");
+            ps.setInt(1, idempresa);
+            ps.setInt(2, idpersona);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                perbuscador = new PerBuscador();
+                perbuscador.setIdpersona(rs.getInt(1));
+                perbuscador.setNombres(rs.getString(2));
+                listaDetalleDocutraza.add(perbuscador);
+            }
+        } catch (Exception e) {
+
+        }
+        return listaDetalleDocutraza;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

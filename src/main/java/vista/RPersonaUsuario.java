@@ -17,9 +17,9 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         initComponents();
         btnRegistrar.setEnabled(false);
         btnNuevo.setEnabled(true);
-        txtId.setEnabled(false);
+        txtIdpersona.setEnabled(false);
         txtRSocial.setEnabled(false);
-        txtRuc.setEnabled(false);
+        txtCiudad.setEnabled(false);
         txtDireccion.setEnabled(false);
     }
 
@@ -36,58 +36,60 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
+        txtIdpersona = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtEmpresa = new javax.swing.JTable();
+        jtPersona = new javax.swing.JTable();
         btnEditar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        txtRuc = new javax.swing.JTextField();
+        txtCiudad = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         txtRSocial = new javax.swing.JTextField();
         btnNuevo = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jcbEstado = new javax.swing.JComboBox<>();
+        jcbTipoUsuario = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        txtRuc2 = new javax.swing.JTextField();
-        txtRuc3 = new javax.swing.JTextField();
+        txtDistrito = new javax.swing.JTextField();
+        txtRucDni = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jcbEstado1 = new javax.swing.JComboBox<>();
-        txtRuc5 = new javax.swing.JTextField();
+        jcbEstado = new javax.swing.JComboBox<>();
+        txtNombres = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txtRuc6 = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        txtRuc1 = new javax.swing.JTextField();
+        txtProvincia = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        txtRuc7 = new javax.swing.JTextField();
-        txtRuc8 = new javax.swing.JTextField();
+        txtPais = new javax.swing.JTextField();
+        txtCodAgricultor = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        txtRuc9 = new javax.swing.JTextField();
+        txtBPersona = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        txtRuc10 = new javax.swing.JTextField();
-        txtRuc11 = new javax.swing.JTextField();
-        txtRuc12 = new javax.swing.JTextField();
-        txtRuc13 = new javax.swing.JTextField();
-        txtRuc14 = new javax.swing.JTextField();
-        txtRuc15 = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtCafePractice = new javax.swing.JTextField();
+        txtOrga = new javax.swing.JTextField();
+        txtCp = new javax.swing.JTextField();
+        txtFinca = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jRPasswordField1 = new jpass.JRPasswordField();
+        jRPPassword = new jpass.JRPasswordField();
         jLabel36 = new javax.swing.JLabel();
-        jcbEstado2 = new javax.swing.JComboBox<>();
+        jcbPersona = new javax.swing.JComboBox<>();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        txtRuc16 = new javax.swing.JTextField();
+        txtAnexo = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        jYearChooser1 = new com.toedter.calendar.JYearChooser();
+        jYcEjercicio = new com.toedter.calendar.JYearChooser();
+        txtCelular = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 0, 51));
@@ -122,20 +124,20 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel4.setToolTipText("");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
 
-        txtId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtId.setForeground(new java.awt.Color(153, 0, 51));
-        txtId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtId.setEnabled(false);
-        txtId.addActionListener(new java.awt.event.ActionListener() {
+        txtIdpersona.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtIdpersona.setForeground(new java.awt.Color(153, 0, 51));
+        txtIdpersona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdpersona.setEnabled(false);
+        txtIdpersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
+                txtIdpersonaActionPerformed(evt);
             }
         });
-        jPanel2.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 90, 20));
+        jPanel2.add(txtIdpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 40, 20));
 
-        jtEmpresa.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jtEmpresa.setForeground(new java.awt.Color(51, 51, 255));
-        jtEmpresa.setModel(new javax.swing.table.DefaultTableModel(
+        jtPersona.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jtPersona.setForeground(new java.awt.Color(51, 51, 255));
+        jtPersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -146,8 +148,8 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
 
             }
         ));
-        jtEmpresa.setGridColor(new java.awt.Color(0, 51, 153));
-        jScrollPane1.setViewportView(jtEmpresa);
+        jtPersona.setGridColor(new java.awt.Color(0, 51, 153));
+        jScrollPane1.setViewportView(jtPersona);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 690, 280));
 
@@ -167,17 +169,17 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jSeparator1.setForeground(new java.awt.Color(153, 0, 51));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 690, 10));
 
-        txtRuc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 230, 20));
+        txtCiudad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtCiudad.setForeground(new java.awt.Color(153, 0, 51));
+        txtCiudad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 230, 20));
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 0, 51));
         jLabel19.setText("Estado:");
         jLabel19.setToolTipText("");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, -1, 20));
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, 20));
 
         txtDireccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(153, 0, 51));
@@ -220,14 +222,14 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel20.setForeground(new java.awt.Color(153, 0, 51));
         jLabel20.setText("Tipo Persona:");
         jLabel20.setToolTipText("");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, 20));
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, 20));
 
-        jcbEstado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar--", "Empleado", "Administrador", "Cliente", "Agricultor" }));
-        jcbEstado.setToolTipText("");
-        jcbEstado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel2.add(jcbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 200, 20));
+        jcbTipoUsuario.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbTipoUsuario.setForeground(new java.awt.Color(0, 0, 153));
+        jcbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agricultor", "Cliente", "Proveedor", "Tercero", "Empleado" }));
+        jcbTipoUsuario.setToolTipText("");
+        jcbTipoUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel2.add(jcbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 100, -1));
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -250,15 +252,15 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel23.setToolTipText("");
         jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 50, 20));
 
-        txtRuc2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc2.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 230, 20));
+        txtDistrito.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtDistrito.setForeground(new java.awt.Color(153, 0, 51));
+        txtDistrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtDistrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 230, 20));
 
-        txtRuc3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc3.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 190, 20));
+        txtRucDni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtRucDni.setForeground(new java.awt.Color(153, 0, 51));
+        txtRucDni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtRucDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 190, 20));
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -267,17 +269,17 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel24.setToolTipText("");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, 20));
 
-        jcbEstado1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado1.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar--", "Activo", "Inactivo" }));
-        jcbEstado1.setToolTipText("");
-        jcbEstado1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel2.add(jcbEstado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 150, 20));
+        jcbEstado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbEstado.setForeground(new java.awt.Color(0, 0, 153));
+        jcbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar--", "Activo", "Inactivo" }));
+        jcbEstado.setToolTipText("");
+        jcbEstado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel2.add(jcbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 110, 20));
 
-        txtRuc5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc5.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 330, 20));
+        txtNombres.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtNombres.setForeground(new java.awt.Color(153, 0, 51));
+        txtNombres.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 330, 20));
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -286,10 +288,10 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel14.setToolTipText("");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
 
-        txtRuc6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc6.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 230, 20));
+        txtApellidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtApellidos.setForeground(new java.awt.Color(153, 0, 51));
+        txtApellidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 230, 20));
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -305,10 +307,10 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel25.setToolTipText("");
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
 
-        txtRuc1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc1.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 330, 20));
+        txtProvincia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtProvincia.setForeground(new java.awt.Color(153, 0, 51));
+        txtProvincia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 330, 20));
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -317,15 +319,15 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel26.setToolTipText("");
         jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, 20));
 
-        txtRuc7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc7.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 120, 20));
+        txtPais.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtPais.setForeground(new java.awt.Color(153, 0, 51));
+        txtPais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 120, 20));
 
-        txtRuc8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc8.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 100, 20));
+        txtCodAgricultor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtCodAgricultor.setForeground(new java.awt.Color(153, 0, 51));
+        txtCodAgricultor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtCodAgricultor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 100, 20));
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -341,10 +343,10 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel28.setToolTipText("");
         jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 20));
 
-        txtRuc9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc9.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 420, 20));
+        txtBPersona.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtBPersona.setForeground(new java.awt.Color(153, 0, 51));
+        txtBPersona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtBPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 420, 20));
 
         jLabel29.setBackground(new java.awt.Color(255, 255, 255));
         jLabel29.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -381,55 +383,55 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel33.setToolTipText("");
         jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, 20));
 
-        txtRuc10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc10.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 230, 20));
+        txtCorreo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(153, 0, 51));
+        txtCorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 230, 20));
 
-        txtRuc11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc11.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtRuc11.addActionListener(new java.awt.event.ActionListener() {
+        txtCafePractice.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtCafePractice.setForeground(new java.awt.Color(153, 0, 51));
+        txtCafePractice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCafePractice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRuc11ActionPerformed(evt);
+                txtCafePracticeActionPerformed(evt);
             }
         });
-        jPanel2.add(txtRuc11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 110, 20));
+        jPanel2.add(txtCafePractice, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 110, 20));
 
-        txtRuc12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc12.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtRuc12.addActionListener(new java.awt.event.ActionListener() {
+        txtOrga.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtOrga.setForeground(new java.awt.Color(153, 0, 51));
+        txtOrga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtOrga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRuc12ActionPerformed(evt);
+                txtOrgaActionPerformed(evt);
             }
         });
-        jPanel2.add(txtRuc12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 100, 20));
+        jPanel2.add(txtOrga, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 100, 20));
 
-        txtRuc13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc13.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtRuc13.addActionListener(new java.awt.event.ActionListener() {
+        txtCp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtCp.setForeground(new java.awt.Color(153, 0, 51));
+        txtCp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRuc13ActionPerformed(evt);
+                txtCpActionPerformed(evt);
             }
         });
-        jPanel2.add(txtRuc13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 100, 20));
+        jPanel2.add(txtCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 100, 20));
 
-        txtRuc14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc14.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 210, 20));
+        txtFinca.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtFinca.setForeground(new java.awt.Color(153, 0, 51));
+        txtFinca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtFinca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 210, 20));
 
-        txtRuc15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc15.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtRuc15.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(153, 0, 51));
+        txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRuc15ActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(txtRuc15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 120, 20));
+        jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 120, 20));
 
         jLabel35.setBackground(new java.awt.Color(255, 255, 255));
         jLabel35.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -437,21 +439,21 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel35.setText("Contraseña:");
         jLabel35.setToolTipText("");
         jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, 20));
-        jPanel2.add(jRPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 130, 20));
+        jPanel2.add(jRPPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 130, 20));
 
         jLabel36.setBackground(new java.awt.Color(255, 255, 255));
         jLabel36.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(153, 0, 51));
         jLabel36.setText("Tipo Usuario:");
         jLabel36.setToolTipText("");
-        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, 20));
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, 20));
 
-        jcbEstado2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jcbEstado2.setForeground(new java.awt.Color(0, 0, 153));
-        jcbEstado2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar--", "Empleado", "Administrador", "Cliente", "Agricultor" }));
-        jcbEstado2.setToolTipText("");
-        jcbEstado2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
-        jPanel2.add(jcbEstado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 20));
+        jcbPersona.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jcbPersona.setForeground(new java.awt.Color(0, 0, 153));
+        jcbPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Natural", "Juridico" }));
+        jcbPersona.setToolTipText("");
+        jcbPersona.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 1, true));
+        jPanel2.add(jcbPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 150, 20));
 
         jLabel37.setBackground(new java.awt.Color(255, 255, 255));
         jLabel37.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -467,10 +469,10 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel38.setToolTipText("");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 20));
 
-        txtRuc16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtRuc16.setForeground(new java.awt.Color(153, 0, 51));
-        txtRuc16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRuc16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 230, 20));
+        txtAnexo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtAnexo.setForeground(new java.awt.Color(153, 0, 51));
+        txtAnexo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtAnexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 230, 20));
 
         jLabel34.setBackground(new java.awt.Color(255, 255, 255));
         jLabel34.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -478,7 +480,24 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         jLabel34.setText("Ejercicio/Año:");
         jLabel34.setToolTipText("");
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, 20));
-        jPanel2.add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 60, -1));
+        jPanel2.add(jYcEjercicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 60, -1));
+
+        txtCelular.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtCelular.setForeground(new java.awt.Color(153, 0, 51));
+        txtCelular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCelularActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 100, 20));
+
+        jLabel39.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel39.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel39.setText("Celular:");
+        jLabel39.setToolTipText("");
+        jPanel2.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 710, 660));
 
@@ -499,9 +518,9 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+    private void txtIdpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdpersonaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
+    }//GEN-LAST:event_txtIdpersonaActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
@@ -511,21 +530,25 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void txtRuc11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRuc11ActionPerformed
+    private void txtCafePracticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCafePracticeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRuc11ActionPerformed
+    }//GEN-LAST:event_txtCafePracticeActionPerformed
 
-    private void txtRuc12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRuc12ActionPerformed
+    private void txtOrgaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOrgaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRuc12ActionPerformed
+    }//GEN-LAST:event_txtOrgaActionPerformed
 
-    private void txtRuc13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRuc13ActionPerformed
+    private void txtCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRuc13ActionPerformed
+    }//GEN-LAST:event_txtCpActionPerformed
 
-    private void txtRuc15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRuc15ActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRuc15ActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCelularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -556,35 +579,37 @@ public class RPersonaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private jpass.JRPasswordField jRPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
+    public jpass.JRPasswordField jRPPassword;
+    public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private com.toedter.calendar.JYearChooser jYearChooser1;
+    public com.toedter.calendar.JYearChooser jYcEjercicio;
     public javax.swing.JComboBox<String> jcbEstado;
-    public javax.swing.JComboBox<String> jcbEstado1;
-    public javax.swing.JComboBox<String> jcbEstado2;
-    public javax.swing.JTable jtEmpresa;
+    public javax.swing.JComboBox<String> jcbPersona;
+    public javax.swing.JComboBox<String> jcbTipoUsuario;
+    public javax.swing.JTable jtPersona;
+    public javax.swing.JTextField txtAnexo;
+    public javax.swing.JTextField txtApellidos;
+    public javax.swing.JTextField txtBPersona;
+    public javax.swing.JTextField txtCafePractice;
+    public javax.swing.JTextField txtCelular;
+    public javax.swing.JTextField txtCiudad;
+    public javax.swing.JTextField txtCodAgricultor;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtCp;
     public javax.swing.JTextField txtDireccion;
-    public javax.swing.JTextField txtId;
+    public javax.swing.JTextField txtDistrito;
+    public javax.swing.JTextField txtFinca;
+    public javax.swing.JTextField txtIdpersona;
+    public javax.swing.JTextField txtNombres;
+    public javax.swing.JTextField txtOrga;
+    public javax.swing.JTextField txtPais;
+    public javax.swing.JTextField txtProvincia;
     public javax.swing.JTextField txtRSocial;
-    public javax.swing.JTextField txtRuc;
-    public javax.swing.JTextField txtRuc1;
-    public javax.swing.JTextField txtRuc10;
-    public javax.swing.JTextField txtRuc11;
-    public javax.swing.JTextField txtRuc12;
-    public javax.swing.JTextField txtRuc13;
-    public javax.swing.JTextField txtRuc14;
-    public javax.swing.JTextField txtRuc15;
-    public javax.swing.JTextField txtRuc16;
-    public javax.swing.JTextField txtRuc2;
-    public javax.swing.JTextField txtRuc3;
-    public javax.swing.JTextField txtRuc5;
-    public javax.swing.JTextField txtRuc6;
-    public javax.swing.JTextField txtRuc7;
-    public javax.swing.JTextField txtRuc8;
-    public javax.swing.JTextField txtRuc9;
+    public javax.swing.JTextField txtRucDni;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,6 +54,8 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
         this.vistaCRUD.btnEditar.addActionListener(this);
         this.vistaCRUD.btnRegistrar.addActionListener(this);
         this.vistaCRUD.jtAperturaContrato.addMouseListener(this);
+        this.vistaCRUD.txtPeso.addKeyListener(this);
+        this.vistaCRUD.txtPrecio.addKeyListener(this);
     }
 
     public void InicializarCrud() {
@@ -92,8 +94,8 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
         }
         if (e.getSource() == vistaCRUD.btnRegistrar) {
             if (vistaCRUD.txtIdApC.getText().isEmpty()
-                    || vistaCRUD.txtPeso.getText().isEmpty() || vistaCRUD.txtPrecio.getText().isEmpty()|| vistaCRUD.txtImpTotal.getText().isEmpty()
-                    || vistaCRUD.txtContrato.getText().isEmpty()|| vistaCRUD.txtCalidad.getText().isEmpty()|| vistaCRUD.txtHumedad.getText().isEmpty()
+                    || vistaCRUD.txtPeso.getText().isEmpty() || vistaCRUD.txtPrecio.getText().isEmpty() || vistaCRUD.txtImpTotal.getText().isEmpty()
+                    || vistaCRUD.txtContrato.getText().isEmpty() || vistaCRUD.txtCalidad.getText().isEmpty() || vistaCRUD.txtHumedad.getText().isEmpty()
                     || vistaCRUD.txtFecha.getDate().equals("")) {
                 JOptionPane.showMessageDialog(null, "Debe Llenar todos los datos necesarios.");
             } else {
@@ -117,7 +119,7 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
                     if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Anulado") {
                         Estado = "A";
                     }
-                    String rptaRegistro = modeloCRUD.UpdateAperturaContrato(idapc, idempresa, idsucursal, peso, precio,imptotal, calidad, humedad, contrato, cliente, fecha, Estado);
+                    String rptaRegistro = modeloCRUD.UpdateAperturaContrato(idapc, idempresa, idsucursal, peso, precio, imptotal, calidad, humedad, contrato, cliente, fecha, Estado);
                     if (rptaRegistro != null) {
                         vistaCRUD.btnRegistrar.setEnabled(false);
                         vistaCRUD.btnNuevo.setEnabled(true);
@@ -164,7 +166,7 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
                     if ((String) vistaCRUD.jcbEstado.getSelectedItem() == "Anulado") {
                         Estado = "A";
                     }
-                    String rptaRegistro = modeloCRUD.insertAperturaContrato(idapc, idempresa, idsucursal, peso, precio,imptotal, calidad, humedad, contrato, cliente, fecha, Estado);
+                    String rptaRegistro = modeloCRUD.insertAperturaContrato(idapc, idempresa, idsucursal, peso, precio, imptotal, calidad, humedad, contrato, cliente, fecha, Estado);
                     if (rptaRegistro != null) {
                         vistaCRUD.btnRegistrar.setEnabled(true);
                         vistaCRUD.btnNuevo.setEnabled(true);
@@ -490,7 +492,7 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
 
     @Override
     public void keyReleased(KeyEvent ke) {
-           if (ke.getSource() == vistaCRUD.txtPeso || ke.getSource() == vistaCRUD.txtPrecio) {
+        if (ke.getSource() == vistaCRUD.txtPeso || ke.getSource() == vistaCRUD.txtPrecio) {
             try {
                 //texto = vistaCRUD.txtBuscador.getText();
                 //construirTablabuscar();

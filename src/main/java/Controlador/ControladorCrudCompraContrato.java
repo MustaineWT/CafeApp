@@ -50,7 +50,7 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
     ModeloTabla modelojt;
     private int filasTabla;
     private int columnasTabla;
-    DecimalFormat formatea = new DecimalFormat("###,###.##");
+    DecimalFormat formatea = new DecimalFormat("##,##0.00");
     String texto;
 
     public ControladorCrudCompraContrato(RCompraContrato vistaCRUD, CompraContratoDao modeloCRUD) {
@@ -74,7 +74,7 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
         idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
         idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
         if (e.getSource() == vistaCRUD.btnNuevo) {
-            if (Double.valueOf(vistaCRUD.txtTfaltantecomp.getText().replace(",", ".")) <= 0) {
+            if (Double.valueOf(vistaCRUD.txtTfaltantecomp.getText().replace(".", "").replace(",", ".")) <= 0) {
                 //vistaCRUD.txtPeso.setEnabled(false);
                 // vistaCRUD.btnRegistrar.setEnabled(false);
                 JOptionPane.showMessageDialog(null, "Ya no puede realizar más compras su apertura esta en cero faltante.");
@@ -131,15 +131,17 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
                         vistaCRUD.txtImptotal.setEnabled(false);
                         vistaCRUD.jdFecha.setEnabled(false);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtIdApc.setText("");
+                        //vistaCRUD.txtIdApc.setText("");
                         vistaCRUD.txtIdCC.setText("");
                         vistaCRUD.txtPeso.setText("0.00");
                         vistaCRUD.txtPrecio.setText("0.00");
                         vistaCRUD.txtImptotal.setText("0.00");
                         vistaCRUD.jdFecha.setCalendar(null);
                         reiniciarJTable(vistaCRUD.jtCompraContrato);
-                        construirTablaApc(idempresa, idsucursal);
+                        //construirTablaApc(idempresa, idsucursal);
                         //construirTablaCc(idempresa, idsucursal,apc);
+                        int apc = Integer.valueOf(vistaCRUD.txtIdApc.getText());
+                        construirTablaCc(idempresa, idsucursal,apc);
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo realizar la actualización.");
                     }
@@ -148,7 +150,7 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
                     int idapc = Integer.valueOf(vistaCRUD.txtIdApc.getText());
                     double precio = Double.valueOf(vistaCRUD.txtPrecio.getText());
                     double peso = Double.valueOf(vistaCRUD.txtPeso.getText());
-                    double imptotal = Double.valueOf(vistaCRUD.txtImptotal.getText());
+                    double imptotal = Double.valueOf(vistaCRUD.txtImptotal.getText().replace(".", "").replace(",", "."));
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
                     String fecha = formatoFecha.format(vistaCRUD.jdFecha.getDate());
                     String Estado = "";
@@ -170,15 +172,16 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
                         vistaCRUD.txtImptotal.setEnabled(false);
                         vistaCRUD.jdFecha.setEnabled(false);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
-                        vistaCRUD.txtIdApc.setText("");
+                        //vistaCRUD.txtIdApc.setText("");
                         vistaCRUD.txtIdCC.setText("");
                         vistaCRUD.txtPeso.setText("0.00");
                         vistaCRUD.txtPrecio.setText("0.00");
                         vistaCRUD.txtImptotal.setText("0.00");
                         vistaCRUD.jdFecha.setCalendar(null);
                         reiniciarJTable(vistaCRUD.jtCompraContrato);
-                        construirTablaApc(idempresa, idsucursal);
-//                        construirTablaCc(idempresa, idsucursal);
+                        //construirTablaApc(idempresa, idsucursal);
+                        int apc = Integer.valueOf(vistaCRUD.txtIdApc.getText());
+                        construirTablaCc(idempresa, idsucursal,apc);
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo realizar el registro.");
                     }
@@ -559,6 +562,26 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
         UtilidadCC.filaSeleccionada = fila;
         vistaCRUD.txtIdApc.setText(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idaperturacontrato).toString());
         vistaCRUD.txtIdCC.setText("");
+        double p = 0;
+        double t = 0;
+        double peso = Double.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.peso).toString());
+        if (vistaCRUD.jtCompraContrato.getRowCount() > 0) {
+            for (int i = 0; i < vistaCRUD.jtCompraContrato.getRowCount(); i++) {
+                String valor4 = vistaCRUD.jtCompraContrato.getValueAt(i, 4).toString();
+
+                if (isNumeric(valor4) == true) {
+                    p = Double.parseDouble(valor4);
+                }
+                t += p;
+            }
+            vistaCRUD.txtTcompraContrato.setText(String.format("%.2f", t));
+            vistaCRUD.txtTfaltantecomp.setText(String.valueOf(String.format("%.2f", (peso - t))));
+        } else {
+            double valor4 = Double.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, 3).toString());
+            vistaCRUD.txtTcompraContrato.setText(formatea.format(valor4));
+            vistaCRUD.txtTfaltantecomp.setText(vistaCRUD.txtTcompraContrato.getText());
+        }
+
     }
 
     @Override
@@ -588,30 +611,18 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
             }
 
             if (me.getClickCount() == 1) {
-                double p = 0;
-                double t = 0;
+
                 idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
                 idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
                 int fila = vistaCRUD.jtAperturaContrato.rowAtPoint(me.getPoint());
                 int columna = vistaCRUD.jtAperturaContrato.columnAtPoint(me.getPoint());
                 vistaCRUD.btnNuevo.setEnabled(true);
                 int apc = Integer.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.idaperturacontrato).toString());
-                double peso = Double.valueOf(vistaCRUD.jtAperturaContrato.getValueAt(fila, UtilidadApC.peso).toString());
+                
                 reiniciarJTable(vistaCRUD.jtCompraContrato);
                 construirTablaCc(idempresa, idsucursal, apc);
                 validarSeleccionMouseApc(fila);
-                if (vistaCRUD.jtCompraContrato.getRowCount() > 0) {
-                    for (int i = 0; i < vistaCRUD.jtCompraContrato.getRowCount(); i++) {
-                        String valor4 = vistaCRUD.jtCompraContrato.getValueAt(i, 4).toString();
 
-                        if (isNumeric(valor4) == true) {
-                            p = Double.parseDouble(valor4);
-                        }
-                        t += p;
-                    }
-                    vistaCRUD.txtTcompraContrato.setText(String.format("%.2f", t));
-                    vistaCRUD.txtTfaltantecomp.setText(String.valueOf(String.format("%.2f", (peso - t))));
-                }
             }
         }
 
@@ -660,7 +671,7 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
 
                 } else {
                     long rt = (long) (Double.valueOf(vistaCRUD.txtPeso.getText()) * Double.valueOf(vistaCRUD.txtPrecio.getText()));
-                    vistaCRUD.txtImptotal.setText(String.valueOf(rt));//                   
+                    vistaCRUD.txtImptotal.setText(String.valueOf(formatea.format(rt)));//                   
                 }
 
             } catch (Exception e) {
@@ -669,7 +680,7 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
             if (vistaCRUD.txtPeso.getText().isEmpty() || vistaCRUD.txtPrecio.getText().isEmpty()) {
             } else {
                 double tpeso = Double.valueOf(vistaCRUD.txtPeso.getText());
-                double tfcomp = Double.valueOf(vistaCRUD.txtTfaltantecomp.getText().replace(",", "."));
+                double tfcomp = Double.valueOf(vistaCRUD.txtTfaltantecomp.getText().replace(".", "").replace(",", "."));
 
                 long v = (long) (tfcomp - tpeso);
                 if (tpeso > tfcomp) {

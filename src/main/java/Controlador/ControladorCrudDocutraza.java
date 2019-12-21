@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ModeloExcel;
 import Uti.GestionCeldas;
 import Uti.GestionEncabezadoTabla;
 import Uti.ModeloTabla;
@@ -170,7 +171,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                 } else {
 
                     DefaultTableModel modelotabla = (DefaultTableModel) vistaCRUD.jtDocutraza.getModel();
-                    String id = (String) modelotabla.getValueAt(filaseleccionada, 0);
+                    String id = (String) modelotabla.getValueAt(filaseleccionada, 0); 
                     
                     String precio = (String) modelotabla.getValueAt(filaseleccionada, 12);
                     String peso = (String) modelotabla.getValueAt(filaseleccionada, 10);
@@ -184,11 +185,16 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                     controlaC.vistaCRUD.txtPeso.setText(peso);
                     controlaC.vistaCRUD.txtCertificado.setText(certificado);
                     controlaC.vistaCRUD.txtSaco.setText(sacos);
-                    controlaC.construirTablaListConfor(idempresa, idsucursal,Integer.valueOf(id));                   
-                    dskPrincipal.add(ventana2);
-                    ventana2.setVisible(true);
+                    controlaC.construirTablaListConfor(idempresa, idsucursal,Integer.valueOf(id));   
                     controlaC.vistaCRUD.btnProcesar.setVisible(false);
                     controlaC.vistaCRUD.btnImportar.setVisible(false);
+                    ModeloExcel ModeloEX=new ModeloExcel();
+                
+                    ControladorExcel ControlExcel=new ControladorExcel(ventana2, ModeloEX);
+                    
+                    dskPrincipal.add(ventana2);
+                    ventana2.setVisible(true);
+                    
                     
 
                 }
@@ -252,18 +258,16 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                     }
                     String rptaRegistro = modeloCRUD.updateDocumento(iddocumento, idempresa, idsucursal, iddocutrazad, tdocumento, serie, correlativo, fecha, Estado);
                     if (rptaRegistro != null) {
-                        vistaCRUD.btnRegDocumento.setEnabled(false);
-                        vistaCRUD.btnNTrack.setEnabled(false);
+                         vistaCRUD.btnRegDocumento.setEnabled(true);                        
                         vistaCRUD.btnEditDocutraza.setEnabled(false);
-                        vistaCRUD.txtIddocumento.setEnabled(false);
                         vistaCRUD.txtSerie.setEnabled(false);
+                        vistaCRUD.txtIddocumento.setEnabled(false);
                         vistaCRUD.txtDocCorrelativo.setEnabled(false);
                         vistaCRUD.txtFecha.setEnabled(false);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
                         vistaCRUD.txtSerie.setText("");
                         vistaCRUD.txtDocCorrelativo.setText("");
                         vistaCRUD.txtIddocumento.setText("");
-                        vistaCRUD.txtIdDocutraza.setText("");
                         vistaCRUD.txtFecha.setCalendar(null);
                         //reiniciarJTable(vistaCRUD.jtDocutraza);
                         reiniciarJTable(vistaCRUD.jtCompraContrato);
@@ -273,6 +277,7 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                         construirTablaDocumento(idempresa, idsucursal, dct);
                         construirTablaCompraContrato(idempresa, idsucursal);
                         vistaCRUD.btnRegDocumento.setEnabled(false);
+                        vistaCRUD.btnNDocumento.setEnabled(true);
                         vistaCRUD.btnRegDocumento.setText("Registrar");
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo realizar la actualización.");
@@ -295,16 +300,18 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                     }
                     String rptaRegistro = modeloCRUD.insertDocumento(iddocumento, idempresa, idsucursal, iddocutrazad, tdocumento, serie, correlativo, fecha, Estado);
                     if (rptaRegistro != null) {
-                        vistaCRUD.btnRegDocumento.setEnabled(true);
-                        vistaCRUD.btnNTrack.setEnabled(false);
+                        vistaCRUD.btnRegDocumento.setEnabled(true);                        
                         vistaCRUD.btnEditDocutraza.setEnabled(false);
-                        vistaCRUD.txtSerie.setEnabled(true);
-                        vistaCRUD.txtIddocumento.setEnabled(true);
-                        vistaCRUD.txtDocCorrelativo.setEnabled(true);
+                        vistaCRUD.txtSerie.setEnabled(false);
+                        vistaCRUD.txtIddocumento.setEnabled(false);
+                        vistaCRUD.txtDocCorrelativo.setEnabled(false);
                         vistaCRUD.txtFecha.setEnabled(true);
+                        vistaCRUD.txtDocCorrelativo.setEnabled(true);
                         JOptionPane.showMessageDialog(null, rptaRegistro);
                         vistaCRUD.txtSerie.setText("");
-                        vistaCRUD.txtDocCorrelativo.setEnabled(true);
+                        vistaCRUD.txtDocCorrelativo.setText("");
+                        vistaCRUD.txtIddocumento.setText("");
+                       
                         Calendar c2 = new GregorianCalendar();
                         vistaCRUD.txtFecha.setCalendar(c2);
 
@@ -316,7 +323,8 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
                         construirTablaDocumento(idempresa, idsucursal, dct);
                         construirTablaCompraContrato(idempresa, idsucursal);
                         vistaCRUD.btnRegDocumento.setEnabled(false);
-                        vistaCRUD.btnRegDocumento.setText("Registrar");
+                        vistaCRUD.btnNDocumento.setEnabled(true);
+                        //vistaCRUD.btnRegDocumento.setText("Registrar");
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo realizar la actualización.");
                     }
@@ -871,7 +879,6 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
     private Object[][] obtenerMatrizDatosDocutraza(ArrayList<String> titulosList) {
 
         String informacion[][] = new String[listaDocutraza.size()][titulosList.size()];
-        System.out.println(listaDocutraza.size());
         for (int x = 0; x < informacion.length; x++) {
             informacion[x][UtilidadDocu.iddocutraza] = listaDocutraza.get(x).getIddocutraza() + "";
             informacion[x][UtilidadDocu.idempresa] = listaDocutraza.get(x).getIdempresa() + "";
@@ -1079,6 +1086,28 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.btnEditDocutraza.setEnabled(true);
         vistaCRUD.btnEditDocumento.setEnabled(false);
         vistaCRUD.btnRegDocumento.setEnabled(false);
+        ///
+        vistaCRUD.txtIddocumento.setText("");
+        vistaCRUD.txtSerie.setText("");
+        vistaCRUD.txtDocCorrelativo.setText("");
+        vistaCRUD.txtFecha.setDate(null);
+        vistaCRUD.txtIddocumento.setEnabled(false);
+        vistaCRUD.txtSerie.setEnabled(false);
+        vistaCRUD.txtDocCorrelativo.setEnabled(false);
+        vistaCRUD.txtFecha.setEnabled(false);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
         idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
 

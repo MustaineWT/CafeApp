@@ -46,12 +46,15 @@ import jxl.read.biff.BiffException;
 import modelo.AperturaContrato;
 import dao.DetalleDocutrazaDao;
 import dao.DocutrazaDao;
+import dao.PerBuscadorDao;
 import modelo.Conformacion;
 import modelo.DetalleDocutraza;
+import modelo.ListaAgricultores;
 import modelo.ListaCombos;
 import vista.RAgriEstimado;
 import vista.RDocutraza_Document;
 import vista.RPEstimado;
+import vista.RProBuscador;
 import vista.TraIni;
 import static vista.TraIni.dskPrincipal;
 
@@ -78,6 +81,7 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
         this.modeloCRUD = modeloCRUD;
         this.vistaCRUD = vistaCRUD;
         this.vistaCRUD.btnImportar.addActionListener(this);
+        this.vistaCRUD.btnRefresh.addActionListener(this);
         this.vistaCRUD.btnEditar.addActionListener(this);
         this.vistaCRUD.btnProcesar.addActionListener(this);
         this.vistaCRUD.btnRegistrar.addActionListener(this);
@@ -94,6 +98,11 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
         idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
         idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
 
+        if (e.getSource() == vistaCRUD.btnRefresh) {
+            reiniciarJTable(vistaCRUD.jtListProveedores);
+            int iddocutraza = Integer.valueOf(vistaCRUD.txtIdDocutraza.getText());
+            construirTablaListConfor(idempresa, idsucursal,iddocutraza);  
+        }
         if (e.getSource() == vistaCRUD.btnEditar) {
             int filaseleccionada;
             try {
@@ -101,11 +110,7 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
                 if (filaseleccionada == -1) {
                     JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
                 } else {
-                    RPEstimado ventana1 = new RPEstimado();
-                    ConformacionDao modeloC = new ConformacionDao();
-                    ControladorCrudConformacion controlaC = new ControladorCrudConformacion(ventana1, modeloC);
-                    dskPrincipal.add(ventana1);
-                    ventana1.setVisible(true);
+                    
 
                     DefaultTableModel modelotabla = (DefaultTableModel) vistaCRUD.jtListProveedores.getModel();
                     String id = (String) modelotabla.getValueAt(filaseleccionada, 0);
@@ -144,6 +149,12 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
                     String fecha = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getFecha();
                     String estado = DetalleDocutrazaDao.listDetalleDocutraza_Select(idempresa, idsucursal, Integer.valueOf(id)).get(0).getEstado();
 
+                    RPEstimado ventana1 = new RPEstimado();
+                    ConformacionDao modeloC = new ConformacionDao();
+                    RProBuscador vistaCRUD = new RProBuscador();
+                    PerBuscadorDao modeloCRUD = new PerBuscadorDao();
+                    ControladorCrudConformacion controlaC = new ControladorCrudConformacion(ventana1, modeloC,vistaCRUD,modeloCRUD);
+                    
                     controlaC.vistaCRUD.txtIdDetDoc.setText(String.valueOf(iddetalledocutraza));
                     controlaC.vistaCRUD.txtIdEmp.setText(String.valueOf(empresa));
                     controlaC.vistaCRUD.txtIdSuc.setText(String.valueOf(sucursal));
@@ -175,14 +186,14 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
                     controlaC.vistaCRUD.txtImpTotal.setText(String.valueOf(importetotal));
                     controlaC.vistaCRUD.txtGuia.setText(guia);
                     controlaC.vistaCRUD.txtLiqCompra.setText(liqcompra);
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     controlaC.vistaCRUD.txtFecha.setDate(Date.valueOf(fecha));
-                    
-                    if (estado == "Activo") {
+                    if (estado.equals("A")) {
                         controlaC.vistaCRUD.jcbEstado.setSelectedIndex(0);
                     } else {
                         controlaC.vistaCRUD.jcbEstado.setSelectedIndex(1);
                     }
+                    dskPrincipal.add(ventana1);
+                    ventana1.setVisible(true);
                 }
             } catch (HeadlessException ex) {
 
@@ -291,7 +302,7 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
                     modelo.removeRow(0);
                     //JOptionPane.showMessageDialog(null, "Archivo excel almacenado es el Worbook" + leerExcel);
                 } catch (IOException | BiffException ex) {
-                    Logger.getLogger(ControladorCrud.class.getName()).log(Level.SEVERE, null, ex);
+//                    Logger.getLogger(ControladorCrud.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, "Error al almacenar el excel en el workbook");
 
                 }

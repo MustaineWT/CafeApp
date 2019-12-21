@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import modelo.ListaAgricultores;
 import modelo.ListaCombos;
 
 /**
@@ -54,5 +55,23 @@ public class ListaCombosDao {
         } catch (Exception e) {
         }
         return ListaCombos;
+    }
+      public static ArrayList<ListaAgricultores> idAgricultores(int idempresa) {
+        ArrayList ListaAgricultores = new ArrayList();
+        ListaAgricultores lagricultores;
+        try {
+            Connection accesoDB = modelo.Conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERPERSONA_AGRICULTOR(?)}");
+            ps.setInt(1, idempresa);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                lagricultores = new ListaAgricultores();
+                lagricultores.setIdagricultor(rs.getInt(1));             
+                lagricultores.setNombre(rs.getString(6));
+                ListaAgricultores.add(lagricultores);
+            }
+        } catch (Exception e) {
+        }
+        return ListaAgricultores;
     }
 }

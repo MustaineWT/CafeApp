@@ -13,8 +13,9 @@ public class Persona {
     int idpersona;
     int idempresa;
     int idsucursal;
-    String idorga;
+    String tipopersona;
     String idcp;
+    String idorga;    
     String idcafepractice;
     String codagricultor;
     String razonsocial;
@@ -23,18 +24,23 @@ public class Persona {
     String dniruc;
     String email;
     String direccion;
+    String distrito;
     String ciudad;
     String provincia;
     String pais;
+    String celular;
     String nomfinca;
     String nomanexo;
-    String celular;
+    int ejercicio;
+    String usuario;
+    String password;
+    String personatipo;
     String estado;
 
     public Persona() {
     }
 
-    public Persona(int idpersona, int idempresa, int idsucursal, String idorga, String idcp, String idcafepractice, String codagricultor, String razonsocial, String nombres, String apellidos, String dniruc, String email, String direccion, String ciudad, String provincia, String pais, String nomfinca, String nomanexo, String celular, String estado) {
+    public Persona(int idpersona, int idempresa, int idsucursal, String idorga, String idcp, String idcafepractice, String codagricultor, String razonsocial, String nombres, String apellidos, String dniruc, String email, String direccion, String distrito, String ciudad, String provincia, String pais, String nomfinca, String nomanexo, String celular, String estado) {
         this.idpersona = idpersona;
         this.idempresa = idempresa;
         this.idsucursal = idsucursal;
@@ -48,6 +54,7 @@ public class Persona {
         this.dniruc = dniruc;
         this.email = email;
         this.direccion = direccion;
+        this.distrito = distrito;
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.pais = pais;
@@ -55,6 +62,93 @@ public class Persona {
         this.nomanexo = nomanexo;
         this.celular = celular;
         this.estado = estado;
+    }
+
+    public Persona(int idpersona, int idempresa, String tipopersona, String idcp, String idorga, String idcafepractice, String codagricultor, String razonsocial, String nombres, String apellidos, String dniruc, String direccion, String distrito, String nomfinca, String nomanexo, String celular, String estado) {
+        this.idpersona = idpersona;
+        this.idempresa = idempresa;
+        this.tipopersona = tipopersona;
+        this.idcp = idcp;
+        this.idorga = idorga;
+        this.idcafepractice = idcafepractice;
+        this.codagricultor = codagricultor;
+        this.razonsocial = razonsocial;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.dniruc = dniruc;
+        this.direccion = direccion;
+        this.distrito = distrito;
+        this.nomfinca = nomfinca;
+        this.nomanexo = nomanexo;
+        this.celular = celular;
+        this.estado = estado;
+    }
+
+    public Persona(int idpersona, String tipopersona, String idcp, String idorga, String idcafepractice, String codagricultor, String razonsocial, String nombres, String apellidos, String dniruc, String email, String direccion, String distrito, String ciudad, String provincia, String pais, String celular, String nomfinca, String nomanexo, String usuario, String password, String personatipo, String estado) {
+        this.idpersona = idpersona;
+        this.tipopersona = tipopersona;
+        this.idcp = idcp;
+        this.idorga = idorga;
+        this.idcafepractice = idcafepractice;
+        this.codagricultor = codagricultor;
+        this.razonsocial = razonsocial;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.dniruc = dniruc;
+        this.email = email;
+        this.direccion = direccion;
+        this.distrito = distrito;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.pais = pais;
+        this.celular = celular;
+        this.nomfinca = nomfinca;
+        this.nomanexo = nomanexo;
+        this.usuario = usuario;
+        this.password = password;
+        this.personatipo = personatipo;
+        this.estado = estado;
+    }
+
+    public int getEjercicio() {
+        return ejercicio;
+    }
+
+    public void setEjercicio(int ejercicio) {
+        this.ejercicio = ejercicio;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPersonatipo() {
+        return personatipo;
+    }
+
+    public void setPersonatipo(String personatipo) {
+        this.personatipo = personatipo;
+    }
+    
+
+    public String getTipopersona() {
+        return tipopersona;
+    }
+
+    public void setTipopersona(String tipopersona) {
+        this.tipopersona = tipopersona;
     }
 
     public int getIdpersona() {
@@ -161,6 +255,14 @@ public class Persona {
         this.direccion = direccion;
     }
 
+    public String getDistrito() {
+        return distrito;
+    }
+
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
+
     public String getCiudad() {
         return ciudad;
     }
@@ -216,7 +318,6 @@ public class Persona {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
+
     
 }

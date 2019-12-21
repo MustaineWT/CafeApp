@@ -21,9 +21,10 @@ public class GestionCeldas extends DefaultTableCellRenderer {
     //se definen por defecto los tipos de datos a usar
     private Font normal = new Font("Arial", Font.PLAIN, 11);
     private Font bold = new Font("Arial", Font.BOLD, 11);
-    public DecimalFormat formatea = new DecimalFormat("#########.##");
+    //public DecimalFormat formatea = new DecimalFormat("#########.##");
+    public DecimalFormat df = new DecimalFormat("#,##0.00");
     //etiqueta que almacenará el icono a mostrar
-    private JLabel label = new JLabel();    
+    private JLabel label = new JLabel();
     public ImageIcon iconoVerMas = new ImageIcon("D:/Sistema/Imagenes/icons8_Forward_Button_20px.png");
     //private ImageIcon iconoVerMas = new ImageIcon(iconoVerMa.getImage().getScaledInstance(label.getWidth(),label.getHeight(),Image.SCALE_DEFAULT));
     //iconos disponibles para ser mostrados en la etiqueta dependiendo de la columna que lo contenga
@@ -102,16 +103,16 @@ public class GestionCeldas extends DefaultTableCellRenderer {
 
         //si el tipo es icono entonces valida cual icono asignar a la etiqueta.
         if (tipo.equals("icono")) {
-            if (String.valueOf(value).equals("VERMAS")) {                
+            if (String.valueOf(value).equals("VERMAS")) {
                 label.setIcon(iconoVerMas);
                 label.setText("Ver Más.");
-                
+
             } else if (String.valueOf(value).equals("EDITAR")) {
 //             label.setIcon(iconoEditar);
             }
             label.setHorizontalAlignment(JLabel.LEFT);
             label.setBackground(Color.WHITE);
-            label.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));            
+            label.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 //            return boton;
             return label;
         }
@@ -128,6 +129,25 @@ public class GestionCeldas extends DefaultTableCellRenderer {
             this.setForeground((selected) ? new Color(255, 255, 255) : new Color(52, 128, 235));
             this.setBackground((selected) ? colorFondo : Color.WHITE);
             // this.setBackground( (selected)? colorFondo :Color.MAGENTA);
+//            String v = String.valueOf(df.format(Double.valueOf(String.valueOf(value))));
+          //  this.setText(v);
+            this.setFont(bold);
+            return this;
+        }
+        if (tipo.equals("numericop")) {
+            if (focused) {
+                colorFondo = colorFondoSeleccion;
+            } else {
+                colorFondo = colorFondoPorDefecto;
+            }
+            // System.out.println(value);
+            this.setHorizontalAlignment(JLabel.CENTER);
+            this.setText((String) value);
+            this.setForeground((selected) ? new Color(255, 255, 255) : new Color(52, 128, 235));
+            this.setBackground((selected) ? colorFondo : Color.WHITE);
+            // this.setBackground( (selected)? colorFondo :Color.MAGENTA);
+            String v = String.valueOf(df.format(Double.valueOf(String.valueOf(value))));
+            this.setText(v);
             this.setFont(bold);
             return this;
         }
@@ -141,7 +161,8 @@ public class GestionCeldas extends DefaultTableCellRenderer {
             this.setHorizontalAlignment(JLabel.CENTER);
             this.setText((String) value);
             this.setForeground((selected) ? new Color(255, 255, 255) : new Color(230, 84, 44));
-
+            String v = String.valueOf(df.format(Double.valueOf(String.valueOf(value))));
+            this.setText(v);
             this.setBackground((selected) ? colorFondo : Color.WHITE);
             //this.setBackground((selected) ? colorFondo : Color.WHITE);
             // this.setBackground( (selected)? colorFondo :Color.MAGENTA);
@@ -149,8 +170,7 @@ public class GestionCeldas extends DefaultTableCellRenderer {
             return this;
         }
 
-        if (tipo.equals(
-                "numerico2")) {
+        if (tipo.equals("numerico2")) {
             if (focused) {
                 colorFondo = colorFondoSeleccion;
             } else {
@@ -162,18 +182,22 @@ public class GestionCeldas extends DefaultTableCellRenderer {
             this.setForeground((selected) ? new Color(255, 255, 255) : new Color(32, 114, 32));
             this.setBackground((selected) ? colorFondo : Color.WHITE);
 
-            if (column == 19 || column == 20 || column == 21 || column == 22 || column == 23) {
-                String valor = String.valueOf(value).replace(",", "");
+            if (column == 22 || column == 23 || column == 24 || column == 25 || column == 26) {
+                String valor = String.valueOf(df.format(Double.valueOf(String.valueOf(value))));
+                String v = String.valueOf(df.format(Double.valueOf(String.valueOf(value))));
+                //System.out.println(valor);
                 double valor1;
                 if (isNumeric(valor) == true) {
                     valor1 = Double.parseDouble(valor);
                     if (valor1 <= 0) {
                         this.setBackground((selected) ? colorFondo : Color.RED);
                         this.setForeground((selected) ? new Color(255, 255, 255) : Color.white);
+                        this.setText(v);
                     }
 
                 } else {
-                    this.setBackground((selected) ? colorFondo : Color.WHITE);
+                    this.setBackground((selected) ? colorFondo : Color.WHITE);                    
+                    this.setText(v);
                 }
             }
 

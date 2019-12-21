@@ -10,8 +10,9 @@ package modelo;
  * @author MustainE
  */
 public class Sucursal {
-    int idsucursal;
     int idempresa;
+    int idsucursal;    
+    String rsocial;
     String nombreciudad;
     String ruc;
     String direccion;
@@ -23,6 +24,16 @@ public class Sucursal {
 
     public Sucursal() {
     }
+
+    public Sucursal(int idempresa, int idsucursal, String rsocial, String nombreciudad, String ruc, String gironegocio) {
+        this.idempresa = idempresa;
+        this.idsucursal = idsucursal;
+        this.rsocial = rsocial;
+        this.nombreciudad = nombreciudad;
+        this.ruc = ruc;
+        this.gironegocio = gironegocio;
+    }
+
 
     public Sucursal(int idsucursal, int idempresa, String nombreciudad, String ruc, String direccion, String distrito, String ciudad, String pais, String gironegocio, String estado) {
         this.idsucursal = idsucursal;
@@ -37,6 +48,15 @@ public class Sucursal {
         this.estado = estado;
     }
 
+    public String getRsocial() {
+        return rsocial;
+    }
+
+    public void setRsocial(String rsocial) {
+        this.rsocial = rsocial;
+    }
+
+    
     public int getIdsucursal() {
         return idsucursal;
     }

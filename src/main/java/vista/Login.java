@@ -5,10 +5,9 @@
  */
 package vista;
 
-import java.awt.Color;
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import Controlador.ControladorCrudSelecSucursal;
+import dao.Select_SucursalDao;
+import dao.SucursalDao;
 
 /**
  *
@@ -153,6 +152,18 @@ public class Login extends javax.swing.JFrame {
         vistaP.setUndecorated(true);
         vistaP.setVisible(true);
         vistaP.setLocationRelativeTo(null);
+
+        RPSel_Sucursal ventana1 = new RPSel_Sucursal();
+        Select_SucursalDao modeloC = new Select_SucursalDao();
+        ControladorCrudSelecSucursal controlaC = new ControladorCrudSelecSucursal(ventana1, modeloC);
+        //controlaC.LlenarTabla(ventana1.jtEmpresa);
+//        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
+//        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+        controlaC.construirTabla(1);
+        TraIni.dskPrincipal.add(ventana1);
+        ventana1.setVisible(true);
+
+
     }//GEN-LAST:event_btnIngresarActionPerformed
     int xx, xy;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

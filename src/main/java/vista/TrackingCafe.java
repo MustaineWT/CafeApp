@@ -161,7 +161,7 @@ public class TrackingCafe extends javax.swing.JInternalFrame {
         lblEConv.setText("100000000");
         lblEConv.setToolTipText("");
         lblEConv.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel2.add(lblEConv, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 130, -1));
+        jPanel2.add(lblEConv, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 130, 120));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N

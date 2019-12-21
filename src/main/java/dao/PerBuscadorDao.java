@@ -36,9 +36,9 @@ public class PerBuscadorDao {
                 perbuscador.setApellidos(rs.getString(7));
                 perbuscador.setDniruc(rs.getString(8));
                 perbuscador.setProvincia(rs.getString(9));
-                perbuscador.setNomfinca(rs.getString(11));
-                perbuscador.setNomanexo(rs.getString(12));
-                perbuscador.setEstado(rs.getString(13));
+                perbuscador.setNomfinca(rs.getString(10));
+                perbuscador.setNomanexo(rs.getString(11));
+                perbuscador.setEstado(rs.getString(12));
                 listaPerbuscador.add(perbuscador);
             }
             rs.close();

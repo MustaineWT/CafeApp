@@ -10,7 +10,7 @@ package Uti;
  * @author MustainE
  */
 public class UtilidadPBuscar {
-    public static final int idpersona = 0; 
+     public static final int idpersona = 0; 
     public static final int idorga = 1;
     public static final int idcp = 2;
     public static final int idcafepractice = 3;

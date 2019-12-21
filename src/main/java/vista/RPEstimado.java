@@ -5,7 +5,11 @@
  */
 package vista;
 
-import javax.swing.JOptionPane;
+import dao.ConformacionDao;
+import dao.ListaCombosDao;
+import javax.swing.DefaultComboBoxModel;
+import modelo.ListaAgricultores;
+import modelo.ListaCombos;
 
 /**
  *
@@ -14,7 +18,7 @@ import javax.swing.JOptionPane;
 public class RPEstimado extends javax.swing.JInternalFrame {
 
     public RPEstimado() {
-        initComponents();
+        initComponents();     
     }
 
     /**
@@ -94,11 +98,13 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         txtNomLPACon = new javax.swing.JTextField();
         btnBuscarPro = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txtIdDetDoc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         txtIdDocT = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 0, 51));
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 1, true));
@@ -153,9 +159,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel4.setToolTipText("");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
 
-        txtIdEmp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdEmp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdEmp.setForeground(new java.awt.Color(0, 102, 102));
         txtIdEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdEmp.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdEmp.setEnabled(false);
         txtIdEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,15 +185,17 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel19.setToolTipText("");
         jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, 20));
 
-        txtIdPerLPAEst.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdPerLPAEst.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdPerLPAEst.setForeground(new java.awt.Color(0, 102, 102));
         txtIdPerLPAEst.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdPerLPAEst.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdPerLPAEst.setEnabled(false);
         jPanel2.add(txtIdPerLPAEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 40, 20));
 
-        txtSerieGuia.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtSerieGuia.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtSerieGuia.setForeground(new java.awt.Color(0, 102, 102));
         txtSerieGuia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtSerieGuia.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtSerieGuia.setEnabled(false);
         jPanel2.add(txtSerieGuia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 70, 20));
 
@@ -204,27 +213,31 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel21.setToolTipText("");
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
 
-        txtDniRuc.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtDniRuc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtDniRuc.setForeground(new java.awt.Color(0, 102, 102));
         txtDniRuc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtDniRuc.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtDniRuc.setEnabled(false);
         jPanel2.add(txtDniRuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 100, 20));
 
-        txtCPDisp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtCPDisp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtCPDisp.setForeground(new java.awt.Color(0, 102, 102));
         txtCPDisp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCPDisp.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtCPDisp.setEnabled(false);
         jPanel2.add(txtCPDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, 20));
 
-        txtCertificado.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtCertificado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtCertificado.setForeground(new java.awt.Color(0, 102, 102));
         txtCertificado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCertificado.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtCertificado.setEnabled(false);
         jPanel2.add(txtCertificado, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 110, 20));
 
-        txtIdSuc.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdSuc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdSuc.setForeground(new java.awt.Color(0, 102, 102));
         txtIdSuc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdSuc.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdSuc.setEnabled(false);
         txtIdSuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,9 +253,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel3.setToolTipText("");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 40, 20));
 
-        txtIdCC.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdCC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdCC.setForeground(new java.awt.Color(0, 102, 102));
         txtIdCC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdCC.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdCC.setEnabled(false);
         txtIdCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,9 +272,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel5.setToolTipText("");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, 20));
 
-        txtCorrelativo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtCorrelativo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtCorrelativo.setForeground(new java.awt.Color(0, 102, 102));
         txtCorrelativo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCorrelativo.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtCorrelativo.setEnabled(false);
         jPanel2.add(txtCorrelativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 100, 20));
 
@@ -278,9 +293,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel26.setToolTipText("");
         jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, 20));
 
-        txtNomLPAEst.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtNomLPAEst.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtNomLPAEst.setForeground(new java.awt.Color(0, 102, 102));
         txtNomLPAEst.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtNomLPAEst.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtNomLPAEst.setEnabled(false);
         jPanel2.add(txtNomLPAEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 270, 20));
 
@@ -298,9 +314,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel28.setToolTipText("");
         jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
 
-        txtCodPro.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtCodPro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtCodPro.setForeground(new java.awt.Color(0, 102, 102));
         txtCodPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtCodPro.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtCodPro.setEnabled(false);
         jPanel2.add(txtCodPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 90, 20));
 
@@ -311,9 +328,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel29.setToolTipText("");
         jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 20));
 
-        txtNomPro.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtNomPro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtNomPro.setForeground(new java.awt.Color(0, 102, 102));
         txtNomPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtNomPro.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtNomPro.setEnabled(false);
         jPanel2.add(txtNomPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 270, 20));
 
@@ -324,9 +342,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel30.setToolTipText("");
         jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, 20));
 
-        txtIdPersona.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdPersona.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdPersona.setForeground(new java.awt.Color(0, 102, 102));
         txtIdPersona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdPersona.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdPersona.setEnabled(false);
         jPanel2.add(txtIdPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 40, 20));
 
@@ -337,15 +356,17 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel31.setToolTipText("");
         jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 20));
 
-        txtIdCpPro.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdCpPro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdCpPro.setForeground(new java.awt.Color(0, 102, 102));
         txtIdCpPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdCpPro.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdCpPro.setEnabled(false);
         jPanel2.add(txtIdCpPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 90, 20));
 
-        txtIdOrgaPro.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdOrgaPro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdOrgaPro.setForeground(new java.awt.Color(0, 102, 102));
         txtIdOrgaPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdOrgaPro.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdOrgaPro.setEnabled(false);
         jPanel2.add(txtIdOrgaPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 90, 20));
 
@@ -370,15 +391,17 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel35.setToolTipText("");
         jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, 20));
 
-        txtORGDisp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtORGDisp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtORGDisp.setForeground(new java.awt.Color(0, 102, 102));
         txtORGDisp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtORGDisp.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtORGDisp.setEnabled(false);
         jPanel2.add(txtORGDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 100, 20));
 
-        txtFTDisp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtFTDisp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtFTDisp.setForeground(new java.awt.Color(0, 102, 102));
         txtFTDisp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtFTDisp.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtFTDisp.setEnabled(false);
         jPanel2.add(txtFTDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 100, 20));
 
@@ -396,15 +419,17 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel38.setToolTipText("");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 20));
 
-        txtRainfDisp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtRainfDisp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtRainfDisp.setForeground(new java.awt.Color(0, 102, 102));
         txtRainfDisp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtRainfDisp.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtRainfDisp.setEnabled(false);
         jPanel2.add(txtRainfDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 100, 20));
 
-        txtConvDisp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtConvDisp.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtConvDisp.setForeground(new java.awt.Color(0, 102, 102));
         txtConvDisp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtConvDisp.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtConvDisp.setEnabled(false);
         jPanel2.add(txtConvDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 90, 20));
 
@@ -450,9 +475,11 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel10.setToolTipText("");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, 20));
 
-        txtTara.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtTara.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtTara.setForeground(new java.awt.Color(0, 0, 102));
         txtTara.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtTara.setDisabledTextColor(new java.awt.Color(0, 153, 153));
+        txtTara.setEnabled(false);
         jPanel3.add(txtTara, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 90, -1));
 
         txtKN.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -479,9 +506,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel12.setToolTipText("");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, 20));
 
-        txtGuia.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtGuia.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtGuia.setForeground(new java.awt.Color(0, 102, 102));
         txtGuia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtGuia.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtGuia.setEnabled(false);
         jPanel3.add(txtGuia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 90, -1));
 
@@ -492,9 +520,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel14.setToolTipText("");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
 
-        txtImpTotal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtImpTotal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtImpTotal.setForeground(new java.awt.Color(0, 102, 102));
         txtImpTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtImpTotal.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtImpTotal.setEnabled(false);
         jPanel3.add(txtImpTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 100, -1));
 
@@ -522,8 +551,8 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel17.setForeground(new java.awt.Color(153, 0, 51));
         jLabel17.setText("FECHA:");
         jLabel17.setToolTipText("");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, 20));
-        jPanel3.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 110, -1));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, 20));
+        jPanel3.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 110, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -532,9 +561,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel22.setToolTipText("");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 20));
 
-        txtIdProLPACon.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdProLPACon.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdProLPACon.setForeground(new java.awt.Color(0, 102, 102));
         txtIdProLPACon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdProLPACon.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdProLPACon.setEnabled(false);
         jPanel3.add(txtIdProLPACon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 40, -1));
 
@@ -543,19 +573,27 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel20.setForeground(new java.awt.Color(153, 0, 51));
         jLabel20.setText("Nombre Contable:");
         jLabel20.setToolTipText("");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, 20));
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, 20));
 
-        txtNomLPACon.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtNomLPACon.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtNomLPACon.setForeground(new java.awt.Color(0, 102, 102));
         txtNomLPACon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtNomLPACon.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtNomLPACon.setEnabled(false);
-        jPanel3.add(txtNomLPACon, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 200, -1));
+        jPanel3.add(txtNomLPACon, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 190, -1));
 
         btnBuscarPro.setBackground(new java.awt.Color(0, 102, 153));
         btnBuscarPro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBuscarPro.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarPro.setText("Buscar");
-        jPanel3.add(btnBuscarPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, -1, -1));
+        jPanel3.add(btnBuscarPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 90, -1));
+
+        btnActualizar.setBackground(new java.awt.Color(0, 102, 153));
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setEnabled(false);
+        jPanel3.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 90, -1));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 500, 160));
 
@@ -572,9 +610,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 100, 30));
 
-        txtIdDetDoc.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdDetDoc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdDetDoc.setForeground(new java.awt.Color(0, 102, 102));
         txtIdDetDoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdDetDoc.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdDetDoc.setEnabled(false);
         txtIdDetDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -597,9 +636,10 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         jLabel18.setToolTipText("");
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, 20));
 
-        txtIdDocT.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtIdDocT.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtIdDocT.setForeground(new java.awt.Color(0, 102, 102));
         txtIdDocT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtIdDocT.setDisabledTextColor(new java.awt.Color(0, 153, 153));
         txtIdDocT.setEnabled(false);
         txtIdDocT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -608,9 +648,16 @@ public class RPEstimado extends javax.swing.JInternalFrame {
         });
         jPanel2.add(txtIdDocT, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 60, 20));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 520, 470));
+        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel23.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel23.setText("Recuerda que luego de buscar debes actualizar.");
+        jLabel23.setToolTipText("");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 520));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 530, 470));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -645,6 +692,7 @@ public class RPEstimado extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnBuscarPro;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnRegistrar;
@@ -663,6 +711,7 @@ public class RPEstimado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;

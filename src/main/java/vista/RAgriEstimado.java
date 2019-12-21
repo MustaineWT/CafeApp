@@ -5,7 +5,22 @@
  */
 package vista;
 
+import Controlador.ControladorExcel;
+import Modelo.ModeloExcel;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -15,6 +30,7 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
 
     public RAgriEstimado() {
         initComponents();
+        btnRefresh.setVisible(false);
     }
 
     /**
@@ -57,6 +73,7 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtIdDocutraza = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 0, 51));
@@ -84,7 +101,7 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Title 14", "Title 15", "Title 16"
+
             }
         ));
         jtListProveedores.setGridColor(new java.awt.Color(0, 51, 153));
@@ -349,6 +366,14 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         jLabel35.setToolTipText("");
         jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, 20));
 
+        btnRefresh.setText("R");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, -1, 20));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1120, 710));
         jPanel2.getAccessibleContext().setAccessibleName("Mantenimiento de Compra Contrato");
 
@@ -366,7 +391,7 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_btnExcelActionPerformed
 
     private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
@@ -425,12 +450,17 @@ public class RAgriEstimado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdDocutrazaActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnExcel;
     public javax.swing.JButton btnImportar;
     public javax.swing.JButton btnProcesar;
+    public static javax.swing.JButton btnRefresh;
     public javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

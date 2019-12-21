@@ -680,16 +680,13 @@
                       <Color blue="99" green="0" red="0" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="9">
+                      <StringArray count="6">
                         <StringItem index="0" value="CP"/>
                         <StringItem index="1" value="CPO"/>
                         <StringItem index="2" value="FT"/>
                         <StringItem index="3" value="FTCP"/>
                         <StringItem index="4" value="FTO"/>
                         <StringItem index="5" value="FTOCP"/>
-                        <StringItem index="6" value="CASCARILLA"/>
-                        <StringItem index="7" value="FTO-MCM"/>
-                        <StringItem index="8" value="ANULADO"/>
                       </StringArray>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value=""/>

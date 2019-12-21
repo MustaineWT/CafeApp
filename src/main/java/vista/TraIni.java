@@ -9,10 +9,13 @@ import Controlador.ControladorCrudAperturaContrato;
 import Controlador.ControladorCrudCompraContrato;
 import Controlador.ControladorCrudDocutraza;
 import Controlador.ControladorCrudEmpresa;
+import Controlador.ControladorTracking;
 import dao.AperturaContratoDao;
 import dao.CompraContratoDao;
 import dao.DocutrazaDao;
 import dao.EmpresaDao;
+import dao.TrackingDao;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -362,25 +365,28 @@ public class TraIni extends javax.swing.JFrame {
     }//GEN-LAST:event_jmEmpresaActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-//        TrackingCafe ventanac = new TrackingCafe();
-//        TrackingDao modeloC2 = new TrackingDao();
-//        ControladorTracking controlaC3 = new ControladorTracking(ventanac, modeloC2);
-//        controlaC3.construirTablaini();
+        int idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
+        int idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
+        
+        TrackingCafe ventanac = new TrackingCafe();
+        TrackingDao modeloC2 = new TrackingDao();
+        ControladorTracking controlaC3 = new ControladorTracking(ventanac, modeloC2);
+        controlaC3.construirTabla(idempresa,idsucursal);
 //        DefaultComboBoxModel value;
 //        value = new DefaultComboBoxModel();
 //        ventanac.jcbEmpresa.setModel(value);
 //        for (int i = 0; i < TrackingDao.nomEmpresa().size(); i++) {
 //            value.addElement(new Empresas(TrackingDao.nomEmpresa().get(i).getIdempresas(), TrackingDao.nomEmpresa().get(i).getRsocialss()));
 //        }
-//        Empresas em = (Empresas) ventanac.jcbEmpresa.getSelectedItem();
-//        idempresa = em.getIdempresas().toString();
+        // Empresas em = (Empresas) ventanac.jcbEmpresa.getSelectedItem();
+        // idempresa = em.getIdempresas().toString();
 //        ventanac.lblECP.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getCpdisponible()));
 //        ventanac.lblEOrg.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getOrgdisponible()));
 //        ventanac.lblEFairTrade.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getFtdisponible()));
 //        ventanac.lblERainf.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getRainfdisponible()));
 //        ventanac.lblEConv.setText(String.valueOf(modeloC2.Totales(idempresa).get(0).getConvdisponible()));
-//        dskPrincipal.add(ventanac);
-//        ventanac.setVisible(true);
+        dskPrincipal.add(ventanac);
+        ventanac.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jmEmpresa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresa2ActionPerformed
@@ -430,7 +436,7 @@ public class TraIni extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuBar1MouseDragged
 
     private void jmEmpresa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresa3ActionPerformed
-    
+
     }//GEN-LAST:event_jmEmpresa3ActionPerformed
 
     private void jmEmpresa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEmpresa4ActionPerformed
@@ -441,8 +447,8 @@ public class TraIni extends javax.swing.JFrame {
         RAperturaContrato ventana2 = new RAperturaContrato();
         AperturaContratoDao modeloC2 = new AperturaContratoDao();
         ControladorCrudAperturaContrato controlaC = new ControladorCrudAperturaContrato(ventana2, modeloC2);
-        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
-        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
+        int empresa = Integer.valueOf(lblEmpresa.getText().toString());
+        int idsucursal = Integer.valueOf(lblSucursal.getText().toString());
         controlaC.construirTabla(empresa, idsucursal);
         dskPrincipal.add(ventana2);
         ventana2.setVisible(true);
@@ -452,10 +458,10 @@ public class TraIni extends javax.swing.JFrame {
         RCompraContrato ventana2 = new RCompraContrato();
         CompraContratoDao modeloC2 = new CompraContratoDao();
         ControladorCrudCompraContrato controlaC = new ControladorCrudCompraContrato(ventana2, modeloC2);
-        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
-        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
-        int apc=0;
-        controlaC.construirTablaCc(empresa, idsucursal,apc);
+        int empresa = Integer.valueOf(lblEmpresa.getText().toString());
+        int idsucursal = Integer.valueOf(lblSucursal.getText().toString());
+        int apc = 0;
+        controlaC.construirTablaCc(empresa, idsucursal, apc);
         controlaC.construirTablaApc(empresa, idsucursal);
         dskPrincipal.add(ventana2);
         ventana2.setVisible(true);
@@ -465,9 +471,9 @@ public class TraIni extends javax.swing.JFrame {
         RDocutraza_Document ventana2 = new RDocutraza_Document();
         DocutrazaDao modeloC2 = new DocutrazaDao();
         ControladorCrudDocutraza controlaC = new ControladorCrudDocutraza(ventana2, modeloC2);
-        int empresa=Integer.valueOf(lblEmpresa.getText().toString());
-        int idsucursal=Integer.valueOf(lblSucursal.getText().toString());
-        int apc=0;
+        int empresa = Integer.valueOf(lblEmpresa.getText().toString());
+        int idsucursal = Integer.valueOf(lblSucursal.getText().toString());
+        int apc = 0;
         controlaC.construirTablaCompraContrato(empresa, idsucursal);
         controlaC.construirTablaDocutraza(empresa, idsucursal);
         //controlaC.construirTablaDocumento(empresa, idsucursal);
