@@ -10,8 +10,8 @@ package modelo;
  * @author MustainE
  */
 public class Sucursal {
-    int idempresa;
     int idsucursal;    
+    int idempresa;    
     String rsocial;
     String nombreciudad;
     String ruc;
@@ -34,6 +34,19 @@ public class Sucursal {
         this.gironegocio = gironegocio;
     }
 
+    public Sucursal(int idsucursal, int idempresa, String nombreciudad, String ruc, String direccion, String distrito, String pais, String gironegocio, String estado) {
+        this.idsucursal = idsucursal;
+        this.idempresa = idempresa;
+        this.nombreciudad = nombreciudad;
+        this.ruc = ruc;
+        this.direccion = direccion;
+        this.distrito = distrito;
+        this.pais = pais;
+        this.gironegocio = gironegocio;
+        this.estado = estado;
+    }
+
+    
 
     public Sucursal(int idsucursal, int idempresa, String nombreciudad, String ruc, String direccion, String distrito, String ciudad, String pais, String gironegocio, String estado) {
         this.idsucursal = idsucursal;

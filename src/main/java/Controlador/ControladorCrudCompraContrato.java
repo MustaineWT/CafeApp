@@ -277,9 +277,9 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
         construirTablaApc(titulos, data);
     }
 
-    public void construirTablabuscarApc() {
+    public void construirTablabuscarApc(int empresa,int sucursal,String txt) {
 
-        listaAperturaContrato = dao.AperturaContratoDao.listAperturaContratoBuscar(idempresa, idsucursal, texto);
+        listaAperturaContrato = dao.AperturaContratoDao.listAperturaContratoBuscar(idempresa, idsucursal, txt);
 
         ArrayList<String> titulosList = new ArrayList<>();
 
@@ -336,9 +336,9 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
         columnasTabla = vistaCRUD.jtAperturaContrato.getColumnCount();
 
         //se asigna el tipo de dato que tendrán las celdas de cada columna definida respectivamente para validar su personalización
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.peso).setCellRenderer(new GestionCeldas("numerico"));
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.precio).setCellRenderer(new GestionCeldas("numerico"));
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.imptotal).setCellRenderer(new GestionCeldas("numerico"));
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.peso).setCellRenderer(new GestionCeldas("numericop"));
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.precio).setCellRenderer(new GestionCeldas("numericop"));
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.imptotal).setCellRenderer(new GestionCeldas("numericop"));
 
         //se recorre y asigna el resto de celdas que serian las que almacenen datos de tipo texto
         // for (int i = 0; i < titulos.length - 8; i++) {//se resta 7 porque las ultimas 7 columnas se definen arriba
@@ -357,18 +357,18 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
         vistaCRUD.jtAperturaContrato.setRowHeight(25);//tamaño de las celdas
         vistaCRUD.jtAperturaContrato.setGridColor(new java.awt.Color(0, 0, 0));
 
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idaperturacontrato).setPreferredWidth(40);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idempresa).setPreferredWidth(40);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idsucursal).setPreferredWidth(40);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.peso).setPreferredWidth(60);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idaperturacontrato).setPreferredWidth(25);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idempresa).setPreferredWidth(25);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.idsucursal).setPreferredWidth(25);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.peso).setPreferredWidth(80);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.precio).setPreferredWidth(60);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.imptotal).setPreferredWidth(60);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.imptotal).setPreferredWidth(80);
         vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.calidad).setPreferredWidth(50);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.humedad).setPreferredWidth(70);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.contrato).setPreferredWidth(70);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.cliente).setPreferredWidth(70);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.fecha).setPreferredWidth(50);
-        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.estado).setPreferredWidth(60);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.humedad).setPreferredWidth(60);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.contrato).setPreferredWidth(80);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.cliente).setPreferredWidth(80);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.fecha).setPreferredWidth(80);
+        vistaCRUD.jtAperturaContrato.getColumnModel().getColumn(UtilidadApC.estado).setPreferredWidth(25);
 
         JTableHeader jtableHeader = vistaCRUD.jtAperturaContrato.getTableHeader();
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
@@ -453,9 +453,9 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
         columnasTabla = vistaCRUD.jtCompraContrato.getColumnCount();
 
         //se asigna el tipo de dato que tendrán las celdas de cada columna definida respectivamente para validar su personalización
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.peso).setCellRenderer(new GestionCeldas("numerico"));
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.precio).setCellRenderer(new GestionCeldas("numerico"));
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.imptotal).setCellRenderer(new GestionCeldas("numerico"));
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.peso).setCellRenderer(new GestionCeldas("numericop"));
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.precio).setCellRenderer(new GestionCeldas("numericop"));
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.imptotal).setCellRenderer(new GestionCeldas("numericop"));
 
         //se recorre y asigna el resto de celdas que serian las que almacenen datos de tipo texto
         // for (int i = 0; i < titulos.length - 8; i++) {//se resta 7 porque las ultimas 7 columnas se definen arriba
@@ -471,15 +471,15 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
         vistaCRUD.jtCompraContrato.setRowHeight(25);//tamaño de las celdas
         vistaCRUD.jtCompraContrato.setGridColor(new java.awt.Color(0, 0, 0));
 
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idcompracontrato).setPreferredWidth(40);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idempresa).setPreferredWidth(40);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idsucursal).setPreferredWidth(40);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idaperturacontrato).setPreferredWidth(40);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.peso).setPreferredWidth(60);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.precio).setPreferredWidth(60);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.imptotal).setPreferredWidth(60);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.fecha).setPreferredWidth(50);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.estado).setPreferredWidth(60);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idcompracontrato).setPreferredWidth(25);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idempresa).setPreferredWidth(25);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idsucursal).setPreferredWidth(25);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idaperturacontrato).setPreferredWidth(25);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.peso).setPreferredWidth(80);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.precio).setPreferredWidth(80);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.imptotal).setPreferredWidth(80);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.fecha).setPreferredWidth(80);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.estado).setPreferredWidth(80);
 
         JTableHeader jtableHeader = vistaCRUD.jtCompraContrato.getTableHeader();
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
@@ -586,6 +586,16 @@ public class ControladorCrudCompraContrato implements ActionListener, MouseListe
 
     @Override
     public void mouseClicked(MouseEvent me) {
+        idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
+        idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
+        if (me.getSource() == vistaCRUD.txtBuscarAPC) {
+            try {
+                texto = vistaCRUD.txtBuscarAPC.getText();
+                construirTablabuscarApc(idempresa,idsucursal, texto);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCUENTRA EL REGISTRO");
+            }
+        }
 
         if (me.getSource() == vistaCRUD.jtCompraContrato) {
 

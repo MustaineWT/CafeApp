@@ -224,7 +224,7 @@ public class EmpresaDao {
         Empresa empresa;
         try {
             Connection accesoDB = modelo.Conexion.getConexion();
-            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENEREMPRESA()}");
+            PreparedStatement ps = accesoDB.prepareCall("{call SP_OBTENERIDEMPRESA()}");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 empresa = new Empresa();

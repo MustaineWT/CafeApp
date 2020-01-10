@@ -12,9 +12,9 @@ import javax.swing.border.BevelBorder;
  *
  * @author MustainE
  */
-public class TrackingCafe extends javax.swing.JInternalFrame {
+public class TrackingCafeDocumentos extends javax.swing.JInternalFrame {
 
-    public TrackingCafe() {
+    public TrackingCafeDocumentos() {
         initComponents();
         jtSeguimiento.setBackground(Color.WHITE);
         jtSeguimiento.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -252,9 +252,9 @@ public class TrackingCafe extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 20));
 
         btnExcel.setText("Excel");
-        jPanel3.add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, -1, -1));
+        jPanel3.add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 1230, 60));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 980, 60));
 
         lblORGD.setBackground(new java.awt.Color(255, 255, 255));
         lblORGD.setFont(new java.awt.Font("Arial", 1, 9)); // NOI18N

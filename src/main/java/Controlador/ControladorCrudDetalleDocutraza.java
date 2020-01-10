@@ -275,8 +275,7 @@ public class ControladorCrudDetalleDocutraza implements ActionListener, MouseLis
                         for (int fila = 0; fila < filas; fila++) {
                             for (int columna = 0; columna < columnas; columna++) {
 
-                                if (fila >= 1) {
-                                    
+                                if (fila >= 1) {                                    
                                     data[0] = hojaP.getCell(0, fila).getContents();
                                     data[1] = hojaP.getCell(1, fila).getContents();
                                     data[2] = hojaP.getCell(2, fila).getContents();                               

@@ -684,11 +684,11 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.jtAscDocumentos.setRowHeight(25);
         vistaCRUD.jtAscDocumentos.setGridColor(new java.awt.Color(0, 0, 0));
 
-        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.iddocumento).setPreferredWidth(40);
-        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.idempresa).setPreferredWidth(40);
-        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.idsucursal).setPreferredWidth(40);
-        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.iddocutraza).setPreferredWidth(60);
-        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.identificador).setPreferredWidth(60);
+        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.iddocumento).setPreferredWidth(25);
+        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.idempresa).setPreferredWidth(25);
+        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.idsucursal).setPreferredWidth(25);
+        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.iddocutraza).setPreferredWidth(25);
+        vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.identificador).setPreferredWidth(25);
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.serie).setPreferredWidth(60);
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.correlativo).setPreferredWidth(50);
         vistaCRUD.jtAscDocumentos.getColumnModel().getColumn(UtilidadDocumento.fecha).setPreferredWidth(70);
@@ -794,15 +794,15 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.jtCompraContrato.setRowHeight(25);
         vistaCRUD.jtCompraContrato.setGridColor(new java.awt.Color(0, 0, 0));
 
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idcompracontrato).setPreferredWidth(40);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idempresa).setPreferredWidth(40);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idsucursal).setPreferredWidth(40);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idaperturacontrato).setPreferredWidth(60);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idcompracontrato).setPreferredWidth(25);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idempresa).setPreferredWidth(25);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idsucursal).setPreferredWidth(25);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.idaperturacontrato).setPreferredWidth(25);
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.peso).setPreferredWidth(60);
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.precio).setPreferredWidth(60);
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.imptotal).setPreferredWidth(50);
         vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.fecha).setPreferredWidth(70);
-        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.estado).setPreferredWidth(60);
+        vistaCRUD.jtCompraContrato.getColumnModel().getColumn(UtilidadCC.estado).setPreferredWidth(25);
 
         JTableHeader jtableHeader = vistaCRUD.jtCompraContrato.getTableHeader();
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
@@ -929,23 +929,23 @@ public class ControladorCrudDocutraza implements ActionListener, MouseListener, 
         vistaCRUD.jtDocutraza.setRowHeight(25);//tamaño de las celdas
         vistaCRUD.jtDocutraza.setGridColor(new java.awt.Color(0, 0, 0));
 
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.iddocutraza).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idempresa).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idsucursal).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idcompracontrato).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idpersona).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.razonsocial).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.serieguia).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.correlativo).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.certificado).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.sacos).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kb).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.precio).setPreferredWidth(40);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kn).setPreferredWidth(40);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.iddocutraza).setPreferredWidth(25);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idempresa).setPreferredWidth(25);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idsucursal).setPreferredWidth(25);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idcompracontrato).setPreferredWidth(25);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.idpersona).setPreferredWidth(25);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.razonsocial).setPreferredWidth(80);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.serieguia).setPreferredWidth(50);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.correlativo).setPreferredWidth(50);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.certificado).setPreferredWidth(50);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.sacos).setPreferredWidth(25);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kb).setPreferredWidth(80);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.precio).setPreferredWidth(25);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.kn).setPreferredWidth(80);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.fairtrade).setPreferredWidth(40);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.condicion).setPreferredWidth(40);
         vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.fecha).setPreferredWidth(70);
-        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.estado).setPreferredWidth(60);
+        vistaCRUD.jtDocutraza.getColumnModel().getColumn(UtilidadDocu.estado).setPreferredWidth(25);
 
         JTableHeader jtableHeader = vistaCRUD.jtDocutraza.getTableHeader();
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());

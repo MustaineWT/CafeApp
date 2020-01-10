@@ -86,7 +86,6 @@ public class ControladorCrudConformacion implements ActionListener, MouseListene
         idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
         if (e.getSource() == vistaCRUDb.btnSeleccionar) {
             valor = Integer.parseInt(vistaCRUDb.txtIdAgricultor.getText());
-
             nombre = ConformacionDao.listIddpersona(idempresa, valor).get(0).getNombres();
             vistaCRUDb.dispose();
             vistaCRUD.btnBuscarPro.setEnabled(false);

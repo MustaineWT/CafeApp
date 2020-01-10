@@ -31,15 +31,15 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 import modelo.Tracking;
-import vista.TrackingCafe;
+import vista.TrackingCafeDocumentos;
 
 /**
  *
  * @author MustainE
  */
-public class ControladorTracking implements ActionListener, MouseListener, KeyListener {
+public class ControladorTrackingDocumento implements ActionListener, MouseListener, KeyListener {
 
-    TrackingCafe vistaCRUD = new TrackingCafe();
+    TrackingCafeDocumentos vistaCRUD = new TrackingCafeDocumentos();
     TrackingDao modeloCRUD = new TrackingDao();
     ArrayList<Tracking> listaPersonas;
     ModeloTabla modelojt;
@@ -52,7 +52,7 @@ public class ControladorTracking implements ActionListener, MouseListener, KeyLi
     String idempresa;
     String texto;
 
-    public ControladorTracking(TrackingCafe vistaCRUD, TrackingDao modeloCRUD) {
+    public ControladorTrackingDocumento(TrackingCafeDocumentos vistaCRUD, TrackingDao modeloCRUD) {
         this.modeloCRUD = modeloCRUD;
         this.vistaCRUD = vistaCRUD;
         this.vistaCRUD.btnExcel.addActionListener(this);
@@ -160,7 +160,7 @@ public class ControladorTracking implements ActionListener, MouseListener, KeyLi
     }
 
     public void construirTabla(int idempresa, int idsucursal) {
-        listaPersonas = dao.TrackingDao.listDetalleTracking(idempresa, idsucursal);
+        listaPersonas = dao.TrackingDao_Documento.listDetalleTrackingDocumento(idempresa, idsucursal);
 
         ArrayList<String> titulosList = new ArrayList<>();
 

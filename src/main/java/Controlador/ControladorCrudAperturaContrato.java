@@ -153,7 +153,7 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
                     double peso = Double.valueOf(vistaCRUD.txtPeso.getText());
                     double precio = Double.valueOf(vistaCRUD.txtPrecio.getText());
                     double imptotal = Double.valueOf(vistaCRUD.txtImpTotal.getText());
-                    String contrato = vistaCRUD.txtCalidad.getText();
+                    String contrato = vistaCRUD.txtContrato.getText();
                     String calidad = vistaCRUD.txtCalidad.getText();
                     String humedad = vistaCRUD.txtHumedad.getText();
                     SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
@@ -302,9 +302,9 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
         construirTabla(titulos, data);
     }
 
-    public void construirTablabuscar() {
+    public void construirTablabuscar(int empresa,int sucursal,String txt) {
 
-        listaAperturaContrato = dao.AperturaContratoDao.listAperturaContratoBuscar(idempresa, idsucursal, texto);
+        listaAperturaContrato = dao.AperturaContratoDao.listAperturaContratoBuscar(empresa, sucursal, txt);
 
         ArrayList<String> titulosList = new ArrayList<>();
 
@@ -492,6 +492,16 @@ public class ControladorCrudAperturaContrato implements ActionListener, MouseLis
 
     @Override
     public void keyReleased(KeyEvent ke) {
+        idempresa = Integer.valueOf(TraIni.lblEmpresa.getText());
+        idsucursal = Integer.valueOf(TraIni.lblSucursal.getText());
+        if (ke.getSource() == vistaCRUD.txtBuscarApC) {
+            try {
+                texto = vistaCRUD.txtBuscarApC.getText();
+                construirTablabuscar(idempresa,idsucursal, texto);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "NO SE ENCUENTRA EL REGISTRO");
+            }
+        }
         if (ke.getSource() == vistaCRUD.txtPeso || ke.getSource() == vistaCRUD.txtPrecio) {
             try {
                 //texto = vistaCRUD.txtBuscador.getText();

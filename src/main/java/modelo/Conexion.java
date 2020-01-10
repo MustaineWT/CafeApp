@@ -20,7 +20,7 @@ public class Conexion {
 
         boolean produccion = false;//cambiar a true para produccion.
         if (produccion == false) {
-            String url = "jdbc:sqlserver://DESKTOP-IQMLP8I\\MSSQLSERVER:1433;databaseName=Cafebd";
+            String url = "jdbc:sqlserver://DESKTOP-SOROFMG\\MSSQLSERVER:1433;databaseName=Cafebd";
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             } catch (ClassNotFoundException e) {

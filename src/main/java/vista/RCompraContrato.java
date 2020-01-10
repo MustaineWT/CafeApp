@@ -39,7 +39,7 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
         jtCompraContrato = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
-        txtRSocial2 = new javax.swing.JTextField();
+        txtBuscarAPC = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtAperturaContrato = new javax.swing.JTable();
@@ -129,10 +129,10 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
         jLabel22.setToolTipText("");
         jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, -1, 20));
 
-        txtRSocial2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtRSocial2.setForeground(new java.awt.Color(0, 0, 102));
-        txtRSocial2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(txtRSocial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 360, 20));
+        txtBuscarAPC.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtBuscarAPC.setForeground(new java.awt.Color(0, 0, 102));
+        txtBuscarAPC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(txtBuscarAPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 360, 20));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -457,12 +457,12 @@ public class RCompraContrato extends javax.swing.JInternalFrame {
     public com.toedter.calendar.JDateChooser jdFecha;
     public javax.swing.JTable jtAperturaContrato;
     public javax.swing.JTable jtCompraContrato;
+    public javax.swing.JTextField txtBuscarAPC;
     public javax.swing.JTextField txtIdApc;
     public javax.swing.JTextField txtIdCC;
     public javax.swing.JTextField txtImptotal;
     public javax.swing.JTextField txtPeso;
     public javax.swing.JTextField txtPrecio;
-    public javax.swing.JTextField txtRSocial2;
     public javax.swing.JTextField txtTComprado;
     public javax.swing.JTextField txtTFaltante;
     public javax.swing.JTextField txtTcompraContrato;
